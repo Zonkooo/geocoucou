@@ -37,7 +37,7 @@ class CourseComment(models.Model):
 		return "%u" % (self.comment)
 		
 class Movie(models.Model):
-	id_imdb		= models.PositiveInteger()
+	id_imdb		= models.PositiveIntegerField()
 	slug 		= models.SlugField(max_length = 255)
 	title 		= models.CharField(max_length = 255)
 	cover		= models.ImageField(upload_to='media/img/')
@@ -58,8 +58,8 @@ class Rate(models.Model):
 	value		= models.PositiveSmallIntegerField()
 	comment		= models.TextField()
 	
-	movie		= ForeignKey('Movie')
-	author		= ForeignKey('Member')
+	movie		= models.ForeignKey('Movie')
+	author		= models.ForeignKey('Member')
 	
 	def __unicode__(self):
 		return "%u" % (self.value)
