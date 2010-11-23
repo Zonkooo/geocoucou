@@ -1,6 +1,8 @@
 # Django settings for cinemac project.
+
 import os.path
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -10,13 +12,14 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-LoginInfo.readFile('loginInfo')
+from readLoginInfo import *
+li = LoginInfo('loginInfo')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': LoginInfo.dbname,
-        'USER': LoginInfo.user,
-        'PASSWORD': LoginInfo.passwd,
+        'NAME': li.dbname,
+        'USER': li.user,
+        'PASSWORD': li.passwd,
         'HOST': '',                      # Set to empty string for localhost.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -73,6 +76,7 @@ TEMPLATE_DIRS = (
 	os.path.join(PROJECT_PATH, 'templates'),
 )
 
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -83,17 +87,16 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'cinemac.urls'
 
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-	'cinemac.apps.movies'
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'cinemac.apps.movies',
 )
 
