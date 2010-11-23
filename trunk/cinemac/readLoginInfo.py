@@ -4,11 +4,11 @@ class LoginInfo:
 	user = '';
 	passwd = '';
 	
-	def readFile(fileName):	
+	def __init__(self, fileName):	
 		f = open(fileName, 'r')
-		dbname = f.readLine()
-		user = f.readLine()
-		passwd = f.readLine()
+		dbname = f.readline()
+		user = f.readline()
+		passwd = f.readline()
 		f.close();
 		
 		dbname.replace('\n', '')
