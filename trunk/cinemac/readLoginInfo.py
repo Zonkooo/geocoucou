@@ -5,12 +5,9 @@ class LoginInfo:
 	passwd = '';
 	
 	def __init__(self, fileName):	
-		f = open(fileName, 'r')
-		dbname = f.readline()
-		user = f.readline()
-		passwd = f.readline()
-		f.close();
-		
-		dbname.replace('\n', '')
-		user.replace('\n', '')
-		passwd.replace('\n', '')
+		print 'reading file \'%s\'' %(fileName)
+		with open(fileName, 'r') as f:
+			dbname = f.readline().rstrip("\n")
+			user = f.readline().rstrip("\n")
+			passwd = f.readline().rstrip("\n")
+			

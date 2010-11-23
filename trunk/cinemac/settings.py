@@ -13,7 +13,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 from readLoginInfo import *
-li = LoginInfo('loginInfo')
+li = LoginInfo('loginInfo.txt')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
