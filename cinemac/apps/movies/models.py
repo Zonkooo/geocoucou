@@ -46,8 +46,8 @@ class Movie(models.Model):
 	synopsis	= models.TextField()
 	
 	genre_is	= models.ManyToManyField('Genre')
-	played_by	= models.ManyToManyField('Artist')
-	directed_by	= models.ManyToManyField('Artist')
+	played_by	= models.ManyToManyField('Artist', related_name='acting')
+	directed_by	= models.ManyToManyField('Artist', related_name='directing')
 	
 	def __unicode__(self):
 		return "%u (%u)" % (self.title, self.year.year)
