@@ -5,7 +5,7 @@ class Genre(models.Model):
 	name 		= models.CharField(max_length = 255)
 	
 	def __unicode__(self):
-		return "%u" % (self.name)
+		return "%s" % (self.name)
 		
 class Artist(models.Model):
 	slug 		= models.SlugField(max_length = 255)
@@ -13,7 +13,7 @@ class Artist(models.Model):
 	forename	= models.CharField(max_length = 255)
 	
 	def __unicode__(self):
-		return "%u %u" % (self.forename, self.name)
+		return "%s %s" % (self.forename, self.name)
 		
 class Course(models.Model):
 	slug 		= models.SlugField(max_length = 255)
@@ -22,7 +22,7 @@ class Course(models.Model):
 	teacher		= models.CharField(max_length = 255)
 	
 	def __unicode__(self):
-		return "%u" % (self.topic)
+		return "%s" % (self.topic)
 		
 class CourseComment(models.Model):
 	slug 		= models.SlugField(max_length = 255)
@@ -34,7 +34,7 @@ class CourseComment(models.Model):
 	author		= models.ForeignKey('Member')
 	
 	def __unicode__(self):
-		return "%u" % (self.comment)
+		return "%s" % (self.comment)
 		
 class Movie(models.Model):
 	id_imdb		= models.PositiveIntegerField()
@@ -50,7 +50,7 @@ class Movie(models.Model):
 	directed_by	= models.ManyToManyField('Artist', related_name='directing')
 	
 	def __unicode__(self):
-		return "%u (%u)" % (self.title, self.year.year)
+		return "%s (%s)" % (self.title, self.year.year)
 		
 
 class Rate(models.Model):
@@ -62,7 +62,7 @@ class Rate(models.Model):
 	author		= models.ForeignKey('Member')
 	
 	def __unicode__(self):
-		return "%u" % (self.value)
+		return "%s" % (self.value)
 		
 
 class CommentMovie(models.Model):
@@ -74,7 +74,7 @@ class CommentMovie(models.Model):
 	author		= models.ForeignKey('Member')
 	
 	def __unicode__(self):
-		return "%u" % (self.comment)
+		return "%s" % (self.comment)
 		
 class CommentEvent(models.Model):
 	slug 		= models.SlugField(max_length = 255)
@@ -85,7 +85,7 @@ class CommentEvent(models.Model):
 	author		= models.ForeignKey('Member')
 	
 	def __unicode__(self):
-		return "%u" % (self.comment)
+		return "%s" % (self.comment)
 		
 class Event(models.Model):
 	slug 		= models.SlugField(max_length = 255)
@@ -97,7 +97,7 @@ class Event(models.Model):
 	creator		= models.ForeignKey('Member')
 	
 	def __unicode__(self):
-		return "%u, %u" % (self.location, self.date)
+		return "%s, %s" % (self.location, self.date)
 		
 class Member(models.Model):
 	slug 		= models.SlugField(max_length = 255)
@@ -109,5 +109,5 @@ class Member(models.Model):
 	avatar		= models.ImageField(upload_to='media/img/avatars/')
 	
 	def __unicode__(self):
-		return "%u" % (self.pseudo)
+		return "%s" % (self.pseudo)
 		
