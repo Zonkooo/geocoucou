@@ -1,4 +1,4 @@
-import xml.dom.minidom #for allociné
+import xml.dom.minidom #for allocine
 import json #for imdb
 
 REA_CODE = 8002
@@ -6,27 +6,27 @@ ACT_CODE = 8001
 
 class MovieParser:
 	#fields from allocine
-	title
-	year
-	country
-	synopsis
-	actors
-	directors
+	title = ""
+	year = 0
+	country = ""
+	synopsis = ""
+	actors = list()
+	directors = list()
 	
 	#fields from imdb
-	id_imdb
-	genres
-	rating
+	id_imdb = 0
+	genres = list()
+	rating = 0.0
 	
 	#other fields
-	slug
-	cover
+	#slug
+	#cover
 	
 	def parse_allocine_xml(xmlfile):
 		f = xml.dom.minidom.parse(xmlfile)
 		e = f.getElementsByTagName("movie")[0] #the global element containing everyting
 		title		= e.getElementsByTagName("title")[0].childNodes[0].nodeValue
-		year		= e.getElementsByTagName("productionYear")[0].childNodes[0].nodeValue
+		year		= int(e.getElementsByTagName("productionYear")[0].childNodes[0].nodeValue)
 		countrylist	= e.getElementsByTagName("nationalityList")
 		country		= countrylist.getElementsByTagName("nationality")[0].childNodes[0].nodeValue
 		synopsis	= e.getElementsByTagName("synopsis")[0].childNodes[0].nodeValue
@@ -42,7 +42,7 @@ class MovieParser:
 				people.append(e.getElementsByTagName("person")[0].childNodes[0].nodeValue)
 		return people
 		
-	def parse_imdb(imdbfile)
+	def parse_imdb(imdbfile):
 		fp = open(imdbfile, 'r')
 		f = json.load(fp)
 		rating = float(f['rating'])
