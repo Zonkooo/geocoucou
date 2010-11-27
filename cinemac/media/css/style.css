@@ -27,27 +27,12 @@ body
 /*	float:center;*/
 	margin-left:auto;
 	margin-right:auto;
+	/*border: 2px solid red;*/
 
 	
 }
 
-h2
-{
-	color:#F30;
-	text-align:justify;
-	font-size:18px;
-	font-weight:bold;
-	margin-left:2%;
-}
 
-p
-{
-	padding-top:2%;
-	margin-right:2%;
-	font-size:14px;
-	margin-left:2%;
-	
-}
 
 
 /***************************************************************************/
@@ -171,6 +156,8 @@ p
 	height:auto;
 }
 
+
+/************* MENU *******************/
 #menu
 {
 	
@@ -224,7 +211,9 @@ p
 }
 
 
-/***************************************************************************/
+
+
+/***************************CONTENU************************************************/
 
 #content 
 { 
@@ -235,6 +224,25 @@ p
 	float:right;
 	padding:20px 10px 20px 20px;
 	text-align:justify;
+}
+
+h2
+{
+	color:#F30;
+	text-align:justify;
+	font-size:18px;
+	font-weight:bold;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+p
+{
+	padding-top:2%;
+	margin-right:2%;
+	font-size:14px;
+	margin-left:2%;
+	
 }
 
 #btn
@@ -248,10 +256,8 @@ p
 	width:23px;
 	height:23px;
 	float:right;
-	padding-left:1%;
-	
-
 }
+
 
 #nouveaute
 {
@@ -285,7 +291,10 @@ p
 	padding-left:5%;
 	margin-bottom:-2%;
 	font-size:15px;
+	
 }
+
+
 
 hr
 {
@@ -299,6 +308,11 @@ hr
 	margin-right:auto;
 	width:250px;
 	height:130px;
+}
+
+.photosDerniers a
+{
+	color:#000;
 }
 
 .photosDerniers .premier
@@ -323,7 +337,284 @@ hr
 	margin-left:1%;
 }
 
+.infoG
+{
+	/*border:2px solid red;*/
+		margin-right:1%;
+}
 
+.infoG p
+{
+	margin-top:-4%;
+	margin-left:3%;
+}
+
+.infoG h2
+{
+	font-size:24px;
+	margin-top:%;
+
+}
+
+.infoG .like
+{
+	border:1px solid #036;
+	background-color:#E0EDFC;
+	width:60px;
+	height:15px;
+	margin-top:-5%;
+	padding:1%;
+	text-align:center;
+	line-height:normal;
+	float:right;
+}
+
+.photo
+{
+	margin-top:2%;
+
+	border:1px solid black;
+	background-color:#99a1ac;
+	background-image:url(../img/degrade.jpg);
+	background-repeat:repeat-x;
+	width:200px;
+	height:250px;
+	float:left;
+	
+}
+
+.info
+{
+	float:right;
+	margin-top:2%;
+	margin-right:2%;
+	margin-left:2%;
+	/*border:1px solid red;*/
+	width:480px;
+	height:auto;
+}
+.infoSup
+{
+	/*border: 1px solid green;*/
+	float:left;
+	margin-top:3%;
+	width:710px;
+	color:#000;
+	height:auto;
+}
+
+
+.bandeau
+{
+	 border: 1px solid #e78f08;
+	 background: #f6a828 url(../img/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; 
+	 color: #ffffff; 
+	 font-weight: bold;
+	 margin-right:1%;
+	
+	 width:710px;
+	 height:40px;
+}
+
+.bandeau .left
+{
+	margin-left:2%;
+	margin-top:1.5%;
+	float:left;
+}
+
+.bandeau .center
+{
+	float:none;
+	text-align:center;
+	margin-top:%;
+}
+
+.bandeau .center form
+{
+	margin-left:-5%;
+	text-align:center;
+
+}
+.bandeau .center p
+{
+	float:left;
+	text-align:center;
+	margin-top:-0.7%;
+	margin-left:15%;
+}
+
+
+
+.bandeau .right
+{
+	float:right;
+	margin-top:-2%;
+	margin-right:1%;
+}
+
+.Resultatlisting
+{
+	margin-top:1%;
+	margin-bottom:1%;
+	 margin-right:1%;
+}
+
+.listing
+{
+	border:1px solid black;
+	background-color:#99a1ac;
+	background-image:url(../img/degrade.jpg);
+	background-repeat:repeat ;
+	margin-top:2%;
+	margin-left:auto;
+	margin-right:auto;
+	width:670px;
+	
+
+}
+
+.listing img
+{
+	margin-left:4%;
+	margin-bottom:1%;
+	margin-top:1%;
+}
+
+.listing .infos
+{
+	border:1px solid red;
+	
+}
+
+.bouton
+{
+	background-image:url(../img/btn_Menu.jpg);
+	background-repeat:no-repeat;
+	width:147px;
+	height:47px;
+	float:right;
+	margin-right:4%;
+	margin-top:-11%;
+	
+	color:#FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration:none;
+	line-height:48px;
+		text-align:center;
+}
+
+.bouton a:hover
+{
+	color:#FFFFFF;
+	text-decoration:underline;
+}
+
+
+#creation
+{
+	border:1px solid red;
+	float:left;
+	width:350px;
+	
+}
+
+#list
+{
+	border:1px solid black;
+	background-color:#99a1ac;
+	background-image:url(../img/degrade.jpg);
+	background-repeat:repeat ;
+	margin-top:2%;
+	margin-left:auto;
+	margin-right:auto;
+
+	border:1px solid blue;
+	float:right;
+	width:350px;
+	margin-right:1%;
+}
+
+.bandeauPetit
+{
+	 border: 1px solid #e78f08;
+	 background: #f6a828 url(../img/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; 
+	 color: #ffffff; 
+	 font-weight: bold;
+	 margin-right:1%;
+	 height:20px;
+
+}
+
+.bandeauPetit .left
+{
+	margin-left:2%;
+	margin-top:1.5%;
+	float:left;
+}
+
+.bandeauPetit .center
+{
+	float:none;
+	text-align:center;
+	margin-top:%;
+}
+
+.bandeauPetit .center form
+{
+	margin-left:-5%;
+	text-align:center;
+
+}
+.bandeauPetit .center p
+{
+	float:left;
+	text-align:center;
+	margin-top:-0.7%;
+	margin-left:15%;
+}
+
+
+
+.bandeauPetit .right
+{
+	float:right;
+	margin-top:-2%;
+	margin-right:1%;
+}
+
+.ResultatlistingPetit
+{
+	margin-top:1%;
+	margin-bottom:1%;
+	 margin-right:1%;
+}
+
+
+.valid
+{
+	background-image:url(../img/btn_Menu.jpg);
+	background-repeat:no-repeat;
+	width:147px;
+	height:47px;
+	float:left;
+	margin-right:4%;
+	margin-top:-11%;
+	
+	color:#FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration:none;
+	line-height:48px;
+		text-align:center;
+}
+
+.valid a:hover
+{
+	color:#FFFFFF;
+	text-decoration:underline;
+}
 
 /**********************************************************************/
 #footer
@@ -356,6 +647,32 @@ hr
 {
 	text-decoration:underline;
 }
+
+
+/**********************************************/
+/* overrides for ui-tab styles */
+#widget-docs ul.ui-tabs-nav { padding:0 0 0 8px; }
+#widget-docs .ui-tabs-nav li { margin:5px 5px 0 0; }
+
+#widget-docs .ui-tabs-nav li a:link,
+#widget-docs .ui-tabs-nav li a:visited,
+#widget-docs .ui-tabs-nav li a:hover,
+#widget-docs .ui-tabs-nav li a:active { font-size:14px; padding:4px 1.2em 3px; color:#fff; }
+
+#widget-docs .ui-tabs-nav li.ui-tabs-selected a:link,
+#widget-docs .ui-tabs-nav li.ui-tabs-selected a:visited,
+#widget-docs .ui-tabs-nav li.ui-tabs-selected a:hover,
+#widget-docs .ui-tabs-nav li.ui-tabs-selected a:active { color:#e6820E; }
+
+#widget-docs .ui-tabs-panel { padding:20px 9px; font-size:12px; line-height:1.4; color:#000; }
+
+#widget-docs .ui-widget-content a:link,
+#widget-docs .ui-widget-content a:visited { color:#1b75bb; text-decoration:none; }
+#widget-docs .ui-widget-content a:hover,
+#widget-docs .ui-widget-content a:active { color:#0b559b; }
+@charset "utf-8";
+/* CSS Document */
+
 
 
 
