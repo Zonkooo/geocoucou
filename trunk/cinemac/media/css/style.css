@@ -55,7 +55,7 @@ body
 
 }
 
-#compte
+#count
 {
 	
 	margin:4px 10px 0px 0px;
@@ -64,20 +64,20 @@ body
 	
 }
 
-#lien
+#link
 {
 	color:#FFF;
 	float:left;
 	margin-top:1%;
 }
-#lien a
+#link a
 {
 	color:#FFF;
 	text-decoration:underline;
 	
 }
 
-#lien a:hover
+#link a:hover
 {
 	color:#FFF;
 	text-decoration:none
@@ -133,7 +133,7 @@ body
 	
 }
 
-#recherche
+#research
 {
 	/*border:2px solid #F3F;*/
 	width:230px;
@@ -253,8 +253,9 @@ p
 	background-color: #7c8896;
 }
 
+/*************************INDEX *********************************/
 
-.dernier
+.last
 {
 	width:326px;
 	height:177px;
@@ -268,7 +269,7 @@ p
 	
 }
    
-.titreDernier
+.titleLast
 {
 	
 	font-weight:bold;
@@ -286,7 +287,7 @@ hr
 	width:90%;
 }
 
-.photosDerniers
+.pictureLast
 {
 	
 	margin-left:auto;
@@ -295,32 +296,37 @@ hr
 	height:130px;
 }
 
-.photosDerniers a
+.pictureLast a
 {
 	color:#000;
 }
 
-.photosDerniers .premier
+.pictureLast .first
 {
 	float:left;
 	margin-left:3%;
 }
 
-.photosDerniers .deuxieme
+.pictureLast .second
 {
 	float:right;
 	margin-right:3%;
 }
 
-.photosDerniers p
+.pictureLast p
 {
 	margin-top:-1%;
 }
 
-.photosDerniers img
+.pictureLast img
 {
 	margin-left:1%;
 }
+
+
+
+
+/********************************************************************************************/
 
 .infoG
 {
@@ -389,7 +395,7 @@ hr
 }
 
 
-.bandeau
+.headpiece
 {
 	 border: 1px solid #e78f08;
 	 background: #f6a828 url(../img/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; 
@@ -401,14 +407,14 @@ hr
 	 height:40px;
 }
 
-.bandeau .left
+.headpiece .left
 {
 	margin-left:2%;
 	margin-top:1.5%;
 	float:left;
 }
 
-.bandeau .center
+.headpiece .center
 {
 	float:left;
 	text-align:center;
@@ -416,7 +422,7 @@ hr
 	margin-left:25%;
 }
 
-.bandeau .centerbas
+.headpiece .centerbas
 {
 	float:left;
 	text-align:center;
@@ -424,7 +430,7 @@ hr
 	margin-left:43%;
 }
 
-.bandeau .right
+.headpiece .right
 {
 	float:right;
 	margin-top:1%;
@@ -465,7 +471,7 @@ hr
 	
 }
 
-.bouton
+.button
 {
 	background-image:url(../img/btn_Menu.jpg);
 	background-repeat:no-repeat;
@@ -483,7 +489,7 @@ hr
 		text-align:center;
 }
 
-.bouton a:hover
+.button a:hover
 {
 	color:#FFFFFF;
 	text-decoration:underline;
@@ -515,7 +521,7 @@ hr
 	margin-right:1%;
 }
 
-.bandeauPetit
+.headpieceLittle
 {
 	 border: 1px solid #e78f08;
 	 background: #f6a828 url(../img/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; 
@@ -529,14 +535,14 @@ hr
 
 
 
-.bandeauPetit .left
+.headpieceLittle .left
 {
 	margin-left:2%;
 	margin-top:0.5%;
 	float:left;
 }
 
-.bandeauPetit .right
+.headpieceLittle .right
 {
 	float:right;
 	text-align:right;
@@ -548,7 +554,7 @@ hr
 
 
 
-.ResultatlistingPetit
+.ResultatlistingLittle
 {
 	margin-top:2%;
 	margin-bottom:2%;

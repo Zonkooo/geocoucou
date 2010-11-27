@@ -12,14 +12,14 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-# from readLoginInfo import *
-# li = LoginInfo('loginInfo.txt')
+#from readLoginInfo import *
+#li = LoginInfo('loginInfo.txt')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'cinemac',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': "",
         'HOST': '',                      # Set to empty string for localhost.
         'PORT': '',                      # Set to empty string for default.
     }
