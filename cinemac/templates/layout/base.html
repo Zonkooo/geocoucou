@@ -9,12 +9,23 @@
     <link type="text/css" href="../../media/css/ui-lightness/jquery-ui-1.8.6.custom.css" rel="stylesheet" />	
 		<script type="text/javascript" src="../../media/js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="../../media/js/jquery-ui-1.8.6.custom.min.js"></script>
+		<script type="text/javascript" src="../../media/js/jquery.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../../media/js/jquery.easing.1.2.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../../media/js/jquery.wslide.js" charset="utf-8"></script>
 		<script type="text/javascript">
-			$(function(){
-				// Tabs
+			$(document).ready(function(){
+				/* visionneuse */
+				$("#viewer").wslide({
+					width: 698,
+					height: 212,
+					pos: 1,
+					horiz: true,
+					duration: 500,
+					autolink: 'viewer_navig',
+					//effect: 'easeOutElastic'
+				});
 				$('#tabs').tabs();
-				
-			});
+			}); 
 		</script>
  
   </head>
