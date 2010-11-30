@@ -107,7 +107,7 @@ class Member(models.Model):
 	password	= models.CharField(max_length = 255);
 	date_joined	= models.DateTimeField(auto_now_add=True)
 	class_year	= models.DateField();
-	avatar		= models.ImageField(upload_to='media/img/avatars/')
+	avatar		= models.ImageField(upload_to='img/avatars/')
 	
 	def __unicode__(self):
 		return "%s" % (self.pseudo)
