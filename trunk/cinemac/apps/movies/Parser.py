@@ -57,3 +57,4 @@ class MovieParser:
 		mov.synopsis = synopsis;
 		#...
 		mov.save() #ecrit dans la BDD
+		
