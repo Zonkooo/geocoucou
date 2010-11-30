@@ -6,6 +6,9 @@ from apps.movies.forms import *
 def index(request):
 	return render_to_response('cinemac/index.html')
 
+def fichefilm(request):
+	return render_to_response('cinemac/fichefilm.html')
+
 def profil(request):
         if request.method == 'POST':
                 form = ProfilForm(request.POST)
@@ -20,7 +23,7 @@ def profil(request):
         else:
                 form = ProfilForm()
 
-        return render_to_response('cinemac/profil.html',{
+       return render_to_response('cinemac/profil.html',{
                 'form':form,
         })
         
