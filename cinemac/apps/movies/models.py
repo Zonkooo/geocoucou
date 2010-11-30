@@ -44,6 +44,7 @@ class Movie(models.Model):
 	year 		= models.DateField()
 	country		= models.CharField(max_length = 255)
 	synopsis	= models.TextField()
+	rating_imdb	= models.FloatField()
 	
 	genre_is	= models.ManyToManyField('Genre')
 	played_by	= models.ManyToManyField('Artist', related_name='acting')
