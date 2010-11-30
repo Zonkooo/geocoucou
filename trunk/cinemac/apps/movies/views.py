@@ -2,6 +2,7 @@
 from apps.movies.models import *
 from django.shortcuts import render_to_response
 from apps.movies.forms import *
+from django.http import HttpResponseRedirect
 
 def index(request):
 	return render_to_response('cinemac/index.html')
@@ -19,11 +20,17 @@ def profil(request):
 			monFilmFavori = Genre(name=favouriteFilm)
 			#Enregistrement dans la Base De Donnees avec monObjet.save()
 			monFilmFavori.save()
-			#return HttpResponseRedirect('/thanks/') # Redirect after POST
-        else:
-            form = ProfilForm()
+			return HttpResponseRedirect('#') # Redirect after POST
+    else:
+        form = ProfilForm()
 				
 	return render_to_response('cinemac/profil.html',{
+		'form':form,
+	})
+	
+def login(request):
+	form = LoginForm()
+	return render_to_response('cinemac/login.html',{
 		'form':form,
 	})
         
