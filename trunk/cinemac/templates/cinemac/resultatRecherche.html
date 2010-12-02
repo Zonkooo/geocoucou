@@ -5,27 +5,40 @@
 {% endblock ariane %}
 
 {% block content %}
-<h2 class="infoG">Résultat de recherche</h2>
+	<h2 class="infoG">Résultat(s) de la recherche</h2>
                 
                 <div class="headpiece">
                 <span class="left">Nombre de résultats</span> <span class="center"><FORM>
                                                                                     <SELECT name="affichage" size="1">
-                                                                                    	<OPTION>Afficher
-                                                                                        <OPTION>Tout
-                                                                                        <OPTION>Films
-                                                                                        <OPTION>Acteurs
-                                                                                        <OPTION>Réalisateurs
-                                                                                        <OPTION>Membres
-                                                                                    </SELECT>
+                                                                                    	<OPTION>Trier par
+                                                                                    	<OPTION>Film
+                                                                                    	<OPTION>Réalisateur
+                                                                                   	 	<OPTION>Membres
+                                                                                   		<OPTION>Catégorie
+                                                                                   	 	</SELECT>
                                                                                     </FORM></span> <span class="right"> < 1 - 2 > </span>
                 </div>
                 
                 <div class="Resultatlisting">
+				
+					<span><b><u>Films correspondant à votre recherche : </u></b></span>
                 
-                	<span> <b><u>Films correspondant à votre recherche : </u></b></span>
+                   	<div class="listing">
+                   		<img src="img/img.jpg" />
+                        <div class="info">
+                        	<b>TITRE DU FILM</b><br/>
+                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
+                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
+                 		</div>
+                        
+                         <div class="button">
+                           <span><a href="#">VOIR CETTE FICHE</a></span>
+                 		 </div>
                 
-                	<div class="listing">
-                   		<img src="../../media/img/img.jpg" />
+               		 </div>
+					 
+					 <div class="listing">
+                   		<img src="img/img.jpg" />
                         <div class="info">
                         	<b>TITRE DU FILM</b><br/>
                             <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
@@ -39,7 +52,7 @@
                		 </div>
                      
                      <div class="listing">
-                   		<img src="../../media/img/img.jpg" />
+                   		<img src="img/img.jpg" />
                         <div class="info">
                         	<b>TITRE DU FILM</b><br/>
                             <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
@@ -51,13 +64,14 @@
                  		 </div>
                 
                		 </div>
-                     
-                     <div class="listing">
-                   		<img src="../../media/img/img.jpg" />
+					 
+					 <span><b><u>Réalisateurs correspondant à votre recherche : </u></b></span>
+                
+                   	<div class="listing">
+                   		<img src="img/img.jpg" />
                         <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
+                        	<b>Prénom Nom</b><br/>
+                            <b>Catégorie</b> IMAC3                 
                  		</div>
                         
                          <div class="button">
@@ -65,15 +79,12 @@
                  		 </div>
                 
                		 </div>
-                     
-                     <span> <b><u>Acteurs correspondant à votre recherche : </u></b></span>
-                	 <!--- SUREMENT UN FOREACH SERA A FAIRE -->
-                     <div class="listing">
-                   		<img src="../../media/img/img.jpg" />
+					 
+					 <div class="listing">
+                   		<img src="img/img.jpg" />
                         <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
+                        	<b>Prénom Nom</b><br/>
+                            <b>Catégorie</b> IMAC3                 
                  		</div>
                         
                          <div class="button">
@@ -81,12 +92,14 @@
                  		 </div>
                 
                		 </div>
-                      <div class="listing">
-                   		<img src="../../media/img/img.jpg" />
+					 
+					 <span><b><u>Membres correspondant à votre recherche : </u></b></span>
+                
+                   	<div class="listing">
+                   		<img src="img/img.jpg" />
                         <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
+                        	<b>Prénom Nom</b><br/>
+                            <b>Catégorie</b> IMAC3                 
                  		</div>
                         
                          <div class="button">
@@ -94,20 +107,33 @@
                  		 </div>
                 
                		 </div>
+					 
+					 <div class="listing">
+                   		<img src="img/img.jpg" />
+                        <div class="info">
+                        	<b>Prénom Nom</b><br/>
+                            <b>Catégorie</b> IMAC3                 
+                 		</div>
+                        
+                         <div class="button">
+                           <span><a href="#">VOIR CETTE FICHE</a></span>
+                 		 </div>
                 
+               		 </div>
+					 
+					 
+                                     
                 </div>
                 
                 
                 <div class="headpiece">
                  <span class="centerbas"><FORM>
-                                             <SELECT name="resultat" size="1">
-                                                 <OPTION>Nombre de résultats
-                                                 <OPTION>10
-                                                 <OPTION>20
-                                                 <OPTION>30
-                                              </SELECT>
-                                           </FORM></span>  <span class="right"> < 1 - 2 > </span>
+                                          <SELECT name="resultat" size="1">
+                                          		<OPTION>Nombre de résultats
+                                               <OPTION>10
+                                               <OPTION>20
+                                               <OPTION>30
+                                          </SELECT>
+                                         </FORM></span>  <span class="right"> < 1 - 2 > </span>
                 </div>
-            
-
 {% endblock content %}
