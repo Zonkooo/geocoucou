@@ -5,25 +5,26 @@
 {% endblock ariane %}
 
 {% block content %}
-<h2 class="infoG">CREER UN EVENEMENT</h2>
+
+	<h2 class="infoG">CREER UN EVENEMENT</h2>
                 
                 <div id="creation">
                
-                <p> <b>Date :</b> <input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/> <input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/><input name="Login" type="text" size="4" maxlength="4" style="height:12px;"/></p>
-                
-                <p> <b>Heure :</b> <input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/>H<input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/></p>
-                
-                <p> <b>Lieu :</b> <input name="Login" type="text" size="22" maxlength="255" style="height:12px;"/></p>
-                
-                <p> <b>Nom :</b> <input name="Login" type="text" size="22" maxlength="255" style="height:12px;"/></p>
-                
-                <p> <b>Adresse :</b> <textarea name="adresse" cols="16" rows="3"></textarea></p>
-                
-                <p> <b>Film :</b> <input name="Login" type="text" size="22" maxlength="255" style="height:12px;"/></p>
-                
-                <p> <b>Evènement public :</b> <input name="public" type="checkbox" value="public" /></p>
-                
-                 <p> <b>Informations supplémentaires :</b> <textarea name="adresse" cols="35" rows="3"></textarea></p>
+					<p> <b>Date :</b> <input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/> <input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/><input name="Login" type="text" size="4" maxlength="4" style="height:12px;"/></p>
+					
+					<p> <b>Heure :</b> <input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/>H<input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/></p>
+					
+					<p> <b>Lieu :</b> <input name="Login" type="text" size="22" maxlength="255" style="height:12px;"/></p>
+					
+					<p> <b>Nom :</b> <input name="Login" type="text" size="22" maxlength="255" style="height:12px;"/></p>
+					
+					<p> <b>Adresse :</b> <textarea name="adresse" cols="16" rows="3"></textarea></p>
+					
+					<p> <b>Film :</b> <input name="Login" type="text" size="22" maxlength="255" style="height:12px;"/></p>
+					
+					<p> <b>Evènement public :</b> <input name="public" type="checkbox" value="public" /></p>
+					
+					 <p> <b>Informations supplémentaires :</b> <textarea name="adresse" cols="35" rows="3"></textarea></p>
                  
                 </div>
                 
@@ -32,7 +33,7 @@
                     	<center>Liste des invités</center>
                 	</div>
                     
-                    <div class="ResultatlistingLittle">
+                    <div class="ResultatlistingPetit">
                 
                 		<input name="Invit&eacute;" type="checkbox" value="true" /> Prénom Nom<br/>
                         <input name="Invit&eacute;" type="checkbox" value="true" /> Prénom Nom<br/>
@@ -42,7 +43,7 @@
                 	</div>
                     
                     <div class="headpieceLittle">
-                    <span class="left"><FORM>
+						<span class="left"><FORM>
                                              <SELECT name="resultat" size="1">
                                                  <OPTION>Nombre de résultats
                                                  <OPTION>10
@@ -53,12 +54,14 @@
                     </div>
 
             	</div>
-                </div>
                 
             
                	 <div class="valid">
                      <span><a href="#">CREER</a></span>
                  </div>
-
-
+              
+            
+				<div class="clear">
+				</div>
+				
 {% endblock content %}

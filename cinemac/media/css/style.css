@@ -15,13 +15,10 @@ body
 {
 	background-color:#37485c;
 	font-size:14px;
-	
-	
 }
 
 #container 
-{ 
-	
+{ 	
 	width:1000px;
 	height:auto;
 /*	float:center;*/
@@ -29,7 +26,6 @@ body
 	margin-right:auto;
 	/*border: 2px solid red;*/
 
-	
 }
 
 
@@ -40,7 +36,7 @@ body
 {
 	/*border:2px solid blue;*/
 	background-color#FFFFFF;
-	background-image:url(../img/top.jpg);
+	background-image:url(/media/img/top.jpg);
 	width:1000px;
 	height:235px;
 	color:#FFF;
@@ -162,7 +158,7 @@ body
 {
 	
 	/*border:2px solid green;*/
-	background-image:url(../img/bord_menu.png);
+	background-image:url(/media/img/bord_menu.png);
 	background-repeat:no-repeat;
 	width:240px;
 	height:auto;
@@ -180,7 +176,7 @@ body
 #menu li
 { 
 	list-style:none;
-	background-image:url(../img/btn_Menu.jpg);
+	background-image:url(/media/img/btn_Menu.jpg);
 	width:148px;
 	height:48px;
 	color:#FFF;
@@ -259,7 +255,7 @@ p
 {
 	width:326px;
 	height:177px;
-	background-image:url(../img/degrade.jpg);
+	background-image:url(/media/img/degrade.jpg);
 	background-repeat:repeat-x;
 	border:1px solid black;
 	margin-left:2%;
@@ -366,7 +362,7 @@ hr
 
 	border:1px solid black;
 	background-color:#99a1ac;
-	background-image:url(../img/degrade.jpg);
+	background-image:url(/media/img/degrade.jpg);
 	background-repeat:repeat-x;
 	width:200px;
 	height:250px;
@@ -398,7 +394,7 @@ hr
 .headpiece
 {
 	 border: 1px solid #e78f08;
-	 background: #f6a828 url(../img/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; 
+	 background: #f6a828 url(/media/img/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; 
 	 color: #ffffff; 
 	 font-weight: bold;
 	 margin-right:1%;
@@ -448,7 +444,7 @@ hr
 {
 	border:1px solid black;
 	background-color:#99a1ac;
-	background-image:url(../img/degrade.jpg);
+	background-image:url(/media/img/degrade.jpg);
 	background-repeat:repeat ;
 	margin-top:2%;
 	margin-left:auto;
@@ -473,7 +469,7 @@ hr
 
 .button
 {
-	background-image:url(../img/btn_Menu.jpg);
+	background-image:url(/media/img/btn_Menu.jpg);
 	background-repeat:no-repeat;
 	width:147px;
 	height:47px;
@@ -499,7 +495,7 @@ hr
 #creation
 {
 	border:1px solid #EEE;
-	background-image:url(../img/degradeGd.jpg);
+	background-image:url(/media/img/degradeGd.jpg);
 	
 	float:left;
 	width:350px;
@@ -510,7 +506,7 @@ hr
 {
 	
 	background-color:#99a1ac;
-	background-image:url(../img/degrade.jpg);
+	background-image:url(/media/img/degrade.jpg);
 	background-repeat:repeat ;
 
 	margin-left:auto;
@@ -524,7 +520,7 @@ hr
 .headpieceLittle
 {
 	 border: 1px solid #e78f08;
-	 background: #f6a828 url(../img/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; 
+	 background: #f6a828 url(/media/img/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; 
 	 color: #ffffff; 
 	 font-weight: bold;
 	 margin-right:1%;
@@ -564,7 +560,7 @@ hr
 
 .valid
 {
-	background-image:url(../img/btn_Menu.jpg);
+	background-image:url(/media/img/btn_Menu.jpg);
 	background-repeat:no-repeat;
 	width:147px;
 	height:47px;
@@ -592,7 +588,7 @@ hr
 {
 	height:93px;
 	width:1000px;
-	background-image:url(../img/bottom.jpg);
+	background-image:url(/media/img/bottom.jpg);
 	background-repeat:repeat-x;
 	margin-top:-1.5%;
 	
