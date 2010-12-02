@@ -1,5 +1,44 @@
-﻿<form action="/profil/" method="post">
-{{ form.as_p}}
-<input type="submit" value="Submit" />
-</form>
+﻿ {% extends "layout/base.html" %}
 
+{% block ariane %}
+<a href="index.html">Accueil > Profil</a>
+{% endblock ariane %}
+
+{% block content %}
+            
+            	<h2 class="infoG">Prénom NOM</h2>
+          
+                <div class="picture">
+                </div>
+                
+                
+                <div class="info">
+                
+                    <b>Promotion IMAC / PROF / Extérieur </b><br/><br/>
+                    <b>Nombre de films notés :</b> 1<br/>
+                    <b>Moyenne des notes attribuées :</b> ****<br/><br/>
+                    <b>Evènements auxquels j'ai participés :</b> <u>event</u>,<u>event</u><br/>
+                    <b>Evènements créés :</b> <u>event</u>,<u>event</u> <br/>
+
+                </div>
+                
+                
+                <div class="infoSup">
+					<div id="tabs">
+						<ul>
+							<li><a href="#tabs-1">Films préférés</a></li>
+							<!--<li><a href="#tabs-2">Commentaires</a></li>
+							<li><a href="#tabs-3">Vous aimerez aussi</a></li>-->
+						</ul>
+						<div id="tabs-1">
+							Visionneuse JQUERY
+						</div>
+					</div>
+                  
+                  
+                </div>
+            
+            <div class="clear">
+			</div>
+
+{% endblock content %}
