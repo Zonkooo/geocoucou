@@ -33,5 +33,21 @@ def login(request):
 	return render_to_response('cinemac/login.html',{
 		'form':form,
 	})
+	
+def recherche(request):
+	return render_to_response('cinemac/recherche.html')
+	
+def creerEvt(request):
+	return render_to_response('cinemac/creerEvt.html')
+	
+def evenement(request):
+	return render_to_response('cinemac/evenement.html')
+
+def listeMembre(request):
+	return render_to_response('cinemac/listeMembre.html')
+
+def resultatRecherche(request):
+	return render_to_response('cinemac/resultatRecherche.html')
+	
         
 
