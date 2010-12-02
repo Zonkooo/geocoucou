@@ -8,6 +8,7 @@ ACT_CODE = 8001
 class MovieParser:
 	#fields from allocine
 	title = ""
+	title_en = ""
 	year = 0
 	country = ""
 	synopsis = ""
@@ -34,9 +35,10 @@ class MovieParser:
 		f = xml.dom.minidom.parse(xmlfile)
 		e = f.getElementsByTagName("movie")[0] #the global element containing everyting
 		self.title		= e.getElementsByTagName("title")[0].childNodes[0].nodeValue
+		self.title_en	= e.getElementsByTagName("originalTitle")[0].childNodes[0].nodeValue
 		self.year		= e.getElementsByTagName("productionYear")[0].childNodes[0].nodeValue
 		countrylist		= e.getElementsByTagName("nationalityList")[0]
-		self.country		= countrylist.getElementsByTagName("nationality")[0].childNodes[0].nodeValue
+		self.country	= countrylist.getElementsByTagName("nationality")[0].childNodes[0].nodeValue
 		self.synopsis	= e.getElementsByTagName("synopsis")[0].childNodes[0].nodeValue
 		casting			= e.getElementsByTagName("casting")[0].getElementsByTagName("castMember")
 		self.directors	= self.get_cast_by_activity(casting, REA_CODE)
@@ -57,6 +59,39 @@ class MovieParser:
 		mov.synopsis = self.synopsis
 		
 		mov.id_imdb = self.id_imdb
-		#...
+		mov.rating_imdb = self.rating
+		
 		mov.save() #ecrit dans la BDD
+		#on doit save pour avoir une primary key avant de pouvoir faire les many to many
+		
+		#many to many
+		#realisateurs
+		for a in self.directors:
+			a_forename = s.split(' ', 1)[0]
+			a_name = s.split(' ', 1)[1]
+			
+			#checker les artistes déjà présents
+			qset = Artist.objects.filter(name = a_name, forename = a_forename)
+			if(qset.count() > 0)
+				mov.directed_by.add(qset[0])
+			else #creer ceux qui manquent
+				dr = Artist(name = a_name, forename = a_forename)
+				dr.save()
+				mov.directed_by.add(dr)
+		
+		#acteurs
+		for a in self.actors:
+			a_forename = s.split(' ', 1)[0]
+			a_name = s.split(' ', 1)[1]
+			
+			#checker les artistes déjà présents
+			qset = Artist.objects.filter(name = a_name, forename = a_forename)
+			if(qset.count() > 0)
+				mov.directed_by.add(qset[0])
+			else #creer ceux qui manquent
+				act = Artist(name = a_name, forename = a_forename)
+				act.save()
+				mov.played_by.add(act)
+				
+		mov.save() #on resauvegarde pour écrire les many_to_many
 		
