@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />	
@@ -38,14 +38,18 @@
                 	<a href="#"> S'inscrire</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  	    |
                 </div>
                 <div id="logger">
-                	Login :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;"/> &nbsp;
-               	 	Mot de passe :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;" />
-                	<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>
-                </div>
+				    {% block logger %}
+					{% endblock logger %}
+                	<!--
+						Login :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;"/> &nbsp;
+						Mot de passe :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;" />
+						<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>
+					-->
+				</div>
             </div>
             
             <div id="logo">
-            <a href="index.html">CinéMac</a>
+            <a href="../">CinéMac</a>
             </div>
             <div id="slogan">
             La référence cinéma des Imaciens.
@@ -56,12 +60,11 @@
             {% endblock ariane %}
             </div>
            
-            
             <div id="research">
             Rechercher : <input name="Login" type="text" size="10" maxlength="150" style="height:12px;" />
                 	<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>
             </div>
-        </div>
+		</div>
         
        <div id="centre">
 		
