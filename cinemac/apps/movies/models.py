@@ -51,7 +51,7 @@ class Movie(models.Model):
 	directed_by	= models.ManyToManyField('Artist', related_name='directing')
 	
 	def __unicode__(self):
-		return "%s (%s)" % (self.title, self.year.year)
+		return "%s (%d)" % (self.title, self.year.year)
 		
 
 class Rate(models.Model):
