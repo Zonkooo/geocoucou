@@ -1,7 +1,7 @@
 /* Reset */
 html { font-family:'Nyala',Tahoma,Arial,Verdana,San-serif; }
 img{border:none;}
-a { color:white; text-decoration:none; }
+a { color:white; text-decoration:none; outline: none; }
 a:hover { color:#F60; text-decoration:underline; }
 a img { border:none; }
 
@@ -153,58 +153,79 @@ body
 }
 
 
+
 /************* MENU *******************/
-#menu
-{
-	
-	/*border:2px solid green;*/
-	background-image:url(/media/img/bord_menu.png);
-	background-repeat:no-repeat;
-	width:240px;
+#menu{
+	background-color: #fff;
+	height: 250px;
+	width: 220px;
+	float: left;
+}
+.navigation { 
+    padding: 0; 
+    list-style: none; 
+    background-color: #000; 
+    color: #fff; 
+    width: 220px; 
+    font-size: 1.5em;
 	height:auto;
 	float:left;	
-	margin-left:1%;
-	margin-top:-0.5%;
-}
-
-
-#menu ul
-{ 
-	margin-top:20%;
-}
-
-#menu li
-{ 
-	list-style:none;
-	background-image:url(/media/img/btn_Menu.jpg);
-	width:148px;
-	height:48px;
-	color:#FFF;
-	margin-bottom:5%;
-	text-align:center;
+	margin-left:15px;
+	margin-top:15px;
 } 
-#menu li a
-{ 
-	color:#FFFFFF;
-	font-weight: bold;
-	font-size: 16px;
-	text-decoration:none;
-	line-height:48px;
-	
-
-	
+.navigation a, .navigation span { 
+    display: block; 
+    padding: 4px 10px; 
+    color: #fff; 
+    text-decoration: none; 
+    background: #7c8896 left bottom no-repeat; 
 } 
-#menu li a:hover
-{ 
-	text-decoration:underline;
-} 
-
-#menu li ul
-{ 
-	display:none;
-	position:absolute;
-	background-color:#FFFFFF;
-}
+ .navigation .toggleSubMenu a, .navigation .toggleSubMenu span { 
+    background: #7c8896; 
+ } 
+ .navigation .toggleSubSubMenu a, .navigation .toggleSubSubMenu span { 
+    background: #7c8896; 
+ } 
+ .navigation .open a, .navigation .open span { 
+    background: red; 
+ } 
+ .navigation a:hover, .navigation a:focus, .navigation a:active { 
+    background: #617183 0 0 repeat-x; 
+ } 
+ .navigation .subMenu { 
+    font-size: .8em; 
+    background: #536a86 0 0 repeat-x; 
+    font-size: .9em; 
+    margin: 0; 
+    padding: 0; 
+    border-bottom: 1px solid #666; 
+	list-style: none; 
+ } 
+.navigation .subMenu a:hover { 
+    background: #425a77 0 0 repeat-x; 
+	border-bottom: 1px dotted #7c8896; 
+ } 
+ .navigation ul.subMenu a { 
+    background: none; 
+    padding: 3px 20px; 
+ }
+ .navigation .subSubMenu { 
+    font-size: .8em; 
+    background: #3a4c62 0 0 repeat-x; 
+    font-size: .9em; 
+    margin: 0; 
+    padding: 0; 
+    border-bottom: 1px solid #666; 
+	list-style: none; 
+ } 
+ .navigation .subSubMenu a:hover { 
+    background: #293646 0 0 repeat-x; 
+	border-bottom: 1px dotted #7c8896; 
+ }
+ .navigation ul.subSubMenu a { 
+    background: none; 
+    padding: 3px 20px; 
+ }	  
 
 
 
@@ -639,6 +660,7 @@ hr
 #widget-docs .ui-widget-content a:active { color:#0b559b; }
 @charset "utf-8";
 /* CSS Document */
+
 
 
 
