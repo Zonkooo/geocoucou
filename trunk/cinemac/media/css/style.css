@@ -155,74 +155,116 @@ body
 
 
 /************* MENU *******************/
-#menu{
+#menu
+{
+	background-image:url(/media/img/bord_menu.png);
+	background-repeat:no-repeat;
 	background-color: #fff;
-	height: 250px;
+/*	height: 250px;
 	width: 220px;
-	float: left;
-}
-.navigation { 
-    padding: 0; 
-    list-style: none; 
-    background-color: #000; 
-    color: #fff; 
-    width: 220px; 
-    font-size: 1.5em;
+	float: left;*/
+	
+	width:241px;
 	height:auto;
 	float:left;	
+	margin-left:0.5%;
+	
+}
+
+.navigation
+{
+	
+    padding: 0; 
+    list-style: none; 
+    /*background-color: #000; */
+    color: #fff; 
+    width: 195px; 
+    font-size: 18px;
+	height:auto;
+	
+	/*float:left;	
 	margin-left:15px;
-	margin-top:15px;
+	margin-top:15px;*/
+	margin-left:10%;
+	background:url(/media/img/btn_Menu.jpg) left bottom no-repeat;
 } 
-.navigation a, .navigation span { 
+.navigation a, .navigation span 
+{ 
     display: block; 
     padding: 4px 10px; 
     color: #fff; 
     text-decoration: none; 
-    background: #7c8896 left bottom no-repeat; 
+    /*background: #7c8896 left bottom no-repeat; */
+	text-align:center;
+	background:url(/media/img/btn_Menu.jpg) left bottom no-repeat;
 } 
- .navigation .toggleSubMenu a, .navigation .toggleSubMenu span { 
-    background: #7c8896; 
+ .navigation .toggleSubMenu a, .navigation .toggleSubMenu span 
+ { 
+ 
+    /*background: #7c8896; */ 
+	background:url(/media/img/btn_Menu.jpg) left bottom no-repeat;
+	text-align:center;
  } 
- .navigation .toggleSubSubMenu a, .navigation .toggleSubSubMenu span { 
-    background: #7c8896; 
+ .navigation .toggleSubSubMenu a, .navigation .toggleSubSubMenu span 
+ { 
+	 background: #7c8896;
+	text-align:left;
  } 
- .navigation .open a, .navigation .open span { 
+ .navigation .open a, .navigation .open span 
+ { 
     background: red; 
  } 
- .navigation a:hover, .navigation a:focus, .navigation a:active { 
-    background: #617183 0 0 repeat-x; 
+ .navigation a:hover, .navigation a:focus, .navigation a:active 
+ { 
+   /* background: #617183 0 0 repeat-x; */
+   font-weight:bold;
  } 
- .navigation .subMenu { 
-    font-size: .8em; 
-    background: #536a86 0 0 repeat-x; 
-    font-size: .9em; 
+ 
+ .navigation .subMenu
+ { 
+ 	
+ 	color:#000;
+    font-size: 15px;
+	width: 190px;
+    background: #e2e4e7 0 0 repeat-x;
+   /* font-size: .9em; */
     margin: 0; 
     padding: 0; 
-    border-bottom: 1px solid #666; 
+    /*border-bottom: 1px solid #666; */
 	list-style: none; 
  } 
-.navigation .subMenu a:hover { 
-    background: #425a77 0 0 repeat-x; 
-	border-bottom: 1px dotted #7c8896; 
+.navigation .subMenu a:hover 
+{ 
+	text-decoration:underline;
+	/*font-weight:bold;*/
+	/*border-bottom: 1px dotted #7c8896; */
  } 
- .navigation ul.subMenu a { 
+ .navigation ul.subMenu a 
+ { 
+ 	color:#000;	
     background: none; 
     padding: 3px 20px; 
  }
- .navigation .subSubMenu { 
-    font-size: .8em; 
-    background: #3a4c62 0 0 repeat-x; 
-    font-size: .9em; 
+ .navigation .subSubMenu 
+ { 
+    font-size: 13px; 
+   /* background: #3a4c62 0 0 repeat-x; */
+   background-color:#f1f3f4;
+   
     margin: 0; 
+	padding-left:3%;
     padding: 0; 
-    border-bottom: 1px solid #666; 
+
 	list-style: none; 
  } 
- .navigation .subSubMenu a:hover { 
-    background: #293646 0 0 repeat-x; 
+ .navigation .subSubMenu a:hover 
+ { 
+    /*background: #293646 0 0 repeat-x; */
 	border-bottom: 1px dotted #7c8896; 
+	
  }
- .navigation ul.subSubMenu a { 
+ .navigation ul.subSubMenu a
+ { 
     background: none; 
     padding: 3px 20px; 
  }	  
