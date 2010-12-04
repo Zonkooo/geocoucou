@@ -5,27 +5,95 @@
 	<meta name="Authors" content="" />
 	<meta name="Description" content="" />
     <title></title>    
-	<link rel="stylesheet" href="/media/css/style.css" type="text/css" media="screen" /> 
-    <link type="text/css" href="/media/css/ui-lightness/jquery-ui-1.8.6.custom.css" rel="stylesheet" />	
-		<script type="text/javascript" src="/media/js/jquery-1.4.2.min.js"></script>
-		<script type="text/javascript" src="/media/js/jquery-ui-1.8.6.custom.min.js"></script>
-		<script type="text/javascript" src="/media/js/jquery.js" charset="utf-8"></script>
-		<script type="text/javascript" src="/media/js/jquery.easing.1.2.js" charset="utf-8"></script>
-		<script type="text/javascript" src="/media/js/jquery.wslide.js" charset="utf-8"></script>
-		<script type="text/javascript">
+	<link rel="stylesheet" href="../../media/css/style.css" type="text/css" media="screen" /> 
+    <link type="text/css" href="../../media/css/ui-lightness/jquery-ui-1.8.6.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="../../media/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="../../media/js/jquery-ui-1.8.6.custom.min.js"></script>
+		<script type="text/javascript" src="../../media/js/jquery.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../../media/js/jquery.easing.1.2.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../../media/js/jquery.wslide.js" charset="utf-8"></script>
+		<script type="text/javascript" src="jquery-1.2.1.js"></script> 
+ 
+		<script type="text/javascript"> 
+
+		$(document).ready( function () { 
+			// MENU 
+			
+			// Cacher sous menus
+			$(".navigation ul.subMenu").hide(); 
+			$(".navigation ul.subSubMenu").hide(); 
+			
+			// Remplacer le span par un lien
+			$(".navigation li.toggleSubMenu span").each( function () { 
+				var TexteSpan = $(this).text(); 
+				$(this).replaceWith('<a href="" title="Afficher le sous-menu">' + TexteSpan + '<\/a>') ; 
+			} ) ; 
+			$(".navigation li.toggleSubSubMenu span").each( function () { 
+				var TexteSpan2 = $(this).text(); 
+				$(this).replaceWith('<a href="" title="Afficher le sous-sous-menu">' + TexteSpan2 + '<\/a>') ; 
+			} ) ; 			
+		 
+			// Gestion du click 
+			$(".navigation li.toggleSubMenu > a").click( function () { 
+				// Si le sous-menu était déjà ouvert, on le referme : 
+				if ($(this).next("ul.subMenu:visible").length != 0) { 
+					$(this).next("ul.subMenu").slideUp("normal"); 
+				} 
+				// Si le sous-menu est caché, on ferme les autres et on l'affiche : 
+				else { 
+					$(".navigation ul.subMenu").slideUp("normal"); 
+					$(this).next("ul.subMenu").slideDown("normal"); 
+				} 
+				// On empêche le navigateur de suivre le lien : 
+				return false; 
+			});     
+			
+			// Gestion du click 
+			$(".navigation li.toggleSubSubMenu > a").click( function () { 
+				// Si le sous-sous-menu était déjà ouvert, on le referme : 
+				if ($(this).next("ul.subSubMenu:visible").length != 0) { 
+					$(this).next("ul.subSubMenu").slideUp("normal"); 
+				} 
+				// Si le sous-menu est caché, on ferme les autres et on l'affiche : 
+				else { 
+					$(".navigation ul.subSubMenu").slideUp("normal"); 
+					$(this).next("ul.subSubMenu").slideDown("normal"); 
+				} 
+				// On empêche le navigateur de suivre le lien : 
+				return false; 
+			});
+			
+			//Visionneuse
+			
+			$("#viewer").wslide({
+				width: 698,
+				height: 212,
+				pos: 1,
+				horiz: true,
+				duration: 500,
+				autolink: 'viewer_navig',
+				//effect: 'easeOutElastic'
+			});	
+						
 			$(document).ready(function(){
-				/* visionneuse */
-				$("#viewer").wslide({
-					width: 698,
-					height: 212,
-					pos: 1,
-					horiz: true,
-					duration: 500,
-					autolink: 'viewer_navig',
-					//effect: 'easeOutElastic'
-				});
-				$('#tabs').tabs();
-			}); 
+				var position = 1;
+				function move() {
+					position++;
+					var start = '#viewer-'+position;
+					$('a[href*="'+start+'"]').click();
+					if(position == 6) position = 0;
+					setTimeout(function() {
+							move();
+							},3600);
+				}
+				setTimeout(function() {
+					move();
+				},3600);
+			});
+				 
+		 
+		} ) ; 
+		// --> 
 		</script>
  
   </head>
@@ -38,14 +106,14 @@
                 	<a href="#"> S'inscrire</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  	    |
                 </div>
                 <div id="logger">
-						Login :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;"/> &nbsp;
-						Mot de passe :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;" />
-						<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>
-				</div>
+                	Login :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;"/> &nbsp;
+               	 	Mot de passe :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;" />
+                	<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>
+                </div>
             </div>
             
             <div id="logo">
-            <a href="../"><img src="/media/img/logo.png" alt="Logo"  /></a>
+            <a href="index.html">CinéMac</a>
             </div>
             <div id="slogan">
             La référence cinéma des Imaciens.
@@ -56,53 +124,61 @@
             {% endblock ariane %}
             </div>
            
+            
             <div id="research">
             Rechercher : <input name="Login" type="text" size="10" maxlength="150" style="height:12px;" />
-						<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>
+                	<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>
             </div>
-		</div>
+        </div>
         
        <div id="centre">
-		
-            <div id="menu">
-           	<ul class="topnav">
-            	<li> <a href="#">FILMS </a>
-                	 <ul class="subMenu"> 
-                        <li><a href="#" title="IMAC1">IMAC 1</a>
-                        	<ul class="subsubMenu"> 
-                                <li><a href="#" title="Matiere1">Matiere 1</a></li> 
-                                <li><a href="#" title="Matiere2">Matiere 2</a></li> 
-                                <li><a href="#" title="Matiere3">Matiere 3</a></li>
-        					</ul>
-                        </li> 
-                        <li><a href="#" title="IMAC2">IMAC 2</a>
-                        <ul class="subsubMenu"> 
-                                <li><a href="#" title="Matiere1">Matiere 1</a></li> 
-                                <li><a href="#" title="Matiere2">Matiere 2</a></li> 
-                                <li><a href="#" title="Matiere3">Matiere 3</a></li>
-        					</ul>
-                        </li> 
-                        <li><a href="#" title="IMAC3">IMAC 3</a>
-                        <ul class="subsubMenu"> 
-                                <li><a href="#" title="Matiere1">Matiere 1</a></li> 
-                                <li><a href="#" title="Matiere2">Matiere 2</a></li> 
-                                <li><a href="#" title="Matiere3">Matiere 3</a></li>
-        					</ul>
-                        </li> 
-                        <li><a href="#" title="Top10">Top 10</a></li>
-                        <li><a href="#" title="Autre">Autres films</a></li>
-        			</ul>
-                </li>
-                
-                <li> <a href="#">EVENEMENTS </a>
-                	<ul class="subMenu"> 
-                        <li><a href="#" title="IMAC1">Créer un évènement</a></li> 
-                        <li><a href="#" title="IMAC2">Voir les évènements</a></li> 
-        			</ul>
-                </li>
-                <li> <a href="#">MEMBRES </a></li>
-            </ul>
-		  </div>
+			<div id="menu">
+				<ul class="navigation"> 
+					<li class="toggleSubMenu"><span>Films</span>
+						<ul class="subMenu"> 
+							<li class="toggleSubSubMenu"><span>IMAC1</span>
+								<ul class="subSubMenu"> 
+									<li><a href="#" title="Aller à la page 1.1">Expression et écriture</a></li> 
+									<li><a href="#" title="Aller à la page 1.2">Archives et restauration</a></li> 		 
+								</ul> 
+							</li>
+							<li class="toggleSubSubMenu"><span>IMAC2</span>
+								<ul class="subSubMenu"> 
+									<li><a href="#" title="Aller à la page 1.1">Dramaturgie</a></li> 
+									<li><a href="#" title="Aller à la page 1.2">Sociologie des médias</a></li> 
+									<li><a href="#" title="Aller à la page 1.3">Cinéma d'animation</a></li> 				 
+								</ul> 
+							</li>
+							<li class="toggleSubSubMenu"><span>IMAC3</span>
+								<ul class="subSubMenu"> 
+									<li><a href="#" title="Aller à la page 1.1">Art et technologies</a></li> 
+									<li><a href="#" title="Aller à la page 1.2">Langage et compréhension</a></li> 
+									<li><a href="#" title="Aller à la page 1.3">Animation</a></li> 				 
+								</ul> 
+							</li>							
+							<li><a href="#" title="Aller à la page 4">Top 10</a></li> 	
+							<li><a href="#" title="Aller à la page 4">Autres films</a></li> 
+						</ul> 
+					 </li> 
+					<li class="toggleSubMenu"><span>Evénements</span> 
+						<ul class="subMenu"> 
+							<li><a href="#" title="Aller à la page 4">Créer un événement</a></li> 
+							<li><a href="#" title="Aller à la page 1.2">Voir un événement</a></li> 			 
+						</ul> 
+					</li> 
+					<li><a href="#" title="Aller à la page 4">Membres</a></li> 
+					<li class="toggleSubMenu"><span>Mon compte</span> 
+						<ul class="subMenu"> 
+							<li><a href="#" title="Aller à la page 1.2">Voir mon profil</a></li> 
+							<li><a href="#" title="Aller à la page 1.3">Modifier mon profil</a></li> 				 
+							<li><a href="#" title="Aller à la page 1.3">Mes invitations</a></li> 				 
+							<li><a href="#" title="Aller à la page 1.3">Modifier mes événements</a></li> 				 
+						</ul> 
+					</li> 
+				 
+				</ul>
+			</div>
+		 
             
             <div id="content">
             
