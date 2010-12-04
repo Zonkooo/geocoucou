@@ -235,7 +235,8 @@ body
 	list-style: none; 
  } 
 .navigation .subMenu a:hover 
-{ 
+{
+	font-weight:normal;
 	text-decoration:underline;
 	/*font-weight:bold;*/
 	/*border-bottom: 1px dotted #7c8896; */
@@ -261,7 +262,9 @@ body
  .navigation .subSubMenu a:hover 
  { 
     /*background: #293646 0 0 repeat-x; */
-	border-bottom: 1px dotted #7c8896; 
+	/*border-bottom: 1px dotted #7c8896;*/
+	
+	
 	
  }
  .navigation ul.subSubMenu a
