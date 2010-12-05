@@ -11,33 +11,23 @@ def index(request):
 	return render_to_response('cinemac/index.html')
 
 def fichefilm(request):
-	if request.method == 'GET':
-		movie_id = int(request.GET['mid'])
+	if (request.method == 'GET') & (len(request.GET.getlist('mid')) > 0):
+		movie_id = request.GET['mid']
 		movie = Movie.objects.get(id = movie_id)
 		
-		#bricolage a corriger avec du code dans le html
-		dir_string = ""
-		act_string = ""
-		genre_string = ""
-		for d in movie.directed_by.all():
-			dir_string += d.__unicode__() + ", "
-		for a in movie.played_by.all():
-			act_string += a.__unicode__() + ", "
-		for g in movie.genre_is.all():
-			genre_string += g.__unicode__() + ", "
-		
 		val = {
+				"request_ok": True,
 				"title"		: movie.title,
-				"directors"	: dir_string,
-				"actors"	: act_string,
-				"genres"	: genre_string,
+				"directors"	: movie.directed_by.all(),
+				"actors"	: movie.played_by.all(),
+				"genres"	: movie.genre_is.all(),
 				"year"		: movie.year.year,
 				"country"	: movie.country,
 				"synopsis"	: movie.synopsis,
 			  }
-		return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
 	else:
-		return render_to_response('cinemac/fichefilm.html')
+		val = { "request_ok": False, }
+	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
 
 def profil(request):
 	if request.method == 'POST':

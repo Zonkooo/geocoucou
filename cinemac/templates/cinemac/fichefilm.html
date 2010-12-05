@@ -1,51 +1,69 @@
 {% extends "layout/base.html" %}
 
 {% block ariane %}
-<a href="../">Accueil > </a>Films > IMAC 1 > Expression et écriture > Titre du film
+	{% if request_ok %}
+		<a href="../">Accueil > </a>Films > IMAC 1 > Expression et écriture > Titre du film
+	{% else %}
+		<a href="../">Accueil > </a>Films > 
+	{% endif %}
 {% endblock ariane %}
 
 {% block content %}
+	{% if request_ok %}
 
-				<div class="infoG">
-                    <h2>{{ title }}</h2>
-                    <p class="like"> LIKE FB </p>
-                    <p>IMDB		| 		IMAC</p>
-                </div>
-            	
-                
-                <div class="photo">
-                
-                </div>
-                
-                
-                <div class="info">
-                
-                <b>Réalisé par:</b> {{ directors }} <br/>
-                <b>Acteurs principaux:</b> {{ actors }} <br/>
-                <b>Genre:</b> {{ genres }}                     <b>Année:</b> {{ year }}                    <b>Pays:</b>{{ country }}<br/>
-                <b>Matière:</b> matiere                 <b>IMAC </b>1
-                <br/><br/>
-                <b>Synopsis: </b>{{ synopsis }}
-                
-                </div>
-                
-                
-            <div class="infoSup">
-                  
-                <div id="tabs">
-					<ul>
-						<li><a href="#tabs-1">Points d'étude</a></li>
-						<li><a href="#tabs-2">Commentaires</a></li>
-						<li><a href="#tabs-3">Vous aimerez aussi</a></li>
-					</ul>
-					<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-					<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
-					<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
-				</div>
-                              
-                
-            </div><!--infoSup-->	
+	<div class="infoG">
+        <h2>{{ title }}</h2>
+        <p class="like"> LIKE FB </p>
+        <p>IMDB		| 		IMAC</p>
+    </div>
+	
+    
+    <div class="photo">
+    
+    </div>
+    
+    
+    <div class="info">
+    
+    <b>Réalisé par:</b> 
+    	{% for d in directors %}
+    		{{ d.forename }} {{ d.name }}, 
+    	{% endfor %} <br/>
+    <b>Acteurs principaux:</b>
+    	{% for a in actors %}
+    		{{ a.forename }} {{ a.name }}, 
+    	{% endfor %}<br/>
+    <b>Genre:</b> 
+    	{% for g in genres %}
+    		{{ g.name }}, 
+    	{% endfor %}                     <b>Année:</b> {{ year }}                    <b>Pays:</b>{{ country }}<br/>
+    <b>Matière:</b> matiere                 <b>IMAC </b>1
+    <br/><br/>
+    <b>Synopsis: </b>{{ synopsis }}
+    
+    </div>
+    
+    
+	<div class="infoSup">
+      
+	    <div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Points d'étude</a></li>
+				<li><a href="#tabs-2">Commentaires</a></li>
+				<li><a href="#tabs-3">Vous aimerez aussi</a></li>
+			</ul>
+			<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+			<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+			<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+		</div>                      
+    
+	</div><!--infoSup-->	
 
+	{% else %}
+		<div>
+			<p> aucun film correspondant </p>
+		</div>
 
+	{% endif %}
 
 {% endblock content %}
