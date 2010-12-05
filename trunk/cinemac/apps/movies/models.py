@@ -41,7 +41,7 @@ class Movie(models.Model):
 	slug 		= models.SlugField(max_length = 255)
 	title 		= models.CharField(max_length = 255)
 	cover		= models.ImageField(upload_to='media/img/')
-	year 		= models.DateField()
+	year		= models.DateField()
 	country		= models.CharField(max_length = 255)
 	synopsis	= models.TextField()
 	rating_imdb	= models.FloatField()
@@ -51,7 +51,7 @@ class Movie(models.Model):
 	directed_by	= models.ManyToManyField('Artist', related_name='directing')
 	
 	def __unicode__(self):
-		return "%s (%d)" % (self.title, self.year.year)
+		return "%s %s" % (self.title, self.year)
 		
 
 class Rate(models.Model):
