@@ -5,125 +5,88 @@
 {% endblock ariane %}
 
 {% block content %}
-	            	<h2 class="infoG">Résultat(s) de la recherche</h2>
+	
+	<h2 class="infoG">Résultat(s) de la recherche</h2>
                 
                 <div class="headpiece">
-					<span class="left">Nombre de résultats</span> <span class="center"><FORM>
-                                                                                    <SELECT name="affichage" size="1">
-                                                                                    	<OPTION>Trier par
-                                                                                    	<OPTION>Film
-                                                                                    	<OPTION>Réalisateur
-                                                                                   	 	<OPTION>Membres
-                                                                                   		<OPTION>Catégorie
-                                                                                   	 	</SELECT>
-                                                                                    </FORM></span> <span class="right"> < 1 - 2 > </span>
+					<span class="left">
+						<!--{ results_number = films_list.count + members_list.count + artists_list.count }-->
+						Votre recherche a retourné {{results_number}} résultats.
+					</span>
+					<span class="center">
+					<FORM>
+                        <SELECT name="affichage" size="1">
+                           	<OPTION>Trier par
+                           	<OPTION>Film
+                           	<OPTION>Réalisateur
+                       	 	<OPTION>Membres
+                       		<OPTION>Catégorie
+                   	 	</SELECT>
+                    </FORM>
+					</span> 
+					<span class="right"> < 1 - 2 > </span>
                 </div>
                 
                 <div class="Resultatlisting">
-				
 					<span><b><u>Films correspondant à votre recherche : </u></b></span>
+					
+						{% if films_list.count == 0 %}
+							<p> Aucun film ne correspond à cette recherche <br/></p>
+						{% endif %}
+						{% for film in films_list %}
+						<div class="listing">
+								<img src="/media/img/img.jpg" />
+								<div class="info">
+									<b>{{film.title}}</b><br/>
+									<b>IMDB :</b> {{film.rating_imdb}} | <b>IMAC : </b> **** <br/>
+									<b>Genre:</b> {{film.genre}} <br/><b>Matière:</b>{{film.course}}                   
+								</div>
+							</div>
+							<div class="button">
+							   <span><a href="#">VOIR CETTE FICHE</a></span>
+							</div>
+						</div>
+						{% endfor %}
+                      		 
+					<span><b><u>Réalisateurs correspondant à votre recherche : </u></b></span>
                 
-                   	<div class="listing">
-                   		<img src="/media/img/img.jpg" />
-                        <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
-                 		</div>
-                        
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
-               		 </div>
-					 
-					 <div class="listing">
-                   		<img src="/media/img/img.jpg" />
-                        <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
-                 		</div>
-                        
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
-               		 </div>
-                     
-                     <div class="listing">
-                   		<img src="/media/img/img.jpg" />
-                        <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
-                 		</div>
-                        
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
-               		 </div>
-					 
-					 <span><b><u>Réalisateurs correspondant à votre recherche : </u></b></span>
-                
-                   	<div class="listing">
-                   		<img src="/media/img/img.jpg" />
-                        <div class="info">
-                        	<b>Prénom Nom</b><br/>
-                            <b>Catégorie</b> IMAC3                 
-                 		</div>
-                        
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
-               		 </div>
-					 
-					 <div class="listing">
-                   		<img src="/media/img/img.jpg" />
-                        <div class="info">
-                        	<b>Prénom Nom</b><br/>
-                            <b>Catégorie</b> IMAC3                 
-                 		</div>
-                        
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
-               		 </div>
+						{% if artists_list.count == 0 %}
+							<p> Aucun réalisateur ne correspond à cette recherche <br/></p>
+						{% endif %}
+						{% for artist in artists_list %}
+						<div class="listing">
+							<img src="/media/img/img.jpg" />
+							<div class="info">
+								<b>{{artist.name}}</b><br/>
+								<b>Catégorie</b> IMAC3                 
+							</div>
+							
+							 <div class="button">
+							   <span><a href="#">VOIR CETTE FICHE</a></span>
+							 </div>
+						</div>
+						{% endfor %}
 					 
 					 <span><b><u>Membres correspondant à votre recherche : </u></b></span>
-                
-                   	<div class="listing">
-                   		<img src="/media/img/img.jpg" />
-                        <div class="info">
-                        	<b>Prénom Nom</b><br/>
-                            <b>Catégorie</b> IMAC3                 
-                 		</div>
-                        
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
-               		 </div>
-					 
-					 <div class="listing">
-                   		<img src="/media/img/img.jpg" />
-                        <div class="info">
-                        	<b>Prénom Nom</b><br/>
-                            <b>Catégorie</b> IMAC3                 
-                 		</div>
-                        
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
-               		 </div>
-					 
-					 
-                                     
-                </div>
+					
+						{% if members_list.count == 0 %}
+							<p> Aucun réalisateur ne correspond à cette recherche <br/></p>
+						{% endif %}
+						{% for member in members_list %}
+						<div class="listing">
+							<img src="/media/img/img.jpg" />
+							<div class="info">
+								<b>{{member.pseudo}}</b><br/>
+								<b>Catégorie</b> IMAC3                 
+							</div>
+							
+							 <div class="button">
+							   <span><a href="#">VOIR CETTE FICHE</a></span>
+							 </div>
+						</div>
+						{% endfor %}
+				
+				</div>
                 
                 
                 <div class="headpiece">

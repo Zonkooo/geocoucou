@@ -3,6 +3,8 @@ from apps.movies.models import *
 from django.shortcuts import render_to_response
 from apps.movies.forms import *
 from django.http import HttpResponseRedirect
+from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Q
 
 def index(request):
 	return render_to_response('cinemac/index.html')
@@ -34,9 +36,6 @@ def login(request):
 		'form':form,
 	})
 	
-def recherche(request):
-	return render_to_response('cinemac/recherche.html')
-	
 def creerEvt(request):
 	return render_to_response('cinemac/creerEvt.html')
 	
@@ -46,8 +45,22 @@ def evenement(request):
 def listeMembre(request):
 	return render_to_response('cinemac/listeMembre.html')
 
+@csrf_exempt
+#todo : revoir la recherche et tester si elle fonctionne bien
 def resultatRecherche(request):
-	return render_to_response('cinemac/resultatRecherche.html')
+    q = request.POST['content']
+	
+    clause = Q(slug__icontains=q)               
+    members = Member.objects.filter(clause).distinct()
+    artists = Artist.objects.filter(clause).distinct()
+    films = Movie.objects.filter(clause).distinct()
+		
+    return render_to_response('cinemac/resultatRecherche.html',{
+	'members_list' : members,
+	'artists_list' : artists,
+	'films_list' : films
+	})
 	
         
 
+Artist

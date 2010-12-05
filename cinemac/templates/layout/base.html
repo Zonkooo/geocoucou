@@ -126,9 +126,12 @@
            
             
             <div id="research">
-            Rechercher : <input name="Login" type="text" size="10" maxlength="150" style="height:12px;" />
-                	<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>
-            </div>
+            Rechercher : 
+					<form method="POST" action="http://127.0.0.1:8000/resultatRecherche/">
+						<input name="content" type="text" size="10" maxlength="150" style="height:12px;" />
+						<input name="OK" type="submit" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>
+					</form>
+			</div>
         </div>
         
        <div id="centre">
