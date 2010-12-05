@@ -42,7 +42,7 @@ class MovieParser:
 		self.year		= e.getElementsByTagName("productionYear")[0].childNodes[0].nodeValue
 		countrylist		= e.getElementsByTagName("nationalityList")[0]
 		self.country	= countrylist.getElementsByTagName("nationality")[0].childNodes[0].nodeValue
-		self.synopsis	= e.getElementsByTagName("synopsis")[0].childNodes[0].nodeValue
+		self.synopsis	= e.getElementsByTagName("synopsis")[0].childNodes[0].nodeValue.replace('<br/>', '')
 		casting			= e.getElementsByTagName("casting")[0].getElementsByTagName("castMember")
 		self.directors	= self.get_cast_by_activity(casting, REA_CODE)
 		self.actors		= self.get_cast_by_activity(casting, ACT_CODE)
