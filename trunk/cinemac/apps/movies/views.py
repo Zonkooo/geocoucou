@@ -65,13 +65,21 @@ def listeMembre(request):
 @csrf_exempt
 #todo : revoir la recherche et tester si elle fonctionne bien
 def resultatRecherche(request):
-	q = request.POST['content']
-	
-	clause = Q(slug__icontains=q)			   
-	members = Member.objects.filter(clause).distinct()
-	artists = Artist.objects.filter(clause).distinct()
-	films = Movie.objects.filter(clause).distinct()
+	if request.method == 'POST':
+		q = request.POST['content']
 		
+		clause = Q(pseudo__icontains=q)			   
+		members = Member.objects.filter(clause).distinct()
+		clause = Q(name__icontains=q) | Q(forename__icontains=q)
+		artists = Artist.objects.filter(clause).distinct()
+		clause = Q(title__icontains=q)
+		films = Movie.objects.filter(clause).distinct()
+	
+	else :
+		members = Member.objects.distinct()
+		artists = None;
+		films = None;
+	
 	return render_to_response('cinemac/resultatRecherche.html',{
 	'members_list' : members,
 	'artists_list' : artists,
