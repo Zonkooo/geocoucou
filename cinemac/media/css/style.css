@@ -132,8 +132,8 @@ body
 #research
 {
 	/*border:2px solid #F3F;*/
-	width:230px;
-	margin-top:6%;
+	width:240px;
+	margin-top:6.5%;
 	margin-left:auto;
 	margin-right:auto;
 	
@@ -141,6 +141,11 @@ body
 	
 }
 
+#research #res
+{
+	float:right;
+		margin-right:5%;
+}
 
 
 
@@ -160,10 +165,6 @@ body
 	background-image:url(/media/img/bord_menu.png);
 	background-repeat:no-repeat;
 	background-color: #fff;
-/*	height: 250px;
-	width: 220px;
-	float: left;*/
-	
 	width:241px;
 	height:auto;
 	float:left;	
@@ -205,16 +206,15 @@ body
 	background:url(/media/img/btn_Menu.jpg) left bottom no-repeat;
 	text-align:center;
  } 
+ 
  .navigation .toggleSubSubMenu a, .navigation .toggleSubSubMenu span 
  { 
 	 background: #7c8896;
 	text-align:left;
 	margin-left:-2%;
  } 
- .navigation .open a, .navigation .open span 
- { 
-    background: red; 
- } 
+
+ 
  .navigation a:hover, .navigation a:focus, .navigation a:active 
  { 
    /* background: #617183 0 0 repeat-x; */
@@ -236,8 +236,8 @@ body
  } 
 .navigation .subMenu a:hover 
 {
-	font-weight:normal;
-	text-decoration:underline;
+	font-weight:bold;
+	/*text-decoration:underline;*/
 	/*font-weight:bold;*/
 	/*border-bottom: 1px dotted #7c8896; */
  } 
@@ -261,10 +261,9 @@ body
  } 
  .navigation .subSubMenu a:hover 
  { 
+ font-weight:bold;
     /*background: #293646 0 0 repeat-x; */
 	/*border-bottom: 1px dotted #7c8896;*/
-	
-	
 	
  }
  .navigation ul.subSubMenu a
@@ -685,29 +684,8 @@ hr
 }
 
 
-/**********************************************/
-/* overrides for ui-tab styles */
-#widget-docs ul.ui-tabs-nav { padding:0 0 0 8px; }
-#widget-docs .ui-tabs-nav li { margin:5px 5px 0 0; }
 
-#widget-docs .ui-tabs-nav li a:link,
-#widget-docs .ui-tabs-nav li a:visited,
-#widget-docs .ui-tabs-nav li a:hover,
-#widget-docs .ui-tabs-nav li a:active { font-size:14px; padding:4px 1.2em 3px; color:#fff; }
 
-#widget-docs .ui-tabs-nav li.ui-tabs-selected a:link,
-#widget-docs .ui-tabs-nav li.ui-tabs-selected a:visited,
-#widget-docs .ui-tabs-nav li.ui-tabs-selected a:hover,
-#widget-docs .ui-tabs-nav li.ui-tabs-selected a:active { color:#e6820E; }
-
-#widget-docs .ui-tabs-panel { padding:20px 9px; font-size:12px; line-height:1.4; color:#000; }
-
-#widget-docs .ui-widget-content a:link,
-#widget-docs .ui-widget-content a:visited { color:#1b75bb; text-decoration:none; }
-#widget-docs .ui-widget-content a:hover,
-#widget-docs .ui-widget-content a:active { color:#0b559b; }
-@charset "utf-8";
-/* CSS Document */
 
 
 
