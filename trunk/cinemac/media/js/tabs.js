@@ -1,6 +1,6 @@
 ﻿$(function()
 {
-	alert('Start tabs');
+	//alert('Start tabs');
 	// Tabs
 	$('#tabs').tabs();
 	alert('$(#tabs).tabs();');
