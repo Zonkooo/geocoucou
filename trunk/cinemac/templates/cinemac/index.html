@@ -1,7 +1,7 @@
-﻿{% extends "layout/base.html" %}
+{% extends "layout/base.html" %}
 
 {% block ariane %}
-<a href="/">Accueil</a>
+<a href="http://index.html">Accueil</a>
 {% endblock ariane %}
 
 
@@ -32,14 +32,12 @@
 		<hr />
 		
 		<div class="pictureLast">
+        	{% for m in members %}
 			<div class="first">
-				<p><a href="#">Prénom & Nom</a></p>
-				<img src="media/img/img.jpg"/>
+				<p><a href="#">{{m.pseudo}}</a></p>
+				<img src={{m.avatar}/>
 			 </div>
-			 <div class="second">
-				<p><a href="#">Prénom & Nom</a></p>
-				<img src="media/img/img.jpg"/>
-			 </div>
+             {% endfor %} 
 		</div>   
 	</div>
 	
