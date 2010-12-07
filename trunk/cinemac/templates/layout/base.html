@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />	
 	<meta name="Géocoucou" content="" />
@@ -31,7 +32,11 @@
     	<div id="header">
         	<div id="count">
             	<div id="link">
-                	<a href="#"> S'inscrire</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  	  
+                	<!--<a href="#"> S'inscrire</a>-->
+					{% load facebookconnect %}
+					{% facebook_connect_login_button %}
+					{% facebook_connect_script %}
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  	  
                 </div>
                 <div id="logger">
                 	<!--Login :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;"/> &nbsp;
