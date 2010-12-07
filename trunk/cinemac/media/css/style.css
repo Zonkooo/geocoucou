@@ -288,12 +288,7 @@ body
 	text-align:justify;
 }
 
-#content a
-{ 
-	color: black;
-	text-decoration:underline;
-	
-}
+
 
 
 h1
@@ -704,13 +699,19 @@ hr
 	margin-top:2%;
 }
 
-#formulaire .fieldWrapper span.text
+#formulaire .fieldWrapper span
+{
+	float:left;
+	margin-right:3%;
+}
+
+#formulaire .fieldWrapper .text
 {
 	margin-left:5%;
 }
 #formulaire .fieldWrapper span.text2
 {
-	margin-left:15%;
+	margin-left:16%;
 }
 #formulaire .fieldWrapper span.msg
 {
@@ -719,12 +720,34 @@ hr
 
 #formulaire .fieldWrapper #lab
 {
+	display:block;
+	float:left;
 	margin-left:2%;
-	font-size:13px;
+	
+}
+
+#formulaire .fieldWrapper #labmsg
+{
+	display:block;
+	float:left;
+	margin-left:2%;
 }
 
 
-
+.btn
+{
+	background-image:url(/media/img/btn_Menu.jpg);
+	background-repeat:no-repeat;
+	width:100px;
+	height:30px;
+	margin-left:40%;
+	color:#FFFFFF;
+	font-weight: bold;
+	font-size: 12px;
+	text-decoration:none;
+	text-align:center;
+	margin-top:2%;
+}
 
 
 

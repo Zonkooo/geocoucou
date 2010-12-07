@@ -1,7 +1,5 @@
 ﻿#-*- coding: utf-8 -*-
-
 # Create your views here.
-from django.core.mail import send_mail
 from apps.movies.models import *
 from django.shortcuts import render_to_response
 from apps.movies.forms import *
@@ -9,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from django.template import RequestContext
+from django.core.mail import send_mail
 
 
 
@@ -104,6 +103,9 @@ def resultatRecherche(request):
 	'films_list' : films
 	})
 	
+def mentionsLegales(request):
+	return render_to_response('cinemac/mentionsLegales.html')	
+
 def contact(request):
     if request.method == 'POST': # If the form has been submitted...
         form = ContactForm(request.POST) # A form bound to the POST data
@@ -112,8 +114,7 @@ def contact(request):
 			message = form.cleaned_data['message']
 			sender = form.cleaned_data['sender']
 
-			recipients = ['cmellany@orange.fr']
-			
+			recipients = ['cmellany91@gmail.com']
 			send_mail(subject, message, sender, recipients)
 
 			return HttpResponseRedirect('/') # Redirect after POST
@@ -122,7 +123,4 @@ def contact(request):
 
     return render_to_response('cinemac/contact.html', {'form': form, 'form_action': "/contact/"}, context_instance=RequestContext(request))
 
-def mentionsLegales(request):
-	return render_to_response('cinemac/mentionsLegales.html')	
-	
-#Artist
+
