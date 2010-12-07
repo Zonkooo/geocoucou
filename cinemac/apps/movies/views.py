@@ -1,4 +1,7 @@
+﻿#-*- coding: utf-8 -*-
+
 # Create your views here.
+from django.core.mail import send_mail
 from apps.movies.models import *
 from django.shortcuts import render_to_response
 from apps.movies.forms import *
@@ -6,6 +9,8 @@ from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from django.template import RequestContext
+
+
 
 def index(request):
 	return render_to_response('cinemac/index.html')
@@ -40,8 +45,9 @@ def fichefilm(request):
 	else:
 		val = { "request_ok": False, }
 	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
-
+	
 def profil(request):
+	return render_to_response('cinemac/profil.html')
 	if request.method == 'POST':
 		form = ProfilForm(request.POST)
 		if form.is_valid():
@@ -71,6 +77,9 @@ def evenement(request):
 def listeMembre(request):
 	return render_to_response('cinemac/listeMembre.html')
 
+def listeFilms(request):
+	return render_to_response('cinemac/listeFilms.html')
+	
 @csrf_exempt
 #todo : revoir la recherche et tester si elle fonctionne bien
 def resultatRecherche(request):
@@ -95,6 +104,23 @@ def resultatRecherche(request):
 	'films_list' : films
 	})
 	
-		
+def contact(request):
+    if request.method == 'POST': # If the form has been submitted...
+        form = ContactForm(request.POST) # A form bound to the POST data
+        if form.is_valid(): # All validation rules pass
+			subject = form.cleaned_data['subject']
+			message = form.cleaned_data['message']
+			sender = form.cleaned_data['sender']
 
-Artist
+			recipients = ['cmellany91@gmail.com']
+			
+			send_mail(subject, message, sender, recipients)
+
+			return HttpResponseRedirect('/') # Redirect after POST
+    else:
+        form = ContactForm() # An unbound form
+
+    return render_to_response('cinemac/contact.html', {'form': form, 'form_action': "/contact/"}, context_instance=RequestContext(request))
+	
+	
+#Artist
