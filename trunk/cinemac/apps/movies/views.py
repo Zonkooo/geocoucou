@@ -75,7 +75,9 @@ def evenement(request):
 	return render_to_response('cinemac/evenement.html')
 
 def listeMembre(request):
-	return render_to_response('cinemac/listeMembre.html')
+        members  = Member.objects.order_by('date_joined')
+        val= {"members" :members,}
+	return render_to_response('cinemac/listeMembre.html', val, context_instance = RequestContext(request) )
 
 def listeFilms(request):
 	return render_to_response('cinemac/listeFilms.html')
@@ -105,8 +107,6 @@ def resultatRecherche(request):
 	})
 	
 def mentionsLegales(request):
-        members  = Member.objects.order_by('date_joined')
-        val= {"members" :members,}
 	return render_to_response('cinemac/mentionsLegales.html')	
 
 def contact(request):
