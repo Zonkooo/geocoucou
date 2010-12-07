@@ -13,7 +13,8 @@ from django.core.mail import send_mail
 
 def index(request):
         members  = Member.objects.order_by('-date_joined')[:2]
-	return render_to_response('cinemac/index.html',members)
+        val= {"members" :members,}
+	return render_to_response('cinemac/index.html',val)
 
 def fichefilm(request):
 	if (request.method == 'GET') & (len(request.GET.getlist('mid')) > 0):
