@@ -41,7 +41,6 @@ def fichefilm(request):
 				"note_imdb"	: movie.rating_imdb,
 				"note_imac"	: note_imac,
 				"cover"		: movie.cover,
-				"course"	: [],
 			  } #TODO : cours, commentaires
 	else:
 		val = { "request_ok": False, }
