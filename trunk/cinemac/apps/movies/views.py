@@ -112,7 +112,7 @@ def contact(request):
 			message = form.cleaned_data['message']
 			sender = form.cleaned_data['sender']
 
-			recipients = ['cmellany91@gmail.com']
+			recipients = ['cmellany@orange.fr']
 			
 			send_mail(subject, message, sender, recipients)
 
@@ -121,6 +121,8 @@ def contact(request):
         form = ContactForm() # An unbound form
 
     return render_to_response('cinemac/contact.html', {'form': form, 'form_action': "/contact/"}, context_instance=RequestContext(request))
-	
+
+def mentionsLegales(request):
+	return render_to_response('cinemac/mentionsLegales.html')	
 	
 #Artist
