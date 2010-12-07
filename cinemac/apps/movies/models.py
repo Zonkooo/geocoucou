@@ -111,8 +111,8 @@ class Member(models.Model):
 	avatar		= models.ImageField(upload_to='img/avatars/')
 	
 	#facebook
-	fb_id = models.CharField(max_length=100, unique=True)
 	contrib_user = models.OneToOneField(User)
+	fb_id = models.CharField(max_length=100, unique=True)
 	contrib_password = models.CharField(max_length=100)
 	
 	def __unicode__(self):
