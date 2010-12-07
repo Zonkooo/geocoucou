@@ -13,4 +13,5 @@ urlpatterns = patterns('',
 	url(r'^listeFilms/$', listeFilms, name='listeFilms'),
 	url(r'^resultatRecherche/$', resultatRecherche, name='resultatRecherche'),
 	url(r'^contact/$', contact, name='contact'),
+	url(r'^mentionsLegales/$', mentionsLegales, name='mentionsLegales'),
 )
