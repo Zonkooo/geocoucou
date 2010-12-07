@@ -12,7 +12,7 @@ from django.core.mail import send_mail
 
 
 def index(request):
-        members  = Member.objects.order_by('-date_joined')[:2]
+        members  = Member.objects.order_by('date_joined')[:2]
         val= {"members" :members,}
 	return render_to_response('cinemac/index.html',val)
 
