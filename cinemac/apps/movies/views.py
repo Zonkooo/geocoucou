@@ -15,6 +15,13 @@ def fichefilm(request):
 		movie_id = request.GET['mid']
 		movie = Movie.objects.get(id = movie_id)
 		
+#		imac_r = Rate.objects.filter();#TODO
+		note_imac = 0
+#		if len(imac_r) != 0:
+#			for r in imac_r:
+#				note_imac += r.value
+#			note_imac /= len(imac_r)
+		
 		val = {
 				"request_ok": True,
 				"title"		: movie.title,
@@ -24,7 +31,12 @@ def fichefilm(request):
 				"year"		: movie.year.year,
 				"country"	: movie.country,
 				"synopsis"	: movie.synopsis,
-			  }
+				#non utilises pour l'instant :
+				"note_imdb"	: movie.rating_imdb,
+				"note_imac"	: note_imac,
+				"cover"		: movie.cover,
+				"course"	: [],
+			  } #TODO : cours, commentaires
 	else:
 		val = { "request_ok": False, }
 	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
@@ -47,12 +59,9 @@ def profil(request):
 		'form':form,
 	})
 	
-def login(request):
-	form = LoginForm()
-	return render_to_response('cinemac/login.html',{
-		'form':form,
-	})
-	
+def xd_receiver(request): #facebook
+    return render_to_response('xd_receiver.html')
+    
 def creerEvt(request):
 	return render_to_response('cinemac/creerEvt.html')
 	

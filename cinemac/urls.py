@@ -17,8 +17,8 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-    # Example:
      (r'', include('apps.movies.urls')),
+     (r'', include('apps.facebookconnect.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
