@@ -13,7 +13,7 @@ from django.template import RequestContext
 
 
 def index(request):
-        members  = Member.objects.order_by('-date_joined')[:2];
+        members  = Member.objects.order_by('-date_joined')[:2]
 	return render_to_response('cinemac/index.html',members)
 
 def fichefilm(request):
