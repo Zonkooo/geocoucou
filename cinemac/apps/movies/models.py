@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Genre(models.Model):
@@ -108,6 +109,11 @@ class Member(models.Model):
 	date_joined	= models.DateTimeField(auto_now_add=True)
 	class_year	= models.DateField();
 	avatar		= models.ImageField(upload_to='img/avatars/')
+	
+	#facebook
+	fb_id = models.CharField(max_length=100, unique=True)
+	contrib_user = models.OneToOneField(User)
+	contrib_password = models.CharField(max_length=100)
 	
 	def __unicode__(self):
 		return "%s" % (self.pseudo)

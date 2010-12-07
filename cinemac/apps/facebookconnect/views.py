@@ -9,7 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from apps.facebookconnect.models import FacebookUser
+from apps.movies.models import Member
 
 def login_facebook_connect(request):
     status = 'unknown failure'
@@ -31,15 +31,15 @@ def login_facebook_connect(request):
         post_hash_string.update(pre_hash_string)
         if post_hash_string.hexdigest() == sig:
             try:
-                fb = FacebookUser.objects.get(facebook_id=user)
+                fb = Member.objects.get(fb_id=user)
                 status = "logged in existing user"
             except FacebookUser.DoesNotExist:
                 contrib_user = User()
                 contrib_user.save()
                 contrib_user.username = u"fbuser_%s" % contrib_user.id
 
-                fb = FacebookUser()
-                fb.facebook_id = user
+                fb = Member()
+                fb.fb_id = user
                 fb.contrib_user = contrib_user
 
                 temp = hashlib.new('sha1')

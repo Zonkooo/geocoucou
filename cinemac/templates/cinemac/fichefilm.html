@@ -37,9 +37,9 @@
     	{% for g in genres %}
     		{{ g.name }}, 
     	{% endfor %}                     <b>Année:</b> {{ year }}                    <b>Pays:</b>{{ country }}<br/>
-    {{% for c in course %}}
-	    <b>Matière:</b> {{c.topic}}                 <b>IMAC </b>{{c.year}}
-	{{% endfor %}}
+    
+	    <b>Matière:</b> topic                 <b>IMAC </b>year
+	
     <br/><br/>
     <b>Synopsis: </b>{{ synopsis }}
     
