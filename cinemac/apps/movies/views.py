@@ -13,7 +13,8 @@ from django.template import RequestContext
 
 
 def index(request):
-	return render_to_response('cinemac/index.html')
+        members  = Member.objects.order_by('-date_joined')[:2];
+	return render_to_response('cinemac/index.html',members)
 
 def fichefilm(request):
 	if (request.method == 'GET') & (len(request.GET.getlist('mid')) > 0):
