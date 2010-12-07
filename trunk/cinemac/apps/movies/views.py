@@ -105,6 +105,8 @@ def resultatRecherche(request):
 	})
 	
 def mentionsLegales(request):
+        members  = Member.objects.order_by('date_joined')
+        val= {"members" :members,}
 	return render_to_response('cinemac/mentionsLegales.html')	
 
 def contact(request):
