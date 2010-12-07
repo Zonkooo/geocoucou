@@ -17,9 +17,10 @@
 	 <form id="formulaire" action="/contact/" method="post">{% csrf_token %}
 		{{ form.non_field_errors }}
 		<div class="fieldWrapper">
-			{{ form.sender.errors }}
+			
 			<label id="lab" for="id_sender">Votre adresse e-mail:</label>
 			<span class="text">{{ form.sender }} </span>
+			{{ form.sender.errors }}
 		</div>
 		<div class="fieldWrapper">
 			{{ form.subject.errors }}
@@ -28,7 +29,7 @@
 		</div>
 		<div class="fieldWrapper">
 			{{ form.message.errors }}
-			<label id="lab" for="id_message">Votre message:</label>
+			<label id="labmsg" for="id_message">Votre message:</label>
 			<span class="msg">{{ form.message }}</span>
 		</div>
 		</br>
@@ -37,7 +38,7 @@
 			<label id="lab" for="id_cc_myself">Voulez-vous une copie?</label>
 			<span >{{ form.cc_myself }}</span>
 		</div> -->
-		<p><input type="submit" value="Envoyer" /></p>
+		<p ><input class="btn" type="submit" value="Envoyer" /></p>
 	</form> 
 	
 	<!--<form action="{{ form_action }}" method="post">
