@@ -1,4 +1,4 @@
-﻿#-*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 # Create your views here.
 from apps.movies.models import *
 from django.shortcuts import render_to_response
