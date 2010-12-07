@@ -116,7 +116,9 @@ def contact(request):
 			sender = form.cleaned_data['sender']
 
 			recipients = ['cmellany91@gmail.com']
+			#recipients = ['projetwebimac@googlegroups.com','cmellany91@gmail.com']
 			send_mail(subject, message, sender, recipients)
+			return render_to_response('cinemac/thanks.html')
 
 			return HttpResponseRedirect('/') # Redirect after POST
     else:
