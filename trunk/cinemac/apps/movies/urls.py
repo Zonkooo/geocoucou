@@ -1,3 +1,4 @@
+﻿#-*- coding: utf-8 -*-
 from apps.movies.views import *
 from django.conf.urls.defaults import *
 
@@ -9,5 +10,7 @@ urlpatterns = patterns('',
 	url(r'^creerEvt/$', creerEvt, name='creerEvt'),
 	url(r'^evenement/$', evenement, name='evenement'),
 	url(r'^listeMembre/$', listeMembre, name='listeMembre'),
+	url(r'^listeFilms/$', listeFilms, name='listeFilms'),
 	url(r'^resultatRecherche/$', resultatRecherche, name='resultatRecherche'),
+	url(r'^contact/$', contact, name='contact'),
 )

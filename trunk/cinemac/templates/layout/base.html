@@ -1,3 +1,4 @@
+﻿
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:fb="http://www.facebook.com/2008/fbml">
@@ -32,13 +33,13 @@
     	<div id="header">
         	<div id="count">
             	<div id="link">
-                	<!--<a href="#"> S'inscrire</a>-->
+                	<!--<a href="#"> S'inscrire</a>-->	
+					<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  	  -->
+                </div>
+                <div id="logger">
 					{% load facebookconnect %}
 					{% facebook_connect_login_button %}
 					{% facebook_connect_script %}
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  	  
-                </div>
-                <div id="logger">
                 	<!--Login :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;"/> &nbsp;
                	 	Mot de passe :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;" />
                 	<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>-->
@@ -46,7 +47,7 @@
             </div>
             
             <div id="logo">
-            <a href="./index.html"><img src="/media/img/logo.png" alt="logo" /></a>
+            <a href="/"><img src="/media/img/logo.png" alt="logo" /></a>
             </div>
             <div id="slogan">
             La référence cinéma des Imaciens.
@@ -69,48 +70,47 @@
        <div id="centre">
 			<div id="menu">
 				<ul class="navigation"> 
-					<li class="toggleSubMenu"><span>Films</span>
+					<li class="toggleSubMenu"><span>Films</span></a>
 						<ul class="subMenu"> 
-							<li class="toggleSubSubMenu"><span>IMAC1</span>
+							<li class="toggleSubSubMenu"><span>IMAC1</span></a>
 								<ul class="subSubMenu"> 
-									<li><a href="#" title="Aller à la page 1.1">Expression et écriture</a></li> 
-									<li><a href="#" title="Aller à la page 1.2">Archives et restauration</a></li> 		 
+									<li><a href="/listeFilms/" title="Expression et écriture">Expression et écriture</a></li> 
+									<li><a href="/listeFilms/" title="Archives et restauration">Archives et restauration</a></li> 		 
 								</ul> 
 							</li>
 							<li class="toggleSubSubMenu"><span>IMAC2</span>
 								<ul class="subSubMenu"> 
-									<li><a href="#" title="Aller à la page 1.1">Dramaturgie</a></li> 
-									<li><a href="#" title="Aller à la page 1.2">Sociologie des médias</a></li> 
-									<li><a href="#" title="Aller à la page 1.3">Cinéma d'animation</a></li> 				 
+									<li><a href="/listeFilms/" title="Aller à la page 1.1">Dramaturgie</a></li> 
+									<li><a href="/listeFilms/" title="Aller à la page 1.2">Sociologie des médias</a></li> 
+									<li><a href="/listeFilms/" title="Aller à la page 1.3">Cinéma d'animation</a></li> 				 
 								</ul> 
 							</li>
 							<li class="toggleSubSubMenu"><span>IMAC3</span>
 								<ul class="subSubMenu"> 
-									<li><a href="#" title="Aller à la page 1.1">Art et technologies</a></li> 
-									<li><a href="#" title="Aller à la page 1.2">Langage et compréhension</a></li> 
-									<li><a href="#" title="Aller à la page 1.3">Animation</a></li> 				 
+									<li><a href="/listeFilms/" title="Aller à la page 1.1">Art et technologies</a></li> 
+									<li><a href="/listeFilms/" title="Aller à la page 1.2">Langage et compréhension</a></li> 
+									<li><a href="/listeFilms/" title="Aller à la page 1.3">Animation</a></li> 				 
 								</ul> 
 							</li>							
-							<li class="toggleSubSubMenu"><a href="#" title="Aller à la page 4">Top 10</a></li> 	
-							<li class="toggleSubSubMenu"><a href="#" title="Aller à la page 4">Autres films</a></li> 
-						</ul> 
-					 </li> 
-					<li class="toggleSubMenu"><span>Evénements</span> 
-						<ul class="subMenu"> 
-							<li class="toggleSubSubMenu"><a href="#" title="Aller à la page 4">Créer un événement</a></li> 
-							<li class="toggleSubSubMenu"><a href="#" title="Aller à la page 1.2">Voir un événement</a></li> 			 
+							<li class="toggleSubSubMenu"><a href="/listeFilms/" title="Aller à la page 4">Top 10</a></li> 	
+							<li class="toggleSubSubMenu"><a href="/listeFilms/" title="Aller à la page 4">Autres films</a></li> 
 						</ul> 
 					</li> 
-					<li><a href="#" title="Aller à la page 4">Membres</a></li> 
+					<li class="toggleSubMenu"><span>Evénements</span> 
+						<ul class="subMenu"> 
+							<li class="toggleSubSubMenu"><a href="/creerEvt/" title="Aller à la page 4">Créer un événement</a></li> 
+							<li class="toggleSubSubMenu"><a href="/evenement/" title="Aller à la page 1.2">Voir un événement</a></li> 			 
+						</ul> 
+					</li> 
+					<li><a href="/listeMembre/" title="Aller à la page 4">Membres</a></li> 
 					<li class="toggleSubMenu"><span>Mon compte</span> 
 						<ul class="subMenu"> 
-							<li class="toggleSubSubMenu"><a href="#" title="Aller à la page 1.2">Voir mon profil</a></li> 
+							<li class="toggleSubSubMenu"><a href="/profil/" title="Aller à la page 1.2">Voir mon profil</a></li> 
 							<li class="toggleSubSubMenu"><a href="#" title="Aller à la page 1.3">Modifier mon profil</a></li> 				 
 							<li class="toggleSubSubMenu"><a href="#" title="Aller à la page 1.3">Mes invitations</a></li> 				 
 							<li class="toggleSubSubMenu"><a href="#" title="Aller à la page 1.3">Modifier mes événements</a></li> 				 
 						</ul> 
 					</li> 
-				 
 				</ul>
 			</div>
 		 
@@ -128,7 +128,7 @@
         </div>
 		
         <div id="footer">
-        	<p><a href="#">Contact</a>  |  <a href="#">A propos</a>  |  <a href="#">Plan du site</a>  |  <a href="#">Conditions générales du site</a></p>
+        	<p><a href="/contact/">Contact</a>  |  <a href="#">A propos</a>  |  <a href="#">Plan du site</a>  |  <a href="#">Conditions générales du site</a></p>
             <p>Ecole d’ingénieurs IMAC - 5 boulevard Descartes - Marne-la-Vallée, France, 77454</p>
             
             <p>Copyright © Géocoucou Tous droits réservés</p>

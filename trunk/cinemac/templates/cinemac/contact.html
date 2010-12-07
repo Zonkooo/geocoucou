@@ -1,0 +1,49 @@
+﻿{% extends "layout/base.html" %}
+
+{% block ariane %}
+
+{% endblock ariane %}
+
+
+{% block content %}
+
+	<h2> Contact </h2>
+	
+	<span>Vous avez une question? N'hésitez pas à nous contacter, nous vous répondrons rapidement. </span>
+	</br></br>
+	
+	
+	
+	 <form id="formulaire" action="/contact/" method="post">{% csrf_token %}
+		{{ form.non_field_errors }}
+		<div class="fieldWrapper">
+			{{ form.sender.errors }}
+			<label id="lab" for="id_sender">Votre adresse e-mail:</label>
+			<span class="text">{{ form.sender }} </span>
+		</div>
+		<div class="fieldWrapper">
+			{{ form.subject.errors }}
+			<label id="lab" for="id_subject">Sujet:</label>
+			<span  class="text2">{{ form.subject }}</span>
+		</div>
+		<div class="fieldWrapper">
+			{{ form.message.errors }}
+			<label id="lab" for="id_message">Votre message:</label>
+			<span class="msg">{{ form.message }}</span>
+		</div>
+		</br>
+		<!-- <div class="fieldWrapper">
+			{{ form.cc_myself.errors }}
+			<label id="lab" for="id_cc_myself">Voulez-vous une copie?</label>
+			<span >{{ form.cc_myself }}</span>
+		</div> -->
+		<p><input type="submit" value="Envoyer" /></p>
+	</form> 
+	
+	<!--<form action="{{ form_action }}" method="post">
+		{{ form.as_p }}
+		<input type="submit" class=""submit_search value="Envoyer" />
+	</form>-->
+
+
+{% endblock content %}

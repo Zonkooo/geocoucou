@@ -1,4 +1,4 @@
-/* Reset */
+﻿/* Reset */
 html { font-family:'Nyala',Tahoma,Arial,Verdana,San-serif; }
 img{border:none;}
 a { color:white; text-decoration:none; outline: none; }
@@ -307,7 +307,7 @@ p
 	
 }
 
-/* Visionneuse des nouveaut�s */
+/* Visionneuse des nouveautés */
 #viewer_navig {width: 698px; text-align: right;  margin-bottom:10px; }
 #viewer_navig a{background-color: #37485c; padding : 3px 10px;}
 #viewer_navig a.wactive{
@@ -683,8 +683,37 @@ hr
 	text-decoration:underline;
 }
 
+/**********************************************************************/
+#formulaire
+{
+	border:1px solid grey;
+	margin-left:auto;
+	margin-right:1%;
+}
 
+#formulaire .fieldWrapper
+{
+	margin-top:2%;
+}
 
+#formulaire .fieldWrapper span.text
+{
+	margin-left:5%;
+}
+#formulaire .fieldWrapper span.text2
+{
+	margin-left:15%;
+}
+#formulaire .fieldWrapper span.msg
+{
+	margin-left:9%;
+}
+
+#formulaire .fieldWrapper #lab
+{
+	margin-left:2%;
+	font-size:13px;
+}
 
 
 
