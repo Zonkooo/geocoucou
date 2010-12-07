@@ -22,16 +22,22 @@
                 <div class="Resultatlisting">
                 
                    	<div class="listing">
-                   		<img src="../../media/{{m.avatar}}" />
-                        <div class="info">
-                        	<b>{{m.pseudo}}</b><br/>
-                            <b>Catégorie</b> {{m.pseudo}}                
-                 		</div>
+                        {% for m in members %}
+							<div class="first">
+								<p><a href="#">{{m.pseudo}}</a></p>
+								<img src="media/{{m.avatar}}"/>
+			 				</div>
+            
+                   			<img src="../../media/{{m.avatar}}" />
+                        	<div class="info">
+                        		<b>{{m.pseudo}}</b><br/>
+	                            <b>Catégorie</b> {{m.pseudo}}                
+    	             		</div>
                         
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
+                         	<div class="button">
+                 	        	<span><a href="#">VOIR CETTE FICHE</a></span>
+                 			</div>
+                		 {% endfor %} 
                		 </div>
                      
                      <div class="listing">
