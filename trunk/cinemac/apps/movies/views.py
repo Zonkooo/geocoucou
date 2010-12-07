@@ -115,8 +115,8 @@ def contact(request):
 			message = form.cleaned_data['message']
 			sender = form.cleaned_data['sender']
 
-			recipients = ['cmellany91@gmail.com']
-			#recipients = ['projetwebimac@googlegroups.com','cmellany91@gmail.com']
+			#recipients = ['cmellany91@gmail.com']
+			recipients = ['projetwebimac@googlegroups.com']
 			send_mail(subject, message, sender, recipients)
 			return render_to_response('cinemac/thanks.html')
 
