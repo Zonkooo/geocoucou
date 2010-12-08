@@ -19,7 +19,9 @@ def index(request):
 def fichefilm(request):
 	if (request.method == 'GET') & (len(request.GET.getlist('mid')) > 0):
 		movie_id = request.GET['mid']
-		movie = Movie.objects.get(id = movie_id)
+		myMovie = Movie.objects.get(id = movie_id)
+		coursecomment = CourseComment.objects.filter(movie = myMovie)
+		
 		
 #		imac_r = Rate.objects.filter();#TODO
 		note_imac = 0
@@ -30,17 +32,19 @@ def fichefilm(request):
 		
 		val = {
 				"request_ok": True,
-				"title"		: movie.title,
-				"directors"	: movie.directed_by.all(),
-				"actors"	: movie.played_by.all(),
-				"genres"	: movie.genre_is.all(),
-				"year"		: movie.year.year,
-				"country"	: movie.country,
-				"synopsis"	: movie.synopsis,
+				"title"		: myMovie.title,
+				"directors"	: myMovie.directed_by.all(),
+				"actors"	: myMovie.played_by.all(),
+				"genres"	: myMovie.genre_is.all(),
+				"year"		: myMovie.year.year,
+				"country"	: myMovie.country,
+				"synopsis"	: myMovie.synopsis,
 				#non utilises pour l'instant :
-				"note_imdb"	: movie.rating_imdb,
+				"note_imdb"	: myMovie.rating_imdb,
 				"note_imac"	: note_imac,
-				"cover"		: movie.cover,
+				"cover"		: myMovie.cover,
+				"coursecomment"	: coursecomment,
+				"movie_id"	: movie_id
 			  } #TODO : cours, commentaires
 	else:
 		val = { "request_ok": False, }
