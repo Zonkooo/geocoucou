@@ -18,38 +18,24 @@
                                                                                    	 	</SELECT>
                                                                                     </FORM></span> <span class="right"> < 1 - 2 > </span>
                 </div>
-                
+                {% if m.id > 0 %}
                 <div class="Resultatlisting">
-                
+					{% for m in members %}
                    	<div class="listing">
-                        {% for m in members %}
-                   			<img src="../../media/{{m.avatar}}" />
-                        	<div class="info">
-                        		<b>{{m.pseudo}}</b><br/>
-	                            <b>Catégorie</b> {{m.class_year}}                
-    	             		</div>
-                        
-                         	<div class="button">
-                 	        	<span><a href="#">VOIR CETTE FICHE</a></span>
-                 			</div>
-                		 {% endfor %} 
-               		 </div>
-                     
-                     <div class="listing">
-                   		<img src="../../media/img/img.jpg" />
-                        <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
-                 		</div>
-                        
-                         <div class="button">
+						<img src="{{m.avatar}}"/>
+						<div class="info">
+							<p><a href="#">{{m.pseudo}}</a></p>
+						</div>
+						<div class="button">
                            <span><a href="#">VOIR CETTE FICHE</a></span>
                  		 </div>
                 
-               		 </div>
-                                     
+               		</div>
+                    {% endfor %}    
                 </div>
+				{% else %}
+					<p>Aucun membre enregistré ! </p>
+				{% endif %}
                 
                 
                 <div class="headpiece">
