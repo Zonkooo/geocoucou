@@ -1,7 +1,7 @@
 ﻿{% extends "layout/base.html" %}
 
 {% block ariane %}
-<a href="index.html">Accueil > Membres</a>
+<a href="/">Accueil</a> > <a href="/listeMembre/">Membres</a>
 {% endblock ariane %}
 
 {% block content %}
@@ -18,7 +18,8 @@
                                                                                    	 	</SELECT>
                                                                                     </FORM></span> <span class="right"> < 1 - 2 > </span>
                 </div>
-                {% if m.id > 0 %}
+               
+			   {% if m.id > 0 %}
                 <div class="Resultatlisting">
 					{% for m in members %}
                    	<div class="listing">
@@ -28,7 +29,7 @@
 						</div>
 						<div class="button">
                            <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
+                 		</div>
                 
                		</div>
                     {% endfor %}    
