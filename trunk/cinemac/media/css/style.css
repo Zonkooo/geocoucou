@@ -519,6 +519,7 @@ hr
 	margin-left:auto;
 	margin-right:auto;
 	width:670px;
+	height:100px;
 	
 
 }
@@ -528,6 +529,9 @@ hr
 	margin-left:4%;
 	margin-bottom:1%;
 	margin-top:1%;
+	width:80px;
+	height:86px;
+	
 }
 
 .listing .infos
