@@ -17,11 +17,10 @@ def index(request):
 	return render_to_response('cinemac/index.html',val)
 
 def fichefilm(request):
-	if (request.method == 'GET') & ('mid' in request.GET):
-		myMovie = Movie.objects.get(id = request.GET['mid']) #ici pb si on met de la merde en param GET
-		coursecomment = CourseComment.objects.filter(movie = myMovie)
-		
-		
+	if (request.method == 'GET') and (len(request.GET.getlist('mid')) > 0):
+		movie_id = request.GET['mid']
+		myMovie = Movie.objects.get(id = movie_id)
+				
 #		imac_r = Rate.objects.filter();#TODO
 		note_imac = 0
 #		if len(imac_r) != 0:
@@ -29,19 +28,7 @@ def fichefilm(request):
 #				note_imac += r.value
 #			note_imac /= len(imac_r)
 		
-		val = {
-				"request_ok": True,
-				"movie"		: myMovie,
-				"directors"	: myMovie.directed_by.all(),
-				"actors"	: myMovie.played_by.all(),
-				"genres"	: myMovie.genre_is.all(),
-				#non utilises pour l'instant :
-				"note_imac"	: note_imac,
-				"coursecomment"	: coursecomment,
-			  } #TODO : cours, commentaires
-	else:
-		val = { "request_ok": False, }
-	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
+	return render_to_response('cinemac/fichefilm.html', {'movie':myMovie,}, context_instance = RequestContext(request) )
 	
 def profil(request):
 	if request.user.is_authenticated():

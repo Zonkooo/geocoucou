@@ -9,7 +9,7 @@
 {% endblock ariane %}
 
 {% block content %}
-	{% if request_ok %}
+
 
 	<div class="infoG">
         <h2>{{ movie.title }}</h2>
@@ -19,24 +19,24 @@
 	
     
     <div class="photo">
-    	<img height=250 width=200 src="{{ movie.cover }}" alt="{{ movie.title }}" />
+    
     </div>
     
     
     <div class="info">
     
     <b>Réalisé par:</b> 
-    	{% for d in directors %}
+    	{% for d in movie.get_directors %}
     		{{ d.forename }} {{ d.name }}, 
     	{% endfor %} <br/>
     <b>Acteurs principaux:</b>
-    	{% for a in actors %}
-    		{{ a.forename }} {{ a.name }}, 
+    	{% for a in movie.get_actors %}
+    		{{ a.forename }} {{ a.name }}
     	{% endfor %}<br/>
     <b>Genre:</b> 
-    	{% for g in genres %}
-    		{{ g.name }}, 
-    	{% endfor %}                     <b>Année:</b> {{ movie.year.year }}                    <b>Pays:</b>{{ movie.country }}<br/>
+    	{% for g in movie.get_genre %}
+    		{{ g.name }}
+    	{% endfor %}                     <b>Année:</b> {{ movie.year }}                    <b>Pays:</b>{{ movie.country }}<br/>
     
 	    <b>Matière:</b> topic                 <b>IMAC </b>year
 	
@@ -56,22 +56,27 @@
 			</ul>
 						
 			<div id="tabs-1">    
-				{% for comment in coursecomment %}
-					{{comment}}
+				{% for com in movie.coursecomment_set.all %}
+					{{com}}
+					{%empty%}<p> Aucun commentaire sur ce film pour le moment <br/></p>
 				{% endfor %}
 			</div>
-			<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
-			<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+			<div id="tabs-2">
+				{% for content in movie.commentmovie_set.all %}
+					{{content}}
+					{%empty%}<p> Aucun commentaire sur ce film pour le moment <br/></p>
+				{% endfor %}
+			</div>
+			<div id="tabs-3">
+				{% for m in movie.get_suggested_movies %}
+					{{m}}
+					{%empty%}<p> Aucune suggestion <br/></p>
+				{% endfor %}
+			</div>
 	
 		</div>                       
     
 	</div><!--infoSup-->	
 
-	{% else %}
-		<div>
-			<p> aucun film correspondant </p>
-		</div>
-
-	{% endif %}
 
 {% endblock content %}
