@@ -1,7 +1,7 @@
 ﻿{% extends "layout/base.html" %}
 
 {% block ariane %}
-<a href="index.html">Accueil > Membres</a>
+<a href="/">Accueil </a> > <a href="/listeFilms/">Films</a>
 {% endblock ariane %}
 
 {% block content %}
@@ -9,20 +9,20 @@
                 
                 <div class="headpiece">
                 <span class="left">Nombre de résultats</span> <span class="center"><FORM>
-                                                                                    <SELECT name="affichage" size="1">
-                                                                                    	<OPTION>Trier par
-                                                                                    	<OPTION>Catégorie
-                                                                                    	<OPTION>Titre film
-                                                                                   	 	<OPTION>Rélisateurs
-                                                                                   		<OPTION>Classement
-                                                                                   	 	</SELECT>
-                                                                                    </FORM></span> <span class="right"> < 1 - 2 > </span>
+                                                                                    <select name="affichage" size="1">
+                                                                                    	<option>Trier par</option>
+                                                                                    	<option>Catégorie</option>
+                                                                                    	<option>Titre film</option>
+                                                                                   	 	<option>Rélisateurs</option>
+                                                                                   		<option>Classement</option>
+                                                                                   	 	</select>
+                                                                                    </FORM></span> <!-- <span class="right"> < 1 - 2 > </span> -->
                 </div>
                 
                 <div class="Resultatlisting">
-                
+					{% for f in movie %}
                    	<div class="listing">
-                   		<img src="../../media/img/img.jpg" />
+                   		<img src="/media/img/img.jpg" />
                         <div class="info">
                         	<b>TITRE DU FILM</b><br/>
                             <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
@@ -34,47 +34,19 @@
                  		 </div>
                 
                		 </div>
-					 
-					 <div class="listing">
-                   		<img src="../../media/img/img.jpg" />
-                        <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
-                 		</div>
-                        
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
-               		 </div>
-                     
-                     <div class="listing">
-                   		<img src="../../media/img/img.jpg" />
-                        <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
-                 		</div>
-                        
-                         <div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		 </div>
-                
-               		 </div>
-                                     
+					{% endfor %}					 
                 </div>
                 
                 
                 <div class="headpiece">
                  <span class="centerbas"><FORM>
-                                          <SELECT name="resultat" size="1">
-                                          		<OPTION>Nombre de résultats
-                                               <OPTION>10
-                                               <OPTION>20
-                                               <OPTION>30
-                                          </SELECT>
-                                         </FORM></span>  <span class="right"> < 1 - 2 > </span>
+                                          <select name="resultat" size="1">
+                                          		<option>Nombre de résultats</option>
+                                               <option>10</option>
+                                               <option>20</option>
+                                               <option>30</option>
+                                          </select>
+                                         </FORM></span>  <!-- <span class="right"> < 1 - 2 > </span> -->
                 </div>
 
 {% endblock content %}
