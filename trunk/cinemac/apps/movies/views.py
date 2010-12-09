@@ -45,7 +45,13 @@ def fichefilm(request):
 	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
 	
 def profil(request):
-	if request.user.is_authenticated():
+	if (request.method == 'GET') & ('uid' in request.GET) :
+		m = Member.objects.get(id = request.GET['uid'])
+		val = {
+				"logged"	: True,
+				"member"	: m,
+			  }
+	elif request.user.is_authenticated():
 		m = Member.objects.get(contrib_user = request.user)
 		val = {
 				"logged"	: True,
@@ -131,7 +137,7 @@ def contact(request):
 	
 def listeEvt(request):
 	evenement  = Event.objects.order_by('date')
-	val= {"evenement" :evenement,}
+	val= {"evenement" : evenement,}
 	return render_to_response('cinemac/listeEvt.html', val, context_instance = RequestContext(request) )
 
 def listeMesInvit(request):
