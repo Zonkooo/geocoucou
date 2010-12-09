@@ -134,3 +134,7 @@ def listeEvt(request):
 	val= {"evenement" :evenement,}
 	return render_to_response('cinemac/listeEvt.html', val, context_instance = RequestContext(request) )
 
+def listeMesInvit(request):
+	evenement  = Event.objects.order_by('date')
+	val= {"evenement" :evenement,}
+	return render_to_response('cinemac/listeMesInvit.html', val, context_instance = RequestContext(request) )
