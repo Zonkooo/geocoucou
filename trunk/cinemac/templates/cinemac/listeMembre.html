@@ -10,13 +10,11 @@
                 <div class="headpiece">
                 <span class="left">Nombre de résultats</span> <span class="center"><FORM>
                                                                                     <SELECT name="affichage" size="1">
-                                                                                        <OPTION>Trier par
-                                                                                        <OPTION>Ordre Alphabétique
-                                                                                        <OPTION>Nom
-                                                                                                <OPTION>Prénom
-                                                                                                <OPTION>Catégorie
-                                                                                                </SELECT>
-                                                                                    </FORM></span> <span class="right"> < 1 - 2 > </span>
+                                                                                        <OPTION>Trier par</OPTION>
+                                                                                        <OPTION value="pseudo">Pseudo</OPTION>
+                                                                                        <OPTION value="class_year">categorie</OPTION>
+                                                                                    </SELECT>
+                                                                                    </FORM></span>
                 </div>
                 
                 <div class="Resultatlisting">
@@ -37,16 +35,4 @@
                          </div>   
 {% endfor %} 						 
                 </div>
- 
-                <div class="headpiece">
-                 <span class="centerbas"><FORM>
-                                          <SELECT name="resultat" size="1">
-                                                        <OPTION>Nombre de résultats
-                                               <OPTION>10
-                                               <OPTION>20
-                                               <OPTION>30
-                                          </SELECT>
-                                         </FORM></span>  <span class="right"> < 1 - 2 > </span>
-                </div>
-
 {% endblock content %}
