@@ -8,13 +8,14 @@
                 <h2 class="infoG">MEMBRES</h2>
                 
                 <div class="headpiece">
-                <span class="left">Nombre de résultats</span> <span class="center"><FORM>
-                                                                                    <select name="affichage" size="1">
-                                                                                        <option value="pseudo">Pseudo</option>
-                                                                                        <option>Ordre Alphabétique</option>
-                                                                                        <option value="class_year">categorie</option>         
-                                                                                    </FORM></span> 
 
+                <span class="left">Nombre de résultats</span> <span class="center"><FORM>
+                                                                                    <SELECT name="affichage" size="1" onChange="mode_de_tri(this)">
+                                                                                        <OPTION>Trier par</OPTION>
+                                                                                        <OPTION value="pseudo">Pseudo</OPTION>
+                                                                                        <OPTION value="class_year">categorie</OPTION>
+                                                                                    </SELECT>
+                                                                                    </FORM></span>
                 </div>
                 
                 <div class="Resultatlisting">
