@@ -19,7 +19,7 @@
                 </div>
                 
                 <div class="Resultatlisting">
-						{% for m in member %}
+			{% for m in member %}
                         <div class="listing">
                             <img src="/media/{{m.avatar}}" />
                                 <div class="info">
@@ -31,19 +31,8 @@
                                         <span><a href="#">VOIR CETTE FICHE</a></span>
                                 </div>
                          </div>   
-					{% endfor %} 						 
+			{% endfor %} 						 
                 </div>
  
-                <div class="headpiece">
-                 <span class="centerbas"><FORM>
-                                          <select name="resultat" size="1">
-                                               <option>Nombre de résultats
-                                               <option>10</option>
-                                               <option>20</option>
-                                               <option>30</option>
-                                          </select>
-                                         </FORM></span>  <span class="right"> < 1 - 2 > </span>
-                </div>
-
 
 {% endblock content %}
