@@ -22,7 +22,7 @@
                 <div class="Resultatlisting">
 					{% for m in movie %}
                    	<div class="listing">
-                   		<img src="/media/{{m.avatar}}" />
+                   		<img src="{{ m.cover }}" />
                         <div class="info">
                         	<b class="title">{{ m.title }}</b><br/>
                            <span class="l2"> <b class="rating">IMDB : </b>{{ m.rating_imdb }} / 10 | <b>IMAC : </b> **** <br/> </span>
