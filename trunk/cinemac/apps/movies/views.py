@@ -87,7 +87,7 @@ def listeMembre(request):
 	return render_to_response('cinemac/listeMembre.html', val, context_instance = RequestContext(request) )
 
 def listeFilms(request):
-        if (request.method == 'GET') & (len(request.GET.getlist('mode')) > 0):
+        if (request.method == 'GET'):
            # try:
                 movie  = movie.objects.order_by( request.GET['mode'])
          #   except:
