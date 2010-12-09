@@ -51,6 +51,22 @@ class Movie(models.Model):
 	played_by	= models.ManyToManyField('Artist', related_name='acting')
 	directed_by	= models.ManyToManyField('Artist', related_name='directing')
 	
+	def get_suggested_movies(self) :
+		movies = self.genre_is.all()[1].movie_set.all().order_by('?')[:3]
+		return movies
+	
+	def get_actors(self) :
+		actors = self.played_by.all()
+		return actors
+
+	def get_directors(self) :
+		directors = self.directed_by.all()
+		return directors
+		
+	def get_genre(self) :
+		genre = self.genre_is.all()
+		return genre
+		
 	def __unicode__(self):
 		return "%s (%s)" % (self.title, self.year.year)
 		
@@ -76,7 +92,7 @@ class CommentMovie(models.Model):
 	author		= models.ForeignKey('Member')
 	
 	def __unicode__(self):
-		return "%s" % (self.comment)
+		return "%s" % (self.content)
 		
 class CommentEvent(models.Model):
 	slug 		= models.SlugField(max_length = 255)
@@ -87,7 +103,7 @@ class CommentEvent(models.Model):
 	author		= models.ForeignKey('Member')
 	
 	def __unicode__(self):
-		return "%s" % (self.comment)
+		return "%s" % (self.content)
 		
 class Event(models.Model):
 	slug 		= models.SlugField(max_length = 255)
