@@ -20,13 +20,13 @@
                 </div>
                 
                 <div class="Resultatlisting">
-					{% for f in movie %}
+					{% for m in movie %}
                    	<div class="listing">
-                   		<img src="/media/img/img.jpg" />
+                   		<img src="/media/{{m.avatar}}" />
                         <div class="info">
-                        	<b>TITRE DU FILM</b><br/>
-                            <b>IMDB :</b> **** | <b>IMAC : </b> **** <br/>
-                            <b>Genre:</b> genre <br/><b>Matière:</b>matière                   
+                        	<b class="title">{{ m.title }}</b><br/>
+                           <span class="l2"> <b class="rating">IMDB : </b>{{ m.rating_imdb }} / 10 | <b>IMAC : </b> **** <br/> </span>
+                             <span class="l3"><b>Genre:</b> genre      |      <b>Matière:</b>matière     </span>              
                  		</div>
                         
                          <div class="button">
@@ -35,18 +35,6 @@
                 
                		 </div>
 					{% endfor %}					 
-                </div>
-                
-                
-                <div class="headpiece">
-                 <span class="centerbas"><FORM>
-                                          <select name="resultat" size="1">
-                                          		<option>Nombre de résultats</option>
-                                               <option>10</option>
-                                               <option>20</option>
-                                               <option>30</option>
-                                          </select>
-                                         </FORM></span>  <!-- <span class="right"> < 1 - 2 > </span> -->
                 </div>
 
 {% endblock content %}
