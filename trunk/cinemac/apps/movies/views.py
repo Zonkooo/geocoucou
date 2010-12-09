@@ -19,9 +19,9 @@ def index(request):
 		return render_to_response('cinemac/index.html',val)
 
 def fichefilm(request):
-	if (request.method == 'GET') & ('mid' in request.GET):
-		myMovie = Movie.objects.get(id = request.GET['mid']) #ici pb si on met de la merde en param GET
-		coursecomment = CourseComment.objects.filter(movie = myMovie)
+	if (request.method == 'GET') and (len(request.GET.getlist('mid')) > 0):
+		movie_id = request.GET['mid']
+		myMovie = Movie.objects.get(id = movie_id)
 
 #		imac_r = Rate.objects.filter();#TODO
 		note_imac = 0
@@ -29,21 +29,26 @@ def fichefilm(request):
 #			for r in imac_r:
 #				note_imac += r.value
 #			note_imac /= len(imac_r)
-		
+		''' PAS BIEN DE RENVOYER DES VAL
 		val = {
 				"request_ok": True,
-				"movie"		: myMovie,
+				"title"		: myMovie.title,
 				"directors"	: myMovie.directed_by.all(),
 				"actors"	: myMovie.played_by.all(),
 				"genres"	: myMovie.genre_is.all(),
+				"year"		: myMovie.year.year,
+				"country"	: myMovie.country,
+				"synopsis"	: myMovie.synopsis,
 				#non utilises pour l'instant :
+				"note_imdb"	: myMovie.rating_imdb,
 				"note_imac"	: note_imac,
+				"cover"		: myMovie.cover,
 				"coursecomment"	: coursecomment,
-			  } #TODO : cours, commentaires
-	else:
-		val = { "request_ok": False, }
-	
-	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
+				"filmcomment" : filmcomment,
+				"movie_id"	: movie_id
+			  } #TODO : cours, commentaires '''
+
+	return render_to_response('cinemac/fichefilm.html', {'movie':myMovie,}, context_instance = RequestContext(request) )
 	
 	
 def profil(request):
