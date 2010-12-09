@@ -18,7 +18,10 @@ def login_facebook_connect(request):
 		ss = request.POST['ss']
 		session_key = request.POST['session_key']
 		user = request.POST['user']
-		sig = request.POST['sig']
+		sig = request.POST['sig'] #md5 sum of above params
+		
+		print ss
+		print session_key
 		
 		pre_hash_string = "expires=%ssession_key=%sss=%suser=%s%s" % (
 			expires,

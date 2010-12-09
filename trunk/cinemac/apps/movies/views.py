@@ -57,23 +57,15 @@ def fichefilm(request):
 	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
 	
 def profil(request):
-	return render_to_response('cinemac/profil.html')
-	if request.method == 'POST':
-		form = ProfilForm(request.POST)
-		if form.is_valid():
-			favouriteFilm = form.cleaned_data['favouriteFilm']
-			#Creation dun objet du type de la table voulue
-			#Passage par parametre TABLE_VOULUE(nom_attribut_table=.., nom_attribut_table=..)
-			monFilmFavori = Genre(name=favouriteFilm)
-			#Enregistrement dans la Base De Donnees avec monObjet.save()
-                        monFilmFavori.save()
-			return HttpResponseRedirect('#') # Redirect after POST
+	if request.user.is_authenticated():
+		m = Member.objects.get(contrib_user = request.user)
+		val = {
+				"logged"	: True,
+				"member"	: m,
+			  }
 	else:
-		form = ProfilForm()
-				
-	return render_to_response('cinemac/profil.html',{
-		'form':form,
-	})
+		val = { "logged" : False, }
+	return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
 	
 def xd_receiver(request): #facebook
     return render_to_response('xd_receiver.html')

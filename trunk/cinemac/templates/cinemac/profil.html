@@ -5,38 +5,42 @@
 {% endblock ariane %}
 
 {% block content %}
-            	<h2 class="infoG">Prénom NOM</h2>
-          
-                <div class="photo">
-                </div>
-                
-                
-                <div class="info">
-                
-                    <b>Promotion IMAC / PROF / Extérieur </b><br/><br/>
-                    <b>Nombre de films notés :</b> 1<br/>
-                    <b>Moyenne des notes attribuées :</b> ****<br/><br/>
-                    <b>Evènements auxquels j'ai participés :</b> <u>event</u>,<u>event</u><br/>
-                    <b>Evènements créés :</b> <u>event</u>,<u>event</u> <br/>
+	{% if logged %}
+		<h2 class="infoG">{{ member.pseudo }}</h2>
+		<div class="photo">
+		</div>
+			
+		<div class="info">
+			
+			<b>{{ member.class_year.year }}</b><br/><br/>
+			<b>Nombre de films notés :</b> 1<br/>
+			<b>Moyenne des notes attribuées :</b> ****<br/><br/>
+			<b>Evènements auxquels j'ai participés :</b> <u>event</u>,<u>event</u><br/>
+			<b>Evènements créés :</b> <u>event</u>,<u>event</u> <br/>
 
-                </div>
-                
-                
-                <div class="infoSup">
-					
-					<div id="tabs">
-			<ul>
-				<li><a href="#tabs-1">First</a></li>
-				<li><a href="#tabs-2">Second</a></li>
-				<li><a href="#tabs-3">Third</a></li>
-			</ul>
-			<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-			<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
-			<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
-		</div>    
-				</div><!--infoSup-->
-            
-            <div class="clear">
+		</div>
+			
+	
+		<div class="infoSup">		
+			<div id="tabs">
+				<ul>
+					<li><a href="#tabs-1">First</a></li>
+					<li><a href="#tabs-2">Second</a></li>
+					<li><a href="#tabs-3">Third</a></li>
+				</ul>
+				<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+				<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
 			</div>
+		</div><!--infoSup-->
+		
+		<div class="clear">
+		</div>
+
+	{% else %}
+		<div>
+			<p> aucun film correspondant </p>
+		</div>
+	{% endif %}
 
 {% endblock content %}
