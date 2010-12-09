@@ -5,13 +5,18 @@
 {% endblock ariane %}
 
 {% block content %}
+                <script type="text/javascript">
+                   function trier(mode){
+                       window.location="/listeMembre/"+selection.options[selection.selectedIndex].value;
+                   }
+                </script>
                 <h2 class="infoG">MEMBRES</h2>
                 
                 <div class="headpiece">
 
                 <span class="left">Nombre de résultats</span> <span class="center">
                     <FORM>
-                        <SELECT name="affichage" size="1">
+                        <SELECT name="affichage" size="1" onChange="menuderoulant(this)">
                             <OPTION>Trier par</OPTION>
                             <OPTION value="pseudo">Pseudo</OPTION>
                             <OPTION value="class_year">categorie</OPTION>
