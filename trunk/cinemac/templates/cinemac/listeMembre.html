@@ -1,4 +1,4 @@
-﻿{% extends "layout/base.html" %}
+{% extends "layout/base.html" %}
 
 {% block ariane %}
 <a href="/">Accueil</a> > <a href="/listeMembre/">Membres</a>
@@ -9,13 +9,15 @@
                 
                 <div class="headpiece">
 
-                <span class="left">Nombre de résultats</span> <span class="center"><FORM>
-                                                                                    <SELECT name="affichage" size="1" onChange="mode_de_tri(this)">
-                                                                                        <OPTION>Trier par</OPTION>
-                                                                                        <OPTION value="pseudo">Pseudo</OPTION>
-                                                                                        <OPTION value="class_year">categorie</OPTION>
-                                                                                    </SELECT>
-                                                                                    </FORM></span>
+                <span class="left">Nombre de résultats</span> <span class="center">
+                    <FORM>
+                        <SELECT name="affichage" size="1">
+                            <OPTION>Trier par</OPTION>
+                            <OPTION value="pseudo">Pseudo</OPTION>
+                            <OPTION value="class_year">categorie</OPTION>
+                        </SELECT>
+                    </FORM>
+                </span>
                 </div>
                 
                 <div class="Resultatlisting">
@@ -24,7 +26,7 @@
                             <img src="/media/{{m.avatar}}" />
                                 <div class="info">
                                     <b>{{m.pseudo}}</b><br/>
-                                    <b>Catégorie</b> {{m.class_year}}                
+                                    <b>Categorie</b> {{m.class_year}}
                                 </div>
                         
                                 <div class="button">
