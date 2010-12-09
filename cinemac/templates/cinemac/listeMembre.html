@@ -20,23 +20,24 @@
                 </div>
                 
                 <div class="Resultatlisting">
-                
+						{% for m in members %}
                         <div class="listing">
-                        {% for m in members %}
+                        
                             <img src="/media/{{m.avatar}}" />
                                 <div class="info">
-                                        <b>{{m.pseudo}}</b><br/>
+                                    <b>{{m.pseudo}}</b><br/>
                                     <b>Catégorie</b> {{m.class_year}}                
                                 </div>
                         
                                 <div class="button">
                                         <span><a href="#">VOIR CETTE FICHE</a></span>
                                         </div>
-                                 {% endfor %} 
-                         </div>                                       
+                                 
+						
+                         </div>   
+{% endfor %} 						 
                 </div>
-                
-                
+ 
                 <div class="headpiece">
                  <span class="centerbas"><FORM>
                                           <SELECT name="resultat" size="1">
