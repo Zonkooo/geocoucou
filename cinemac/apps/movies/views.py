@@ -23,9 +23,8 @@ def index(request):
 	return render_to_response('cinemac/index.html',val)
 
 def fichefilm(request):
-	if (request.method == 'GET') & (len(request.GET.getlist('mid')) > 0):
-		movie_id = request.GET['mid']
-		myMovie = Movie.objects.get(id = movie_id)
+	if (request.method == 'GET') & ('mid' in request.GET):
+		myMovie = Movie.objects.get(id = request.GET['mid']) #ici pb si on met de la merde en param GET
 		coursecomment = CourseComment.objects.filter(movie = myMovie)
 		
 		
@@ -38,19 +37,13 @@ def fichefilm(request):
 		
 		val = {
 				"request_ok": True,
-				"title"		: myMovie.title,
+				"movie"		: myMovie,
 				"directors"	: myMovie.directed_by.all(),
 				"actors"	: myMovie.played_by.all(),
 				"genres"	: myMovie.genre_is.all(),
-				"year"		: myMovie.year.year,
-				"country"	: myMovie.country,
-				"synopsis"	: myMovie.synopsis,
 				#non utilises pour l'instant :
-				"note_imdb"	: myMovie.rating_imdb,
 				"note_imac"	: note_imac,
-				"cover"		: myMovie.cover,
 				"coursecomment"	: coursecomment,
-				"movie_id"	: movie_id
 			  } #TODO : cours, commentaires
 	else:
 		val = { "request_ok": False, }

@@ -12,7 +12,7 @@
 	{% if request_ok %}
 
 	<div class="infoG">
-        <h2>{{ title }}</h2>
+        <h2>{{ movie.title }}</h2>
         <p class="like"> LIKE FB </p>
         <p>IMDB		| 		IMAC</p>
     </div>
@@ -36,12 +36,12 @@
     <b>Genre:</b> 
     	{% for g in genres %}
     		{{ g.name }}, 
-    	{% endfor %}                     <b>Année:</b> {{ year }}                    <b>Pays:</b>{{ country }}<br/>
+    	{% endfor %}                     <b>Année:</b> {{ movie.year.year }}                    <b>Pays:</b>{{ movie.country }}<br/>
     
 	    <b>Matière:</b> topic                 <b>IMAC </b>year
 	
     <br/><br/>
-    <b>Synopsis: </b>{{ synopsis }}
+    <b>Synopsis: </b>{{ movie.synopsis }}
     
     </div>
     
