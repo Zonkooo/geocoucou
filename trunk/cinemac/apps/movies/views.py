@@ -14,7 +14,7 @@ from django.core.mail import send_mail
 def index(request):
 		# movie = Movie.objects.order_by('date_joined')
 		# val={"movie" :movie,}
-		members  = Member.objects.order_by('date_joined')[:2]
+		members  = Member.objects.order_by('-date_joined')[:2] #- pour l'ordre décroissant
 		val= {"members" :members,}
 		return render_to_response('cinemac/index.html',val)
 
@@ -22,8 +22,7 @@ def fichefilm(request):
 	if (request.method == 'GET') & ('mid' in request.GET):
 		myMovie = Movie.objects.get(id = request.GET['mid']) #ici pb si on met de la merde en param GET
 		coursecomment = CourseComment.objects.filter(movie = myMovie)
-		
-		
+
 #		imac_r = Rate.objects.filter();#TODO
 		note_imac = 0
 #		if len(imac_r) != 0:
@@ -43,9 +42,9 @@ def fichefilm(request):
 			  } #TODO : cours, commentaires
 	else:
 		val = { "request_ok": False, }
-		
 	
 	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
+	
 	
 def profil(request):
 	if (request.method == 'GET') & ('uid' in request.GET) :
