@@ -60,7 +60,7 @@ def profil(request):
 			#Passage par parametre TABLE_VOULUE(nom_attribut_table=.., nom_attribut_table=..)
 			monFilmFavori = Genre(name=favouriteFilm)
 			#Enregistrement dans la Base De Donnees avec monObjet.save()
-			monFilmFavori.save()
+		#monFilmFavori.save()
 			return HttpResponseRedirect('#') # Redirect after POST
 	else:
 		form = ProfilForm()
