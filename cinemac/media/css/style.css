@@ -374,19 +374,15 @@ hr
 .pictureLast .first
 {
 	float:left;
-	margin-left:3%;
+	margin-left:10%;
+	margin-right:5%;
+	margin-top:3%;
 
-}
-
-.pictureLast .second
-{
-	float:right;
-	margin-right:3%;
 }
 
 .pictureLast p
 {
-	margin-top:-1%;
+	margin-bottom:-1.5%;
 }
 
 .pictureLast img
