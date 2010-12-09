@@ -90,7 +90,7 @@ def listeFilms(request):
             try:
                 movies  = Movie.objects.order_by( request.GET['mode'])
             except:
-                movies  = Movie.objects.order_by('title')
+                movies  = Movie.objects.order_by('id')
         else:
             movies  = Movie.objects.order_by('id')
 	
