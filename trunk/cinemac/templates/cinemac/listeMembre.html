@@ -5,44 +5,42 @@
 {% endblock ariane %}
 
 {% block content %}
-           	<h2 class="infoG">MEMBRES</h2>
+                <h2 class="infoG">MEMBRES</h2>
                 
                 <div class="headpiece">
                 <span class="left">Nombre de résultats</span> <span class="center"><FORM>
                                                                                     <SELECT name="affichage" size="1">
-                                                                                    	<OPTION>Trier par
-                                                                                    	<OPTION>Ordre Alphabétique
-                                                                                    	<OPTION>Nom
-                                                                                   	 	<OPTION>Prénom
-                                                                                   		<OPTION>Catégorie
-                                                                                   	 	</SELECT>
+                                                                                        <OPTION>Trier par
+                                                                                        <OPTION>Ordre Alphabétique
+                                                                                        <OPTION>Nom
+                                                                                                <OPTION>Prénom
+                                                                                                <OPTION>Catégorie
+                                                                                                </SELECT>
                                                                                     </FORM></span> <span class="right"> < 1 - 2 > </span>
                 </div>
-               
-			   {% if m.id > 0 %}
-                <div class="Resultatlisting">
-					{% for m in members %}
-                   	<div class="listing">
-						<img src="{{m.avatar}}"/>
-						<div class="info">
-							<p><a href="#">{{m.pseudo}}</a></p>
-						</div>
-						<div class="button">
-                           <span><a href="#">VOIR CETTE FICHE</a></span>
-                 		</div>
                 
-               		</div>
-                    {% endfor %}    
+                <div class="Resultatlisting">
+                
+                        <div class="listing">
+                        {% for m in members %}
+                            <img src="/media/{{m.avatar}}" />
+                                <div class="info">
+                                        <b>{{m.pseudo}}</b><br/>
+                                    <b>Catégorie</b> {{m.class_year}}                
+                                </div>
+                        
+                                <div class="button">
+                                        <span><a href="#">VOIR CETTE FICHE</a></span>
+                                        </div>
+                                 {% endfor %} 
+                         </div>                                       
                 </div>
-				{% else %}
-					<p>Aucun membre enregistré ! </p>
-				{% endif %}
                 
                 
                 <div class="headpiece">
                  <span class="centerbas"><FORM>
                                           <SELECT name="resultat" size="1">
-                                          		<OPTION>Nombre de résultats
+                                                        <OPTION>Nombre de résultats
                                                <OPTION>10
                                                <OPTION>20
                                                <OPTION>30
