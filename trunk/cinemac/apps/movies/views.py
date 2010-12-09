@@ -72,7 +72,7 @@ def evenement(request):
 
 def listeMembre(request):
 
-        if (request.method == 'GET') & (len(request.GET.getlist('mode')) > 0):
+        if (request.method == 'GET') & ('mode' in request.GET > 0):
             try:
                 members  = Member.objects.order_by( movie_id = request.GET['mode'])
             except:
