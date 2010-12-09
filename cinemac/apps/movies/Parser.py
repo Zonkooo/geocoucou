@@ -15,6 +15,7 @@ class MovieParser:
 	synopsis = ""
 	actors = list()
 	directors = list()
+	cover = ""
 	
 	#fields from imdb
 	id_imdb = 0
@@ -43,6 +44,7 @@ class MovieParser:
 		countrylist		= e.getElementsByTagName("nationalityList")[0]
 		self.country	= countrylist.getElementsByTagName("nationality")[0].childNodes[0].nodeValue
 		self.synopsis	= e.getElementsByTagName("synopsis")[0].childNodes[0].nodeValue.replace('<br/>', '')
+		self.cover		= e.getElementsByTagName("poster")[0].attributes["href"].value
 		casting			= e.getElementsByTagName("casting")[0].getElementsByTagName("castMember")
 		self.directors	= self.get_cast_by_activity(casting, REA_CODE)
 		self.actors		= self.get_cast_by_activity(casting, ACT_CODE)
@@ -67,6 +69,7 @@ class MovieParser:
 		mov.year = self.year + "-01-01"
 		mov.country = self.country
 		mov.synopsis = self.synopsis
+		mov.cover = self.cover
 		
 		mov.id_imdb = self.id_imdb
 		mov.rating_imdb = self.rating
