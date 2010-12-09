@@ -12,15 +12,17 @@ from django.core.mail import send_mail
 
 
 def index(request):
-        members  = Member.objects.order_by('date_joined')[:2]
-        val= {"members" :members,}
-	return render_to_response('cinemac/index.html',val)
+		members  = Member.objects.order_by('date_joined')[:2]
+		val= {"members" :members,}
+		
+		return render_to_response('cinemac/index.html',val)
 
 def fichefilm(request):
-	if (request.method == 'GET') and (len(request.GET.getlist('mid')) > 0):
-		movie_id = request.GET['mid']
-		myMovie = Movie.objects.get(id = movie_id)
-				
+	if (request.method == 'GET') & ('mid' in request.GET):
+		myMovie = Movie.objects.get(id = request.GET['mid']) #ici pb si on met de la merde en param GET
+		coursecomment = CourseComment.objects.filter(movie = myMovie)
+		
+		
 #		imac_r = Rate.objects.filter();#TODO
 		note_imac = 0
 #		if len(imac_r) != 0:
@@ -28,7 +30,19 @@ def fichefilm(request):
 #				note_imac += r.value
 #			note_imac /= len(imac_r)
 		
-	return render_to_response('cinemac/fichefilm.html', {'movie':myMovie,}, context_instance = RequestContext(request) )
+		val = {
+				"request_ok": True,
+				"movie"		: myMovie,
+				"directors"	: myMovie.directed_by.all(),
+				"actors"	: myMovie.played_by.all(),
+				"genres"	: myMovie.genre_is.all(),
+				#non utilises pour l'instant :
+				"note_imac"	: note_imac,
+				"coursecomment"	: coursecomment,
+			  } #TODO : cours, commentaires
+	else:
+		val = { "request_ok": False, }
+	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
 	
 def profil(request):
 	if request.user.is_authenticated():
@@ -51,18 +65,22 @@ def evenement(request):
 	return render_to_response('cinemac/evenement.html')
 
 def listeMembre(request):
+
         if (request.method == 'GET') & (len(request.GET.getlist('mode')) > 0):
             try:
                 members  = Member.objects.order_by( movie_id = request.GET['mode'])
             except:
-               members  = Member.objects.order_by('date_joined')
+                members  = Member.objects.order_by('date_joined')
         else:
             members  = Member.objects.order_by('date_joined')
         val= {"members" :members,}
+
 	return render_to_response('cinemac/listeMembre.html', val, context_instance = RequestContext(request) )
 
 def listeFilms(request):
-	return render_to_response('cinemac/listeFilms.html')
+	movie  = Movie.objects.order_by('id')
+	val= {"movie" :movie,}
+	return render_to_response('cinemac/listeFilms.html', val, context_instance = RequestContext(request) )
 	
 @csrf_exempt
 #todo : revoir la recherche et tester si elle fonctionne bien
@@ -70,12 +88,12 @@ def resultatRecherche(request):
 	if request.method == 'POST':
 		q = request.POST['content']
 		
-		clause = Q(pseudo__icontains=q)	   
-		members = Member.objects.filter(clause).distinct().order_by('pseudo')
+		clause = Q(pseudo__icontains=q)			   
+		members = Member.objects.filter(clause).distinct()
 		clause = Q(name__icontains=q) | Q(forename__icontains=q)
-		artists = Artist.objects.filter(clause).distinct().order_by('name')
+		artists = Artist.objects.filter(clause).distinct()
 		clause = Q(title__icontains=q)
-		films = Movie.objects.filter(clause).distinct().order_by('title')
+		films = Movie.objects.filter(clause).distinct()
 	
 	else :
 		members = Member.objects.distinct()
@@ -110,4 +128,9 @@ def contact(request):
 
     return render_to_response('cinemac/contact.html', {'form': form, 'form_action': "/contact/"}, context_instance=RequestContext(request))
 
+	
+def listeEvt(request):
+	evenement  = Event.objects.order_by('date')
+	val= {"evenement" :evenement,}
+	return render_to_response('cinemac/listeEvt.html', val, context_instance = RequestContext(request) )
 
