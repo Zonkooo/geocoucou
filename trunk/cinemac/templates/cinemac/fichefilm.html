@@ -2,7 +2,7 @@
 
 {% block ariane %}
 	{% if request_ok %}
-		<a href="/">Accueil > </a>Films > IMAC 1 > Expression et écriture > {{ movie.title }}
+		<a href="/">Accueil > </a>Films > IMAC 1 > Expression et écriture > <a href="/fichefilm/?mid={{movie.id}}">{{ movie.title }} </a>
 	{% else %}
 		<a href="/">Accueil > </a>Films  
 	{% endif %}
@@ -19,7 +19,9 @@
 	
     
     <div class="photo">
-    	<img height=250 width=200 src="{{ movie.cover }}" alt="{{ movie.title }}" />
+
+	<img height=250 width=200 src="{{ movie.cover }}" alt="{{ movie.title }}" />
+
     </div>
     
     

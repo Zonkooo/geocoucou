@@ -1,5 +1,5 @@
 ﻿/* Reset */
-html { font-family:'Nyala',Tahoma,Arial,Verdana,San-serif; }
+html { font-family:Arial,Verdana,San-serif; }
 img{border:none;}
 a { color:white; text-decoration:none; outline: none; }
 a:hover { color:#F60; text-decoration:underline; }
@@ -7,6 +7,7 @@ a img { border:none; }
 
 .clear
 {
+	margin-top:1%;
 	clear:both;
 }
 
@@ -14,7 +15,7 @@ a img { border:none; }
 body 
 {
 	background-color:#37485c;
-	font-size:14px;
+	font-size:12px;
 }
 
 #container 
@@ -106,13 +107,13 @@ body
 #slogan
 {
 	/*border:2px solid  #09F;*/
-	margin-top:7%;
+	margin-top:10%;
 	margin-left:-23%;
 	
 	font-variant:small-caps;
 	font-weight:bold;
 	float:left;
-	font-size:35px;
+	font-size:30px;
 	color:#F63;
 	
 }
@@ -170,23 +171,24 @@ body
 	float:left;	
 	margin-left:0.5%;
 	
+	
 }
 
 .navigation
 {
-	
+	margin-top:15%;
     padding: 0; 
     list-style: none; 
     /*background-color: #000; */
     color: #fff; 
     width: 195px; 
-    font-size: 18px;
+    font-size: 14px;
 	height:auto;
 	
 	/*float:left;	
 	margin-left:15px;
 	margin-top:15px;*/
-	margin-left:10%;
+	margin-left:9%;
 	background:url(/media/img/btn_Menu.jpg) left bottom no-repeat;
 } 
 .navigation a, .navigation span 
@@ -225,7 +227,7 @@ body
  { 
  	
  	color:#000;
-    font-size: 14px;
+    font-size: 13px;
 	width: 190px;
     background: #e2e4e7 0 0 repeat-x;
    /* font-size: .9em; */
@@ -284,7 +286,8 @@ body
 	width:720px;
 	height:auto; 
 	float:right;
-	padding:20px 10px 20px 20px;
+	padding:20px 10px 0px 20px;
+	margin-bottom:1%;
 	text-align:justify;
 }
 
@@ -305,7 +308,7 @@ p
 {
 	padding-top:2%;
 	margin-right:2%;
-	font-size:14px;
+	font-size:12px;
 	margin-left:2%;
 	
 }
@@ -317,6 +320,8 @@ p
 	font-weight: bold;
 	background-color: #7c8896;
 }
+
+
 
 /*************************INDEX *********************************/
 
@@ -341,7 +346,7 @@ p
 	margin-top:-1%;
 	padding-left:5%;
 	margin-bottom:-2%;
-	font-size:15px;
+	font-size:14px;
 	
 }
 
@@ -431,9 +436,9 @@ hr
 	margin-top:2%;
 
 	border:1px solid black;
-	background-color:#99a1ac;
+	/*background-color:#99a1ac;
 	background-image:url(/media/img/degrade.jpg);
-	background-repeat:repeat-x;
+	background-repeat:repeat-x;*/
 	width:200px;
 	height:250px;
 	float:left;
@@ -575,7 +580,7 @@ hr
 	
 	color:#FFFFFF;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 12px;
 	text-decoration:none;
 	line-height:48px;
 		text-align:center;
@@ -667,7 +672,7 @@ hr
 	
 	color:#FFFFFF;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 12px;
 	text-decoration:none;
 	line-height:48px;
 	text-align:center;
@@ -778,4 +783,23 @@ hr
 
 
 
+
+/* Visionneuse du profil */
+#viewer_navig_profil
+{
+	width: 650px; 
+	text-align: right;  
+	margin-bottom:10px; 
+}
+#viewer_navig_profil a
+{
+	background-color:#37485c; 
+	padding : 3px 10px;
+}
+
+#viewer_navig_profil a.wactive
+{
+	font-weight: bold;
+	background-color: #7c8896;
+}
 

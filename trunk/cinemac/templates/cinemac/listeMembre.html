@@ -6,7 +6,8 @@
 
 {% block content %}
                 <script type="text/javascript">
-                   function menuderoulant(selection){
+                   function menuderoulant(selection)
+				   {
                        window.location="/listeMembre/?mode="+selection.options[selection.selectedIndex].value;
                    }
                 </script>
@@ -26,19 +27,19 @@
                 </div>
                 
                 <div class="Resultatlisting">
-			{% for m in members %}
-                        <div class="listing">
-                            <img src="/media/{{m.avatar}}" />
-                                <div class="info">
-                                    <b>{{m.pseudo}}</b><br/>
-                                    <b>Categorie : </b> {{m.class_year}}
-                                </div>
-                        
-                                <div class="button">
-                                        <span><a href="/profil/?uid={{ m.id }}">VOIR CETTE FICHE</a></span>
-                                </div>
-                         </div>   
-			{% endfor %} 						 
+					{% for m in members %}
+					<div class="listing">
+						<img src="{{m.avatar}}" />
+							<div class="info">
+								<b>{{m.pseudo}}</b><br/>
+								<b>Categorie : </b> {{m.class_year}}
+							</div>
+					
+							<div class="button">
+									<span><a href="/profil/?mid={{ m.id }}">VOIR CETTE FICHE</a></span>
+							</div>
+					 </div>   
+					{% endfor %} 						 
                 </div>
  
 

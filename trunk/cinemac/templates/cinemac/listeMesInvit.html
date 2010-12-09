@@ -1,0 +1,43 @@
+﻿{% extends "layout/base.html" %}
+
+{% block ariane %}
+<a href="/">Accueil</a> > <a href="/profil/">Mon Profil</a> > <a href="/listeMesInvit/">Mes invisations</a>
+{% endblock ariane %}
+
+{% block content %}
+                <h2 class="infoG">MES INVITATIONS</h2>
+                
+                <div class="headpiece">
+                <span class="left">Nombre de résultats</span> <span class="center"><FORM>
+                                                                                    <select name="affichage" size="1">
+                                                                                        <option>Trier par</option>
+                                                                                        <option>Date</option>
+                                                                                        <option>Titre  </option>                                                                                      <option>Prénom
+                                                                                        <option>Membre</option>
+                                                                                    </select>
+                                                                                    </FORM></span> 
+																					<!--<span class="right"> < 1 - 2 > </span>-->
+                </div>
+                
+                <div class="Resultatlisting">
+					{% for e in event %}
+                        <div class="listing">
+                        <img src="#" />
+                                <div class="info">
+                                    <b>{{e.slug}}</b><br/>
+                                    <b>Date</b> {{e.date}}                
+                                </div>
+                        
+                                <div class="button">
+                                        <span><a href="#">VOIR CETTE FICHE</a></span>
+                                        </div>
+                                 
+						
+                         </div> 
+						 {%empty%}<p> Vous n'avez aucune invitation <br/></p>
+
+					{% endfor %} 						 
+                </div>
+ 
+               
+{% endblock content %}
