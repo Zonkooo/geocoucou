@@ -12,9 +12,10 @@ from django.core.mail import send_mail
 
 
 def index(request):
+		# movie = Movie.objects.order_by('date_joined')
+		# val={"movie" :movie,}
 		members  = Member.objects.order_by('date_joined')[:2]
 		val= {"members" :members,}
-		
 		return render_to_response('cinemac/index.html',val)
 
 def fichefilm(request):
@@ -42,6 +43,8 @@ def fichefilm(request):
 			  } #TODO : cours, commentaires
 	else:
 		val = { "request_ok": False, }
+		
+	
 	return render_to_response('cinemac/fichefilm.html', val, context_instance = RequestContext(request) )
 	
 def profil(request):

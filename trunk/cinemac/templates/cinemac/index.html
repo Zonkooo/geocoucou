@@ -18,6 +18,9 @@
 	<div id="viewer_navig">menu de navigation</div>
 	<div>
 		<ul id="viewer">
+			<!-- {% for m in movie %}
+			<li><a href="/fichefilm/?mid={{movie.id }}"><img src="{{ movie.cover }}" alt="{{movie.title }}" /></a></li>
+			{% endfor %} -->
 			<li><a href="media/img/nouveaute.png"><img src="media/img/nouveaute.png" alt="" /></a></li>
 			<li><a href="media/img/nouveaute.png"><img src="media/img/nouveaute.png" alt="" /></a></li>
 			<li><a href="media/img/nouveaute.png"><img src="media/img/nouveaute.png" alt="" /></a></li>
@@ -34,9 +37,10 @@
 		<div class="pictureLast">
         	{% for m in members %}
 			<div class="first">
-				<p><a href="#">{{m.pseudo}}</a></p>
-				<img src="media/{{m.avatar}}"/>
+				<p><a href="/profil/?id={{m.id}}">{{m.pseudo}}</a></p>
+				<img height=80 width=80 src="{{m.avatar}}"/>
 			 </div>
+			 &nbsp;&nbsp;&nbsp;&nbsp;
              {% endfor %} 
 		</div>   
 	</div>
