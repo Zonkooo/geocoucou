@@ -370,6 +370,7 @@ hr
 {
 	float:left;
 	margin-left:3%;
+
 }
 
 .pictureLast .second
@@ -449,6 +450,28 @@ hr
 	width:480px;
 	height:auto;
 }
+
+.info .title
+{
+	float:left;
+	/*border:1px solid green;*/
+	width:300px;
+}
+
+.info .l2
+{
+	float:left;
+	/*border:1px solid green;*/
+	width:300px;
+}
+
+.info .l3
+{
+	float:left;
+	/*border:1px solid green;*/
+	width:300px;
+}
+
 .infoSup
 {
 	/*border: 1px solid green;*/
@@ -519,7 +542,7 @@ hr
 	margin-left:auto;
 	margin-right:auto;
 	width:670px;
-	height:100px;
+	height:auto;
 	
 
 }
