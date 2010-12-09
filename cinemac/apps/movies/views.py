@@ -12,13 +12,7 @@ from django.core.mail import send_mail
 
 
 def index(request):
-        if (request.method == 'GET') & (len(request.GET.getlist('mode')) > 0):
-            try:
-                members  = Member.objects.order_by( movie_id = request.GET['mode'])[:2]
-            except:
-                members  = Member.objects.order_by('date_joined')[:2]
-        else:
-            members  = Member.objects.order_by('date_joined')[:2]
+        members  = Member.objects.order_by('date_joined')[:2]
         val= {"members" :members,}
 	return render_to_response('cinemac/index.html',val)
 
@@ -70,7 +64,13 @@ def evenement(request):
 	return render_to_response('cinemac/evenement.html')
 
 def listeMembre(request):
-        members  = Member.objects.order_by('date_joined')
+        if (request.method == 'GET') & (len(request.GET.getlist('mode')) > 0):
+            try:
+                members  = Member.objects.order_by( movie_id = request.GET['mode'])
+            except:
+                members  = Member.objects.order_by('date_joined')
+        else:
+            members  = Member.objects.order_by('date_joined')
         val= {"members" :members,}
 	return render_to_response('cinemac/listeMembre.html', val, context_instance = RequestContext(request) )
 
