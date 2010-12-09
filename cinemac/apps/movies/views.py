@@ -77,7 +77,7 @@ def listeMembre(request):
 
         if (request.method == 'GET') & ('mode' in request.GET > 0):
             try:
-                members  = Member.objects.order_by( movie_id = request.GET['mode'])
+                members  = Member.objects.order_by( request.GET['mode'])
             except:
                 members  = Member.objects.order_by('date_joined')
         else:
@@ -89,7 +89,7 @@ def listeMembre(request):
 def listeFilms(request):
         if (request.method == 'GET') & (len(request.GET.getlist('mode')) > 0):
             try:
-                movie  = movie.objects.order_by( movie_id = request.GET['mode'])
+                movie  = movie.objects.order_by( request.GET['mode'])
             except:
                 movie  = Movie.objects.order_by('id')
         else:
