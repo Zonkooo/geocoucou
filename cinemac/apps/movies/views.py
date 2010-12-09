@@ -83,12 +83,12 @@ def resultatRecherche(request):
 	if request.method == 'POST':
 		q = request.POST['content']
 		
-		clause = Q(pseudo__icontains=q)			   
-		members = Member.objects.filter(clause).distinct()
+		clause = Q(pseudo__icontains=q)	   
+		members = Member.objects.filter(clause).distinct().order_by('pseudo')
 		clause = Q(name__icontains=q) | Q(forename__icontains=q)
-		artists = Artist.objects.filter(clause).distinct()
+		artists = Artist.objects.filter(clause).distinct().order_by('name')
 		clause = Q(title__icontains=q)
-		films = Movie.objects.filter(clause).distinct()
+		films = Movie.objects.filter(clause).distinct().order_by('title')
 	
 	else :
 		members = Member.objects.distinct()
