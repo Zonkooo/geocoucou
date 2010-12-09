@@ -8,9 +8,7 @@ class FacebookScriptNode(template.Node):
         def render(self, context):
             return """
             <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
-    
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    
+			
             <script type="text/javascript"> FB.init("%s", "%s");
                 function facebook_onlogin() {
                     var uid = FB.Facebook.apiClient.get_session().uid;
