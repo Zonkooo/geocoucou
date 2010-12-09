@@ -90,11 +90,11 @@ def listeFilms(request):
             try:
                 movies  = Movie.objects.order_by( request.GET['mode'])
             except:
-                movie  = Movie.objects.order_by('title')
+                movies  = Movie.objects.order_by('title')
         else:
             movies  = Movie.objects.order_by('id')
 	
-	val= {"movie" :movie,}
+	val= {"movie" :movies,}
 	return render_to_response('cinemac/listeFilms.html', val, context_instance = RequestContext(request) )
 	
 @csrf_exempt
