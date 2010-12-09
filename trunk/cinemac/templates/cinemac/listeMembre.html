@@ -9,18 +9,17 @@
                 
                 <div class="headpiece">
                 <span class="left">Nombre de résultats</span> <span class="center"><FORM>
-                                                                                    <SELECT name="affichage" size="1">
-                                                                                        <OPTION>Trier par</OPTION>
-                                                                                        <OPTION value="pseudo">Pseudo</OPTION>
-                                                                                        <OPTION value="class_year">categorie</OPTION>
-                                                                                    </SELECT>
-                                                                                    </FORM></span>
+                                                                                    <select name="affichage" size="1">
+                                                                                        <option value="pseudo">Pseudo</option>
+                                                                                        <option>Ordre Alphabétique</option>
+                                                                                        <option value="class_year">categorie</option>         
+                                                                                    </FORM></span> 
+
                 </div>
                 
                 <div class="Resultatlisting">
-						{% for m in members %}
+						{% for m in member %}
                         <div class="listing">
-                        
                             <img src="/media/{{m.avatar}}" />
                                 <div class="info">
                                     <b>{{m.pseudo}}</b><br/>
@@ -29,10 +28,21 @@
                         
                                 <div class="button">
                                         <span><a href="#">VOIR CETTE FICHE</a></span>
-                                        </div>
-                                 
-						
+                                </div>
                          </div>   
-{% endfor %} 						 
+					{% endfor %} 						 
                 </div>
+ 
+                <div class="headpiece">
+                 <span class="centerbas"><FORM>
+                                          <select name="resultat" size="1">
+                                               <option>Nombre de résultats
+                                               <option>10</option>
+                                               <option>20</option>
+                                               <option>30</option>
+                                          </select>
+                                         </FORM></span>  <span class="right"> < 1 - 2 > </span>
+                </div>
+
+
 {% endblock content %}
