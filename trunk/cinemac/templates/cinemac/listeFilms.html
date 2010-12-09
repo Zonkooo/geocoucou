@@ -5,16 +5,20 @@
 {% endblock ariane %}
 
 {% block content %}
+                <script type="text/javascript">
+                   function menuderoulant(selection){
+                       window.location="/listeFilms/?mode="+selection.options[selection.selectedIndex].value;
+                   }
+                </script>
            	<h2 class="infoG">FILMS</h2>
                 
                 <div class="headpiece">
                 <span class="left">Nombre de résultats</span> <span class="center"><FORM>
-                                                                                    <select name="affichage" size="1">
+                                                                                    <select name="affichage" size="1"onChange="menuderoulant(this)">
                                                                                     	<option>Trier par</option>
-                                                                                    	<option>Catégorie</option>
-                                                                                    	<option>Titre film</option>
-                                                                                   	 	<option>Rélisateurs</option>
-                                                                                   		<option>Classement</option>
+                                                                                    	<option value="genre">Genre</option>
+                                                                                    	<option value="title">Titre film</option>
+                                                                                   		<option value="rating_imdb">Classement IMDB</option>
                                                                                    	 	</select>
                                                                                     </FORM></span> <!-- <span class="right"> < 1 - 2 > </span> -->
                 </div>
