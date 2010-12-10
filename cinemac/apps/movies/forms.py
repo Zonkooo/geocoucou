@@ -29,3 +29,16 @@ class LoginForm(forms.Form):
 	contrib = forms.CharField(max_length=100)
 	fbmdp = forms.CharField(max_length=100)
 	fbid = forms.IntegerField()
+
+class EventForm(forms.Form):
+	'''MOVIETITLE =(
+		('megamind','megamind'),
+		('megamind','megamind'),
+	)'''
+	mySlug 			= forms.SlugField(max_length = 255)
+	myDate			= forms.DateTimeField()
+	myLocation		= forms.CharField(max_length = 255)
+	myDescription	= forms.CharField()
+	#myMovieTitle 	= forms.CharField(widget=forms.Select(choices=MOVIETITLE))
+	myMovieTitle	= forms.CharField(max_length = 255)
+	myName			= forms.CharField(max_length = 100)

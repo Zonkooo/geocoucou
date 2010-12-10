@@ -52,7 +52,29 @@ def xd_receiver(request): #facebook
     return render_to_response('xd_receiver.html')
     
 def creerEvt(request):
-	return render_to_response('cinemac/creerEvt.html')
+	if request.method == 'POST':
+		form = EventForm(request.POST)
+		if form.is_valid():
+			mySlug = form.cleaned_data['mySlug']
+			myDate = form.cleaned_data['myDate']
+			myLocation = form.cleaned_data['myLocation']
+			myDescription = form.cleaned_data['myDescription']
+			myMovieTitle = form.cleaned_data['myMovieTitle']
+			myName = form.cleaned_data['myName']
+			myPseudo = Member.objects.get(pseudo = myName)
+			myMovie = Movie.objects.get(title = myMovieTitle)
+			#Creation dun objet du type de la table voulue
+			#Passage par parametre TABLE_VOULUE(nom_attribut_table=.., nom_attribut_table=..)
+			myEvent = Event(slug=mySlug,date=myDate,location=myLocation,description=myDescription, movie=myMovie, creator=myPseudo)
+			#Enregistrement dans la Base De Donnees avec monObjet.save()
+			myEvent.save()
+			return HttpResponseRedirect('#')
+	else:
+		form = EventForm()
+			
+	return render_to_response('cinemac/creerEvt.html',{
+		'form':form,
+	}, context_instance=RequestContext(request))
 	
 def evenement(request):
 	return render_to_response('cinemac/evenement.html')
