@@ -1,0 +1,12 @@
+ {% extends "layout/base.html" %}
+
+{% block ariane %}
+<a href="/">Accueil > <a href="/profil/">Profil</a>
+{% endblock ariane %}
+
+{% block content %}
+	<form action="/login/" method="post">
+	{{ form.as_p }}
+	<input type="submit" value="Submit" />
+	</form>
+{% endblock content %}
