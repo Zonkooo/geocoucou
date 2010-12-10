@@ -274,7 +274,9 @@ body
     padding: 1px 20px; 
  }	  
 
-
+ .navigation .subMenu a{
+	text-align:left;
+}
 
 
 /***************************CONTENU************************************************/
