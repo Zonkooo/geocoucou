@@ -32,18 +32,17 @@ def profil(request):
 	if (request.method == 'GET') & ('uid' in request.GET) :
 		m = Member.objects.get(id = request.GET['uid'])
 		val = {
-				"logged"	: True,
 				"member"	: m,
 			  }
+		return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
 	elif request.user.is_authenticated():
 		m = Member.objects.get(contrib_user = request.user)
 		val = {
-				"logged"	: True,
 				"member"	: m,
 			  }
+		return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
 	else:
-		val = { "logged" : False, }
-	return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
+		return render_to_response('cinemac/404.html')
 	
 def xd_receiver(request): #facebook
     return render_to_response('xd_receiver.html')
@@ -98,9 +97,9 @@ def resultatRecherche(request):
 		films = None;
 	
 	return render_to_response('cinemac/resultatRecherche.html',{
-	'members_list' : members,
-	'artists_list' : artists,
-	'films_list' : films
+		'members_list' : members,
+		'artists_list' : artists,
+		'films_list' : films,
 	})
 	
 def mentionsLegales(request):
@@ -135,3 +134,4 @@ def listeMesInvit(request):
 	evenement  = Event.objects.order_by('date')
 	val= {"evenement" :evenement,}
 	return render_to_response('cinemac/listeMesInvit.html', val, context_instance = RequestContext(request) )
+	
