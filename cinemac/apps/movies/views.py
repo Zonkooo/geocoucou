@@ -143,3 +143,32 @@ def listeMesInvit(request):
 	val= {"evenement" :evenement,}
 	return render_to_response('cinemac/listeMesInvit.html', val, context_instance = RequestContext(request) )
 	
+def login(request):
+	if request.method == 'POST':
+		form = LoginForm(request.POST)
+		if form.is_valid():
+			ppseudo = form.cleaned_data['ppseudo']
+			email = form.cleaned_data['email']
+			mdp = form.cleaned_data['mdp']
+			promo = form.cleaned_data['promo']
+			contrib = form.cleaned_data['contrib']
+			fbid = form.cleaned_data['fbid']
+			fbmdp = form.cleaned_data['fbmdp']
+			#Creation dun objet du type de la table voulue
+			#Passage par parametre TABLE_VOULUE(nom_attribut_table=.., nom_attribut_table=..)
+			monMembre = Member(pseudo=ppseudo,mail=email,password=mdp,class_year=promo,contrib_user_id=contrib,fb_id=fbid,contrib_password=fbmdp)
+			'''monMembre = Member(mail=email)
+			monMembre = Member(password=mdp)
+			monMembre = Member(class_year=promo)
+			monMembre = Member(contrib_user_id=contrib)
+			monMembre = Member(fb_id=fbid)
+			monMembre = Member(contrib_password=fbmdp)'''
+			#Enregistrement dans la Base De Donnees avec monObjet.save()
+			monMembre.save()
+			return HttpResponseRedirect('#')
+	else:
+		form = LoginForm()
+			
+	return render_to_response('cinemac/login.html',{
+		'form':form,
+	})
