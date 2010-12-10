@@ -52,8 +52,8 @@
 		 <div class="pictureLast">
 		 {% for e in event %}
 			<div class="first">
-				<p><a href="#">Evènement</a></p>
-				<img src="media/img/img.jpg"/>
+				<p><a href="/evenement/?id={{e.id}}">{{e.slug}}</a></p>
+				<img src="{{e.movie_set.all}}"/>
 			 </div>
 		{% endfor %} 
 			
