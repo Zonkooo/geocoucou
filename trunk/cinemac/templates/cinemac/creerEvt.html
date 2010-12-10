@@ -6,9 +6,9 @@
 
 {% block content %}
 
-	<form action="/creerEvt/" method="post">
-	{{ form.as_p }}
-	<input type="submit" value="Submit" />
+	<form action="/creerEvt/" method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Submit" />
 	</form>
 
 
