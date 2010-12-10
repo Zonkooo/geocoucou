@@ -67,6 +67,10 @@ class Movie(models.Model):
 		genre = self.genre_is.all()
 		return genre
 		
+	def get_covers(self) :
+		covers = self.cover.all()
+		return covers
+		
 	def __unicode__(self):
 		return "%s (%s)" % (self.title, self.year.year)
 		
