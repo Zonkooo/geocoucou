@@ -17,4 +17,5 @@ urlpatterns = patterns('',
 	url(r'^resultatRecherche/$', resultatRecherche, name='resultatRecherche'),
 	url(r'^contact/$', contact, name='contact'),
 	url(r'^mentionsLegales/$', mentionsLegales, name='mentionsLegales'),
+	url(r'^top10/$', top10, name='top10'),
 )

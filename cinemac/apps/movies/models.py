@@ -118,6 +118,23 @@ class Event(models.Model):
 	movie		= models.ForeignKey('Movie')
 	creator		= models.ForeignKey('Member')
 	
+		
+	def get_movies(self) :
+		movies = self.movie.all()
+		return movies
+
+	def get_creators(self) :
+		creators = self.creator.all()
+		return creators
+		
+	def get_slug(self) :
+		slug = self.slug.all()
+		return slug
+		
+	def get_date(self) :
+		date = self.date.all()
+		return date
+	
 	def __unicode__(self):
 		return "%s, %s" % (self.location, self.date)
 		

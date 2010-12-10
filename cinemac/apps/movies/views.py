@@ -77,33 +77,28 @@ def creerEvt(request):
 	}, context_instance=RequestContext(request))
 	
 def evenement(request):
-	return render_to_response('cinemac/evenement.html')
+	if (request.method == 'GET'):
+		try:
+			event_id = request.GET['mid']
+			myEvent = Event.objects.get(id = event_id )
 
-def listeMembre(request):
+			return render_to_response('cinemac/evenement.html', {'event':myEvent,}, context_instance = RequestContext(request) )
+		except:
+			return render_to_response('cinemac/404.html')
+	return render_to_response('cinemac/404.html')
 
-        if (request.method == 'GET') & ('mode' in request.GET > 0):
+def top10(request):
+	if (request.method == 'GET'):
             try:
-                members  = Member.objects.order_by( request.GET['mode'])
-            except:
-                members  = Member.objects.order_by('date_joined')
-        else:
-            members  = Member.objects.order_by('date_joined')
-        val= {"members" :members,}
-
-	return render_to_response('cinemac/listeMembre.html', val, context_instance = RequestContext(request) )
-
-def listeFilms(request):
-        if (request.method == 'GET'):
-            try:
-                movies  = Movie.objects.order_by( request.GET['mode'])
+                movies  = Movie.objects.order_by('-rating_imdb')[:10]
             except:
                 movies  = Movie.objects.order_by('id')
         else:
             movies  = Movie.objects.order_by('id')
 	
-	val= {"movie" :movies,}
-	return render_to_response('cinemac/listeFilms.html', val, context_instance = RequestContext(request) )
-	
+	val= {"movies" :movies,}
+	return render_to_response('cinemac/top10.html', val, context_instance = RequestContext(request) )
+
 @csrf_exempt
 #todo : revoir la recherche et tester si elle fonctionne bien
 def resultatRecherche(request):
@@ -155,10 +150,44 @@ def contact(request):
 
 	
 def listeEvt(request):
-	evenement  = Event.objects.order_by('date')
-	val= {"evenement" : evenement,}
+	if (request.method == 'GET'):
+            try:
+                events  = Event.objects.order_by( request.GET['mode'])
+            except:
+                events  = Event.objects.order_by('id')
+        else:
+            events  = Event.objects.order_by('id')
+	
+	val= {"event" :events,}
 	return render_to_response('cinemac/listeEvt.html', val, context_instance = RequestContext(request) )
 
+
+def listeMembre(request):
+
+	if (request.method == 'GET') & ('mode' in request.GET > 0):
+            try:
+                members  = Member.objects.order_by( request.GET['mode'])
+            except:
+                members  = Member.objects.order_by('date_joined')
+        else:
+            members  = Member.objects.order_by('date_joined')
+        val= {"members" :members,}
+
+	return render_to_response('cinemac/listeMembre.html', val, context_instance = RequestContext(request) )
+
+def listeFilms(request):
+        if (request.method == 'GET'):
+            try:
+                movies  = Movie.objects.order_by( request.GET['mode'])
+            except:
+                movies  = Movie.objects.order_by('id')
+        else:
+            movies  = Movie.objects.order_by('id')
+	
+	val= {"movie" :movies,}
+	return render_to_response('cinemac/listeFilms.html', val, context_instance = RequestContext(request) )
+	
+	
 def listeMesInvit(request):
 	evenement  = Event.objects.order_by('date')
 	val= {"evenement" :evenement,}

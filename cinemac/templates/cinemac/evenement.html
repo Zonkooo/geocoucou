@@ -1,25 +1,26 @@
 ﻿{% extends "layout/base.html" %}
 
 {% block ariane %}
-<a href="index.html">Accueil > Evènements > Voir les évènements > Evènement</a>
+<a href="index.html">Accueil</a> > <a href="/listeEvt/">Evènements > Voir les évènements</a> > <a href="/evenement/?uid={{event.id}}">{{ event.slug }} </a>
 {% endblock ariane %}
 
 {% block content %}
-              <h2 class="infoG">EVENEMENT</h2>
+              <h2 class="infoG">{{ event.slug }}</h2>
 
                 <div class="picture">
-                
+					{% for movie in event.get_movie.all %}
+                	<img height=250 width=200 src="{{ movie.cover }}" alt="{{ movie.title }}" />
+					{%endfor%}
                 </div>
                 
                 
                 <div class="info">
                 
-					<b>Date:</b> date <br/>
-					<b>Heure:</b> xx H xx<br/>
-					<b>Lieu:</b> lieu                     
+					<b>Date et heure :</b> {{ event.date }} <br/>
+					<b>Lieu:</b> {{ event.location }}                    
 					<br/><br/>
-					<b>Autres informations: </b>Nulla aliquam nisl nec tellus cursus fermentum. Morbi tincidunt congue urna sit amet accumsan. Suspendisse at urna lobortis sapien pharetra lacinia. Nunc non libero tellus, vitae tincidunt metus. Nunc vel lectus id justo viverra viverra eu consectetur eros. Fusce quis enim nec erat facilisis adipiscing. Etiam eget magna facilisis nibh venenatis congue. Nullam ornare mi congue enim malesuada laoreet. Integer eleifend imperdiet tellus, sed eleifend nunc consectetur vitae. Suspendisse sit amet placerat magna. Nulla in sapien id purus fermentum rhoncus a porta elit. Pellentesque cursus lorem in ante tempor eleifend. Sed tincidunt tellus et turpis pulvinar sodales. Aliquam lacus erat, hendrerit congue laoreet vitae, ultricies eu risus. Aenean a malesuada eros. In venenatis vehicula diam nec iaculis. Cras ante metus, vehicula vel lacinia eget, sodales vitae turpis.
-                </div>
+					<b>Autres informations: </b>{{ event.description }}
+				</div>
                 
                 
                 <div class="infoSup">
@@ -30,16 +31,30 @@
 						</ul>
 						<div id="tabs-1">
 							IMDB		| 		IMAC <br/><br/>
-							<b>Réalisé par:</b> réa <br/>
-							<b>Acteurs principaux:</b> Truc, Muche, Machin<br/>
+							<b>Réalisé par:</b> 
+							{% for d in event.get_movie.all %}
+								{{ d.forename }} {{ d.name }}, 
+							{% endfor %}
+
+
+							<br/>
+							<b>Acteurs principaux:</b> 
+							{% for d in event.get_movie.get_actors %}
+								{{ d.forename }} {{ d.name }}, 
+							{% endfor %}
+							
+							<br/>
 							<br/><br/>
-							<b>Synopsis: </b>Nulla aliquam nisl nec tellus cursus fermentum. Morbi tincidunt congue urna sit amet accumsan. Suspendisse at urna lobortis sapien pharetra lacinia. Nunc non libero tellus, vitae tincidunt metus. Nunc vel lectus id justo viverra viverra eu consectetur eros. Fusce quis enim nec erat facilisis adipiscing. Etiam eget magna facilisis nibh venenatis congue. Nullam ornare mi congue enim malesuada laoreet. Integer eleifend imperdiet tellus, sed eleifend nunc consectetur vitae. Suspendisse sit amet placerat magna. Nulla in sapien id purus fermentum rhoncus a porta elit. Pellentesque cursus lorem in ante tempor eleifend. Sed tincidunt tellus et turpis pulvinar sodales. Aliquam lacus erat, hendrerit congue laoreet vitae, ultricies eu risus. Aenean a malesuada eros. In venenatis vehicula diam nec iaculis. Cras ante metus, vehicula vel lacinia eget, sodales vitae turpis.
+							<b>Synopsis: </b>
+							{% for d in event.get_movie.get_synopsis %}
+								{{ d.synopsis }}
+							{% endfor %}
+							
 						</div>
 						<div id="tabs-2">Visionneuse JQUERY</div>
 					</div><!--Fin tabs-->
 				</div><!--infoSup-->
             
-            <div class="clear"></div>
             <div class="clear"></div>
 
 {% endblock content %}
