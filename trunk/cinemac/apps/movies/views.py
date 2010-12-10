@@ -23,32 +23,9 @@ def fichefilm(request):
 		movie_id = request.GET['mid']
 		myMovie = Movie.objects.get(id = movie_id)
 
-#		imac_r = Rate.objects.filter();#TODO
-		note_imac = 0
-#		if len(imac_r) != 0:
-#			for r in imac_r:
-#				note_imac += r.value
-#			note_imac /= len(imac_r)
-		''' PAS BIEN DE RENVOYER DES VAL
-		val = {
-				"request_ok": True,
-				"title"		: myMovie.title,
-				"directors"	: myMovie.directed_by.all(),
-				"actors"	: myMovie.played_by.all(),
-				"genres"	: myMovie.genre_is.all(),
-				"year"		: myMovie.year.year,
-				"country"	: myMovie.country,
-				"synopsis"	: myMovie.synopsis,
-				#non utilises pour l'instant :
-				"note_imdb"	: myMovie.rating_imdb,
-				"note_imac"	: note_imac,
-				"cover"		: myMovie.cover,
-				"coursecomment"	: coursecomment,
-				"filmcomment" : filmcomment,
-				"movie_id"	: movie_id
-			  } #TODO : cours, commentaires '''
-
-	return render_to_response('cinemac/fichefilm.html', {'movie':myMovie,}, context_instance = RequestContext(request) )
+		return render_to_response('cinemac/fichefilm.html', {'movie':myMovie,}, context_instance = RequestContext(request) )
+	else:
+		return render_to_response('cinemac/404.html')
 	
 	
 def profil(request):
