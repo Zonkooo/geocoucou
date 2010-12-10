@@ -1,15 +1,10 @@
 {% extends "layout/base.html" %}
 
 {% block ariane %}
-	{% if request_ok %}
-		<a href="/">Accueil </a> > <a href="/listeFilms/">Films </a> > IMAC 1 > Expression et écriture > <a href="/fichefilm/?mid={{movie.id}}">{{ movie.title }} </a>
-	{% else %}
-		<a href="/">Accueil > </a>Films  
-	{% endif %}
+	<a href="/">Accueil </a> > <a href="/listeFilms/">Films </a> > IMAC 1 > Expression et écriture > <a href="/fichefilm/?mid={{movie.id}}">{{ movie.title }} </a>
 {% endblock ariane %}
 
 {% block content %}
-
 
 	<div class="infoG">
         <h2>{{ movie.title }}</h2>
