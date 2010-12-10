@@ -19,22 +19,27 @@ def index(request):
 		return render_to_response('cinemac/index.html',val)
 
 def fichefilm(request):
-	if (request.method == 'GET') and (len(request.GET.getlist('mid')) > 0):
-		movie_id = request.GET['mid']
-		myMovie = Movie.objects.get(id = movie_id)
+	if (request.method == 'GET'):
+		try:
+			movie_id = request.GET['mid']
+			myMovie = Movie.objects.get(id = movie_id)
 
-		return render_to_response('cinemac/fichefilm.html', {'movie':myMovie,}, context_instance = RequestContext(request) )
-	else:
-		return render_to_response('cinemac/404.html')
+			return render_to_response('cinemac/fichefilm.html', {'movie':myMovie,}, context_instance = RequestContext(request) )
+		except:
+			return render_to_response('cinemac/404.html')
+	return render_to_response('cinemac/404.html')
 	
 	
 def profil(request):
-	if (request.method == 'GET') & ('uid' in request.GET) :
-		m = Member.objects.get(id = request.GET['uid'])
-		val = {
-				"member"	: m,
-			  }
-		return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
+	if (request.method == 'GET'):
+		try:
+			m = Member.objects.get(id = request.GET['uid'])
+			val = {
+					"member"	: m,
+				  }
+			return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
+		except:
+			return render_to_response('cinemac/404.html')
 	elif request.user.is_authenticated():
 		m = Member.objects.get(contrib_user = request.user)
 		val = {
@@ -82,14 +87,17 @@ def listeFilms(request):
 #todo : revoir la recherche et tester si elle fonctionne bien
 def resultatRecherche(request):
 	if request.method == 'POST':
-		q = request.POST['content']
+		try:
+			q = request.POST['content']
 		
-		clause = Q(pseudo__icontains=q)			   
-		members = Member.objects.filter(clause).distinct()
-		clause = Q(name__icontains=q) | Q(forename__icontains=q)
-		artists = Artist.objects.filter(clause).distinct()
-		clause = Q(title__icontains=q)
-		films = Movie.objects.filter(clause).distinct()
+			clause = Q(pseudo__icontains=q)			   
+			members = Member.objects.filter(clause).distinct()
+			clause = Q(name__icontains=q) | Q(forename__icontains=q)
+			artists = Artist.objects.filter(clause).distinct()
+			clause = Q(title__icontains=q)
+			films = Movie.objects.filter(clause).distinct()
+		except:
+			return render_to_response('cinemac/404.html')
 	
 	else :
 		members = Member.objects.distinct()
