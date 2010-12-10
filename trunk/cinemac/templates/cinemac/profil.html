@@ -5,55 +5,48 @@
 {% endblock ariane %}
 
 {% block content %}
-	{% if logged %}
-		<h2 class="infoG">{{ member.pseudo }}</h2>
-		<div class="photo">
-		<img height=250 width=200 src="{{ member.avatar }}" alt="{{ member.pseudo }}" />
-		</div>
-			
-		<div class="info">
-			
-			<b>{{ member.class_year.year }}</b><br/><br/>
-			<b>Nombre de films notés :</b> 1<br/>
-			<b>Moyenne des notes attribuées :</b> ****<br/><br/>
-			<b>Evènements auxquels j'ai participés :</b> <u>event</u>,<u>event</u><br/>
-			<b>Evènements créés :</b> <u>event</u>,<u>event</u> <br/>
+	<h2 class="infoG">{{ member.pseudo }}</h2>
+	<div class="photo">
+	<img height=250 width=200 src="{{ member.avatar }}" alt="{{ member.pseudo }}" />
+	</div>
+		
+	<div class="info">
+		
+		<b>{{ member.class_year.year }}</b><br/><br/>
+		<b>Nombre de films notés :</b> 1<br/>
+		<b>Moyenne des notes attribuées :</b> ****<br/><br/>
+		<b>Evènements auxquels j'ai participés :</b> <u>event</u>,<u>event</u><br/>
+		<b>Evènements créés :</b> <u>event</u>,<u>event</u> <br/>
 
-		</div>
-			
-	
-		<div class="infoSup">		
-			<div id="tabs">
-				<ul>
-					<li><a href="#tabs-1">Mes films préférés</a></li>
-					
-				</ul>
-				<div id="tabs-1">
-					<div id="viewer_navig_profil">menu de navigation</div>
-					<div>
-					<!-- 	<ul id="viewerProfil">
-						{% for r in rate %}
-							{% if r.author_id == member.id %}
-								{% if r.value == 5 %}
-									<li><a href="/fichefilm/?mid={{r.movie_id}}"><img src="#" alt="" /></a></li>
-								{% endif %}
-							{% else %}	
-								<p> Aucun film préféré ! </p>
+	</div>
+		
+
+	<div class="infoSup">		
+		<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Mes films préférés</a></li>
+				
+			</ul>
+			<div id="tabs-1">
+				<div id="viewer_navig_profil">menu de navigation</div>
+				<div>
+				<!-- 	<ul id="viewerProfil">
+					{% for r in rate %}
+						{% if r.author_id == member.id %}
+							{% if r.value == 5 %}
+								<li><a href="/fichefilm/?mid={{r.movie_id}}"><img src="#" alt="" /></a></li>
 							{% endif %}
-						{% endfor %}	
-						</ul> -->
-					</div>
+						{% else %}	
+							<p> Aucun film préféré ! </p>
+						{% endif %}
+					{% endfor %}	
+					</ul> -->
 				</div>
 			</div>
-		</div><!--infoSup-->
-		
-		<div class="clear">
 		</div>
-
-	{% else %}
-		<div>
-			<p> aucun film correspondant </p>
-		</div>
-	{% endif %}
+	</div><!--infoSup-->
+	
+	<div class="clear">
+	</div>
 
 {% endblock content %}
