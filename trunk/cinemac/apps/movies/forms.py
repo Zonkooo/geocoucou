@@ -9,3 +9,23 @@ class ContactForm(forms.Form):
 	subject = forms.CharField(max_length=100)
 	message = forms.CharField(widget=forms.Textarea)
 	sender = forms.EmailField(required=False)
+
+class FilmForm(forms.Form):
+	subject = forms.CharField(max_length=100)
+	message = forms.CharField(widget=forms.Textarea)
+
+class LoginForm(forms.Form):
+	'''PROMO =(
+    ('2010/02/02','IMAC 1'),
+    ('2011/02/02','IMAC 2'),
+    ('2012/02/02','IMAC 3'),
+	)'''
+
+	ppseudo = forms.CharField(max_length=100)
+	email = forms.EmailField()
+	mdp = forms.CharField(max_length=100)
+	#promo = forms.CharField(widget=forms.Select(choices=PROMO))
+	promo = forms.DateField()
+	contrib = forms.CharField(max_length=100)
+	fbmdp = forms.CharField(max_length=100)
+	fbid = forms.IntegerField()
