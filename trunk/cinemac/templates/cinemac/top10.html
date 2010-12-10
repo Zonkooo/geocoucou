@@ -1,0 +1,27 @@
+﻿{% extends "layout/base.html" %}
+
+{% block ariane %}
+<a href="index.html">Accueil</a> > <a href="/listeFilms/">Films</a> > <a href="/top10/">Top 10</a>
+{% endblock ariane %}
+
+{% block content %}
+              <h2 class="infoG">Top 10</h2>
+          
+                <div class="Resultatlisting">
+					{% for m in movies %}
+					<div class="listing">
+						<img src="{{m.cover}}" />
+							<div class="info">
+								<h2>{{ m.title }}</h2>
+								<p>IMDB : {{ m.rating_imdb }} / 10		| 		IMAC</p>
+							</div>
+					
+							<div class="button">
+									<span><a href="/fichefilm/?uid={{ m.id }}">VOIR CETTE FICHE</a></span>
+							</div>
+					 </div>   
+					{% endfor %} 						 
+                </div>
+            <div class="clear"></div>
+
+{% endblock content %}

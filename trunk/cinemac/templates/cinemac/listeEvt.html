@@ -5,18 +5,23 @@
 {% endblock ariane %}
 
 {% block content %}
+				<script type="text/javascript">
+                   function menuderoulant(selection)
+				   {
+                       window.location="/listeEvt/?mode="+selection.options[selection.selectedIndex].value;
+                   }
+                </script>
                 <h2 class="infoG">EVENEMENTS</h2>
                 
                 <div class="headpiece">
-                <span class="left">Nombre de résultats</span> <span class="center"><FORM>
-                                                                                    <select name="affichage" size="1">
-                                                                                        <option>Trier par</option>
-                                                                                        <option>Date</option>
-                                                                                        <option>Titre  </option>                                                                                      <option>Prénom
-                                                                                        <option>Membre</option>
-                                                                                    </select>
-                                                                                    </FORM></span> 
-																					<!--<span class="right"> < 1 - 2 > </span>-->
+                <span class="left">Nombre de résultats</span> <span class="center">
+				<FORM>
+                    <SELECT name="affichage" size="1" onChange="menuderoulant(this)">
+                            <OPTION>Trier par</OPTION>
+                            <OPTION value="member">Membre</OPTION>
+                            <OPTION value="class_year">Date</OPTION>
+                        </SELECT>
+					</FORM>																<!--<span class="right"> < 1 - 2 > </span>-->
                 </div>
                 
                 <div class="Resultatlisting">
@@ -25,11 +30,11 @@
                         <img src="#" />
                                 <div class="info">
                                     <b>{{e.slug}}</b><br/>
-                                    <b>Date</b> {{e.date}}                
+                                    <b>Date et heure</b> {{e.date}}                
                                 </div>
                         
                                 <div class="button">
-                                        <span><a href="#">VOIR CETTE FICHE</a></span>
+                                        <span><a href="/evenement/?mid={{e.id}}">VOIR CETTE FICHE</a></span>
                                         </div>
                                  
 						
