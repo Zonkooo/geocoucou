@@ -60,11 +60,11 @@ def creerEvt(request):
 			Lieu = form.cleaned_data['Lieu']
 			Description = form.cleaned_data['Description']
 			Film = form.cleaned_data['Film']
-			#myPseudo = Member.objects.get(contrib_user = request.user)
+                        myPseudo = Member.objects.get(contrib_user = request.user)
 			myMovie = Movie.objects.get(title = Film)
 			#Creation dun objet du type de la table voulue
 			#Passage par parametre TABLE_VOULUE(nom_attribut_table=.., nom_attribut_table=..)
-			myEvent = Event(slug=mySlug,date=myDate,location=myLocation,description=myDescription, movie=myMovie, creator=myPseudo)
+			myEvent = Event(slug=mySlug,date=Date,location=Lieu,description=Description, movie=myMovie, creator=myPseudo)
 			#Enregistrement dans la Base De Donnees avec monObjet.save()
 			myEvent.save()
 			return HttpResponseRedirect('#')
