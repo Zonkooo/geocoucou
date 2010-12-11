@@ -1,7 +1,7 @@
 ﻿{% extends "layout/base.html" %}
 
 {% block ariane %}
-<a href="index.html">Accueil</a> > <a href="/listeEvt/">Evènements > Voir les évènements</a> > <a href="/evenement/?uid={{event.id}}">{{ event.slug }} </a>
+<a href="index.html">Accueil</a> > <a href="/listeEvt/">Evènements > Voir les évènements</a> > <a href="/evenement/?uid={{event.id}}">{{ event.date }} </a>
 {% endblock ariane %}
 
 {% block content %}
@@ -49,7 +49,7 @@
                                                             {{ event.movie.synopsis}}
 
 						</div>
-						<div id="tabs-2">Visionneuse JQUERY</div>
+						<div id="tabs-2">Prochainement</div>
 					</div><!--Fin tabs-->
 				</div><!--infoSup-->
             
