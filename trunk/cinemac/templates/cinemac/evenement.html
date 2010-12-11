@@ -5,7 +5,7 @@
 {% endblock ariane %}
 
 {% block content %}
-              <h2 class="infoG">{{ event.slug }}</h2>
+              <h2 class="infoG">{{ event.movie }}</h2>
 
                 <div class="picture">
 					{% for movie in event.get_movie.all %}
@@ -30,26 +30,24 @@
 							<li><a href="#tabs-2">Invités</a></li>
 						</ul>
 						<div id="tabs-1">
-							IMDB		| 		IMAC <br/><br/>
+							IMDB : {{ event.movie.rating_imdb }} / 10	| 		IMAC <br/><br/>
 							<b>Réalisé par:</b> 
-							{% for d in event.get_movie.all %}
+							{% for d in event.movie.get_directors %}
 								{{ d.forename }} {{ d.name }}, 
 							{% endfor %}
 
 
 							<br/>
 							<b>Acteurs principaux:</b> 
-							{% for d in event.get_movie.get_actors %}
+							{% for d in event.movie.get_actors %}
 								{{ d.forename }} {{ d.name }}, 
 							{% endfor %}
 							
 							<br/>
 							<br/><br/>
 							<b>Synopsis: </b>
-							{% for d in event.get_movie.get_synopsis %}
-								{{ d.synopsis }}
-							{% endfor %}
-							
+                                                            {{ event.movie.synopsis}}
+
 						</div>
 						<div id="tabs-2">Visionneuse JQUERY</div>
 					</div><!--Fin tabs-->
