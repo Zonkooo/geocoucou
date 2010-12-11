@@ -20,7 +20,7 @@
                         <SELECT name="affichage" size="1" onChange="menuderoulant(this)">
                             <OPTION>Trier par</OPTION>
                             <OPTION value="pseudo">Pseudo</OPTION>
-                            <OPTION value="class_year">categorie</OPTION>
+                            <OPTION value="class_year">Promo</OPTION>
                         </SELECT>
                     </FORM>
                 </span>
@@ -32,7 +32,7 @@
 						<img src="{{m.avatar}}" />
 							<div class="info">
 								<b>{{m.pseudo}}</b><br/>
-								<b>Categorie : </b> {{m.class_year}}
+								<b>Promo : </b> {{m.class_year.year}}
 							</div>
 					
 							<div class="button">
