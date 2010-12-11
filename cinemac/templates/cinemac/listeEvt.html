@@ -27,9 +27,9 @@
                 <div class="Resultatlisting">
 					{% for e in event %}
                         <div class="listing">
-                        <img src="#" />
+                        <img src="{{ e.movie.cover }}" />
                                 <div class="info">
-                                    <b>{{e.slug}}</b><br/>
+                                    <b>{{e.movie.title}}</b><br/>
                                     <b>Date et heure</b> {{e.date}}                
                                 </div>
                         
