@@ -10,6 +10,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from apps.movies.models import Member
+from apps.movies.views import login
 
 def login_facebook_connect(request):
 	status = 'unknown failure'
@@ -61,6 +62,7 @@ def login_facebook_connect(request):
 										 username=fb.contrib_user.username, 
 										 password=fb.contrib_password)
 			auth.login(request, authenticated_user)
+				
 		else:
 			status = 'wrong hash sig'
 
