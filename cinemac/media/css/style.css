@@ -95,7 +95,7 @@ body
 
 #logo
 {
-	margin-top: 6%;
+	margin-top: 50px;
 	margin-left:5%;
 	/*border:2px solid #0FF;*/
 	width:263px;
@@ -110,7 +110,7 @@ body
 #slogan
 {
 	/*border:2px solid  #09F;*/
-	margin-top:7%;
+	margin-top:70px;
 	margin-left:-23%;
 	
 	font-variant:small-caps;
@@ -126,7 +126,7 @@ body
 	/*border:2px solid #F0F;*/
 	width:500px;
 	float:left;
-	margin-top:6.5%;
+	margin-top:65px;
 	margin-left:5%;
 	
 
@@ -137,7 +137,7 @@ body
 {
 	/*border:2px solid #F3F;*/
 	width:240px;
-	margin-top:6.5%;
+	margin-top:65px;
 	margin-left:auto;
 	margin-right:auto;
 	
@@ -148,7 +148,7 @@ body
 #research #res
 {
 	float:right;
-		margin-right:5%;
+	margin-right:5%;
 }
 
 
