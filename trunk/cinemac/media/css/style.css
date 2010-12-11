@@ -61,25 +61,28 @@ body
 	
 }
 
-#link
+#name
 {
+	/*border:1px solid red;*/
 	color:#FFF;
 	float:left;
 	margin-top:1%;
+	width:350px;
+	text-align:center;
 }
-#link a
+/* #name a
 {
 	color:#FFF;
 	text-decoration:underline;
 	
 }
 
-#link a:hover
+#name a:hover
 {
 	color:#FFF;
 	text-decoration:none
 	
-}
+} */
 
 #logger
 {
