@@ -206,13 +206,13 @@ def login(request):
 			fbmdp = form.cleaned_data['fbmdp']
 			#Creation dun objet du type de la table voulue
 			#Passage par parametre TABLE_VOULUE(nom_attribut_table=.., nom_attribut_table=..)
-			monMembre = Member(pseudo=ppseudo,mail=email,password=mdp,class_year=promo,contrib_user_id=contrib,fb_id=fbid,contrib_password=fbmdp)
-			'''monMembre = Member(mail=email)
-			monMembre = Member(password=mdp)
-			monMembre = Member(class_year=promo)
-			monMembre = Member(contrib_user_id=contrib)
-			monMembre = Member(fb_id=fbid)
-			monMembre = Member(contrib_password=fbmdp)'''
+			monMembre = Member(	pseudo=ppseudo,
+								mail=email,
+								password=mdp,
+								class_year=promo + "-01-01",
+								contrib_user_id=contrib,
+								fb_id=fbid,
+								contrib_password=fbmdp)
 			#Enregistrement dans la Base De Donnees avec monObjet.save()
 			monMembre.save()
 			return HttpResponseRedirect('#')
