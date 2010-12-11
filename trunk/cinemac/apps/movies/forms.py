@@ -35,10 +35,10 @@ class EventForm(forms.Form):
 		('megamind','megamind'),
 		('megamind','megamind'),
 	)'''
-	mySlug 			= forms.SlugField(max_length = 255)
-	myDate			= forms.DateTimeField()
-	myLocation		= forms.CharField(max_length = 255)
-	myDescription	= forms.CharField()
+	#mySlug 			= forms.SlugField(max_length = 255)
+	Date			= forms.DateTimeField()
+	Lieu		= forms.CharField(max_length = 255)
+        Description	= forms.CharField()
 	#myMovieTitle 	= forms.CharField(widget=forms.Select(choices=MOVIETITLE))
-	myMovieTitle	= forms.CharField(max_length = 255)
-	myName			= forms.CharField(max_length = 100)
+	Film	= forms.CharField(max_length = 255)
+	#myName			= forms.CharField(max_length = 100)
