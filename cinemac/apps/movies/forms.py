@@ -21,14 +21,14 @@ class LoginForm(forms.Form):
     ('2012/02/02','IMAC 3'),
 	)'''
 
-	ppseudo = forms.CharField(max_length=100)
+	pseudo = forms.CharField(max_length=100)
 	email = forms.EmailField()
-	mdp = forms.CharField(max_length=100)
+	#mdp = forms.CharField(max_length=100)
 	#promo = forms.CharField(widget=forms.Select(choices=PROMO))
-	promo = forms.DateField()
-	contrib = forms.CharField(max_length=100)
-	fbmdp = forms.CharField(max_length=100)
-	fbid = forms.IntegerField()
+	promo = forms.IntegerField()
+#	contrib = forms.CharField(max_length=100)
+#	fbmdp = forms.CharField(max_length=100)
+#	fbid = forms.IntegerField()
 
 class EventForm(forms.Form):
 	'''MOVIETITLE =(

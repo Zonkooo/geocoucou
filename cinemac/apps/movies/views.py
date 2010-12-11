@@ -194,31 +194,25 @@ def listeMesInvit(request):
 	return render_to_response('cinemac/listeMesInvit.html', val, context_instance = RequestContext(request) )
 	
 def login(request):
-	if request.method == 'POST':
-		form = LoginForm(request.POST)
-		if form.is_valid():
-			ppseudo = form.cleaned_data['ppseudo']
-			email = form.cleaned_data['email']
-			mdp = form.cleaned_data['mdp']
-			promo = form.cleaned_data['promo']
-			contrib = form.cleaned_data['contrib']
-			fbid = form.cleaned_data['fbid']
-			fbmdp = form.cleaned_data['fbmdp']
-			#Creation dun objet du type de la table voulue
-			#Passage par parametre TABLE_VOULUE(nom_attribut_table=.., nom_attribut_table=..)
-			monMembre = Member(	pseudo=ppseudo,
-								mail=email,
-								password=mdp,
-								class_year=promo + "-01-01",
-								contrib_user_id=contrib,
-								fb_id=fbid,
-								contrib_password=fbmdp)
-			#Enregistrement dans la Base De Donnees avec monObjet.save()
-			monMembre.save()
-			return HttpResponseRedirect('#')
-	else:
-		form = LoginForm()
+	try:
+		if request.method == 'POST':
+			form = LoginForm(request.POST)
+			if form.is_valid():
+				pseudo = form.cleaned_data['pseudo']
+				email = form.cleaned_data['email']
+				promo = form.cleaned_data['promo']
 			
-	return render_to_response('cinemac/login.html',{
-		'form':form,
-	})
+				m = Member.objects.get(contrib_user = request.user)
+				#remplissage des infos manquantes
+				m.pseudo = pseudo
+				m.mail = email
+				m.class_year = "%d-01-01" % promo
+				m.save()
+				return HttpResponseRedirect('/')
+		else:
+			m = Member.objects.get(contrib_user = request.user)
+			form = LoginForm(initial={"pseudo" : m.pseudo, "email" : m.mail, "promo" : m.class_year.year, })
+		
+		return render_to_response('cinemac/login.html',{'form':form,}, context_instance = RequestContext(request))
+	except:
+		return HttpResponseRedirect('/')	
