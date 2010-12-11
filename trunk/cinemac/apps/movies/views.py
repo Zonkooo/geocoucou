@@ -55,13 +55,12 @@ def creerEvt(request):
 	if request.method == 'POST':
 		form = EventForm(request.POST)
 		if form.is_valid():
-			mySlug = form.cleaned_data['mySlug']
-			myDate = form.cleaned_data['myDate']
-			myLocation = form.cleaned_data['myLocation']
-			myDescription = form.cleaned_data['myDescription']
-			myMovieTitle = form.cleaned_data['myMovieTitle']
-			myName = form.cleaned_data['myName']
-			myPseudo = Member.objects.get(pseudo = myName)
+			mySlug = "slug"#//form.cleaned_data['mySlug']
+			myDate = form.cleaned_data['Date']
+			myLocation = form.cleaned_data['Location']
+			myDescription = form.cleaned_data['Description']
+			myMovieTitle = form.cleaned_data['Film']
+			myPseudo = Member.objects.get(contrib_user = request.user)
 			myMovie = Movie.objects.get(title = myMovieTitle)
 			#Creation dun objet du type de la table voulue
 			#Passage par parametre TABLE_VOULUE(nom_attribut_table=.., nom_attribut_table=..)
