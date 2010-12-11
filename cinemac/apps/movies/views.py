@@ -57,7 +57,7 @@ def creerEvt(request):
 		if form.is_valid():
 			mySlug = "slug"#//form.cleaned_data['mySlug']
 			myDate = form.cleaned_data['Date']
-			myLocation = form.cleaned_data['Location']
+			myLocation = form.cleaned_data['Lieu']
 			myDescription = form.cleaned_data['Description']
 			myMovieTitle = form.cleaned_data['Film']
 			myPseudo = Member.objects.get(contrib_user = request.user)
