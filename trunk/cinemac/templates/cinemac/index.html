@@ -49,7 +49,7 @@
 		 <div class="pictureLast">
 		 {% for e in event %}
 			<div class="first">
-				<p><a href="/evenement/?id={{e.id}}">{{e.slug}}</a></p>
+				<p><a href="/evenement/?mid={{e.id}}">{{e.movie.title}}</a></p>
                                 <img src="{{ e.movie.cover }}" />
 			 </div>
 		{% endfor %} 
