@@ -392,7 +392,11 @@ hr
 
 .pictureLast img
 {
-	margin-left:1%;
+	margin-left:4%;
+	margin-bottom:1%;
+	margin-top:1%;
+	width:80px;
+	height:86px;
 }
 
 
