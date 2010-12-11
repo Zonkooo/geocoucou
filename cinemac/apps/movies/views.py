@@ -211,7 +211,10 @@ def login(request):
 				return HttpResponseRedirect('/')
 		else:
 			m = Member.objects.get(contrib_user = request.user)
-			form = LoginForm(initial={"pseudo" : m.pseudo, "email" : m.mail, "promo" : m.class_year.year, })
+			if m.pseudo != None & m.mail != None :
+				return HttpResponseRedirect('/')
+			else:
+				form = LoginForm(initial={"pseudo" : m.pseudo, "email" : m.mail, "promo" : m.class_year.year, })
 		
 		return render_to_response('cinemac/login.html',{'form':form,}, context_instance = RequestContext(request))
 	except:
