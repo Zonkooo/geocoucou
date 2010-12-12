@@ -52,13 +52,16 @@ body
 
 }
 
+#fb_like{
+	margin-left : 30px;
+	float : right;
+}
+
 #count
 {
-	
 	margin:4px 10px 0px 0px;
-	width:480px;
+	width:400px;
 	float:right;
-	
 }
 
 #name
@@ -424,7 +427,6 @@ hr
 
 .infoG
 {
-	/*border:2px solid red;*/
 		margin-right:1%;
 }
 
@@ -438,19 +440,12 @@ hr
 {
 	font-size:24px;
 	margin-top:%;
-
 }
 
-.infoG .like
+.infoG .fb_like
 {
-	border:1px solid #036;
-	background-color:#E0EDFC;
-	width:60px;
-	height:15px;
-	margin-top:-5%;
-	padding:1%;
-	text-align:center;
-	line-height:normal;
+	margin-top : -50px;
+	width : 300px;
 	float:right;
 }
 
