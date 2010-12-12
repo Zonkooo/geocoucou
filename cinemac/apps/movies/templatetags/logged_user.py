@@ -22,7 +22,7 @@ class AccountAccessNode(template.Node): #attention, code très sale
 			return """<li class="toggleSubMenu"><span>Mon compte</span> 
 						<ul class="subMenu"> 
 							<li><a href="/profil/" title="Voir mon profil">Voir mon profil</a></li> 
-							<li><a href="/login/" title="Modifier mon profil">Modifier mon profil</a></li> 				 
+							<li><a href="/login/?edit=1" title="Modifier mon profil">Modifier mon profil</a></li> 				 
 							<li><a href="/listeMesInvit/" title="Mes invitations">Mes invitations</a></li> 				 
 						</ul> 
 					</li>"""
