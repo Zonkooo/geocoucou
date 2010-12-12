@@ -1,7 +1,7 @@
 ﻿{% extends "layout/base.html" %}
 
 {% block ariane %}
-<a href="index.html">Accueil > Recherche > Résultats de la recherche</a>
+<a href="/">Accueil > </a>Résultats de la recherche
 {% endblock ariane %}
 
 {% block content %}
@@ -16,8 +16,12 @@
 				{% if films_list != None %}
 					<div class="headpiece">
 						<span class="left">
-							<!--{ results_number = films_list.count + members_list.count + artists_list.count }-->
-							Votre recherche a retourné {{results_number}} résultats.
+							{% if films_list.count == 1%}
+								Votre recherche a retourné {{number}} résultat.
+							{% else %}
+								Votre recherche a retourné {{number}} résultats.
+							{% endif %}
+							
 						</span>
 						<span class="center">
 						<FORM>
@@ -29,8 +33,6 @@
 								<OPTION>Catégorie
 							</SELECT>
 						</FORM>
-						</span> 
-						<span class="right"> < 1 - 2 > </span>
 					</div>
 				{% endif %}
                
@@ -83,7 +85,7 @@
 					{% endif %}
 					{% if members_list != None %}
 						{% if members_list.count == 0 %}
-							<p> Aucun réalisateur ne correspond à cette recherche <br/></p>
+							<p> Aucun membre ne correspond à cette recherche <br/></p>
 						{% endif %}
 						{% for member in members_list %}
 						<div class="listing">
