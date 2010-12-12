@@ -20,4 +20,4 @@ urlpatterns = patterns('',
 	url(r'^top10/$', top10, name='top10'),
 )
 
-handler404 = 'apps.movies.views.error_404'
+handler404 = '^error_404/$'
