@@ -209,7 +209,7 @@ def login(request):
 				return HttpResponseRedirect('/')
 		else:
 			m = Member.objects.get(contrib_user = request.user)
-			if (m.pseudo != "") & (m.mail != "") :
+			if (m.pseudo != "") & (m.mail != "") & !('edit' in request.GET):
 				return HttpResponseRedirect('/')
 			else:
 				form = LoginForm(initial={"pseudo" : m.pseudo, "email" : m.mail, "promo" : m.class_year.year, })
