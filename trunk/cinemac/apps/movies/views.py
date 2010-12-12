@@ -15,7 +15,7 @@ def index(request):
 		event = Event.objects.order_by('-date')[:2]
 		members  = Member.objects.order_by('-date_joined')[:2] #- pour l'ordre décroissant
 		val= {"members" :members, "event" :event,}
-		return render_to_response('cinemac/index.html',val)
+		return render_to_response('cinemac/index.html',val, context_instance = RequestContext(request))
 
 def fichefilm(request):
 	if (request.method == 'GET'):
@@ -25,8 +25,8 @@ def fichefilm(request):
 
 			return render_to_response('cinemac/fichefilm.html', {'movie':myMovie,}, context_instance = RequestContext(request) )
 		except:
-			return render_to_response('cinemac/404.html')
-	return render_to_response('cinemac/404.html')
+			return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
+	return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
 	
 		
 def profil(request):
@@ -38,7 +38,7 @@ def profil(request):
 				  }
 			return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
 		except:
-			return render_to_response('cinemac/404.html')
+			return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
 	elif request.user.is_authenticated():
 		m = Member.objects.get(contrib_user = request.user)
 		val = {
@@ -46,7 +46,7 @@ def profil(request):
 			  }
 		return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
 	else:
-		return render_to_response('cinemac/404.html')
+		return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
 	
 def xd_receiver(request): #facebook
     return render_to_response('xd_receiver.html')
@@ -67,7 +67,7 @@ def creerEvt(request):
 			myEvent = Event(slug=mySlug,date=Date,location=Lieu,description=Description, movie=myMovie, creator=myPseudo)
 			#Enregistrement dans la Base De Donnees avec monObjet.save()
 			myEvent.save()
-			return HttpResponseRedirect('#')
+			return HttpResponseRedirect('#') #TODO : envoyer sur la page de l'event
 	else:
 		form = EventForm()
 			
@@ -83,8 +83,8 @@ def evenement(request):
 
 			return render_to_response('cinemac/evenement.html', {'event':myEvent,}, context_instance = RequestContext(request) )
 		except:
-			return render_to_response('cinemac/404.html')
-	return render_to_response('cinemac/404.html')
+			return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
+	return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
 
 def top10(request):
 	if (request.method == 'GET'):
@@ -112,7 +112,7 @@ def resultatRecherche(request):
 			clause = Q(title__icontains=q)
 			films = Movie.objects.filter(clause).distinct()
 		except:
-			return render_to_response('cinemac/404.html')
+			return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
 	
 	else :
 		members = Member.objects.distinct()
@@ -123,10 +123,10 @@ def resultatRecherche(request):
 		'members_list' : members,
 		'artists_list' : artists,
 		'films_list' : films,
-	})
+	}, context_instance = RequestContext(request))
 	
 def mentionsLegales(request):
-	return render_to_response('cinemac/mentionsLegales.html')	
+	return render_to_response('cinemac/mentionsLegales.html', context_instance = RequestContext(request))	
 
 def contact(request):
     if request.method == 'POST': # If the form has been submitted...
@@ -139,9 +139,7 @@ def contact(request):
 			#recipients = ['cmellany91@gmail.com']
 			recipients = ['projetwebimac@googlegroups.com']
 			send_mail(subject, message, sender, recipients)
-			return render_to_response('cinemac/thanks.html')
-
-			return HttpResponseRedirect('/') # Redirect after POST
+			return render_to_response('cinemac/thanks.html', context_instance = RequestContext(request))
     else:
         form = ContactForm() # An unbound form
 

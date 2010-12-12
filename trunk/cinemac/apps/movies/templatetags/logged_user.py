@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from django import template
 from apps.movies.models import *
 
@@ -5,8 +6,13 @@ register = template.Library()
 
 class CurrentUserNode(template.Node):
 	def render(self, context):
-		#m = Member.objects.get(contrib_user = context['user'])
-		return context#['user'] #m.pseudo
+		try :
+			m = Member.objects.get(contrib_user = context['user'])
+			return_string = "Vous êtes connecté en tant que %s" % m.pseudo
+		except :
+			return_string = "Vous n'êtes pas connecté"
+			
+		return return_string
 
 def current_user_name(parser, token):
 	return CurrentUserNode()

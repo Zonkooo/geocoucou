@@ -35,7 +35,7 @@
             	<div id="name">
                 	<span>
                 		{% load logged_user %}
-                		Vous êtes connecté en tant que {#{% current_user_name %} #}
+                		{% current_user_name %}
                 	</span>
                 </div>
                 <div id="logger">
