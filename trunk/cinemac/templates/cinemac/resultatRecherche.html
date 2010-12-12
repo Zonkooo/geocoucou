@@ -51,11 +51,11 @@
 										<b>IMDB :</b> {{film.rating_imdb}} | <b>IMAC : </b> **** <br/>
 										<b>Genre:</b> {{film.genre}} <br/><b>Matière:</b>{{film.course}}                   
 									</div>
-								</div>
+							</div>
 								<div class="button">
 								   <span><a href="/fichefilm?mid={{film.id}}">VOIR CETTE FICHE</a></span>
 								</div>
-							</div>
+				</div>
 							{% endfor %}
 						{% endif %}
 						
@@ -72,11 +72,8 @@
 								<b>{{artist.name}}</b><br/>
 								<b>Catégorie</b> IMAC3                 
 							</div>
-							
-							 <!--<div class="button">
-							   <span><a href="#">VOIR CETTE FICHE</a></span>
-							 </div>-->
-						</div>
+						</div>	
+	
 						{% endfor %}
 					{% endif %}
 					 
