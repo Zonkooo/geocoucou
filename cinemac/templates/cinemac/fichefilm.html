@@ -37,7 +37,7 @@
     		{{ g.name }}
     	{% endfor %}                     <b>Année:</b> {{ movie.year }}                    <b>Pays:</b>{{ movie.country }}<br/>
     
-	    <b>Matière:</b> topic                 <b>IMAC </b>year
+	    <b>Matière:</b> {% for topic in movie.coursecomment_set.all %} {{topic}} {% endfor %}                <b>IMAC </b>year
 	
     <br/><br/>
     <b>Synopsis: </b>{{ movie.synopsis }}
