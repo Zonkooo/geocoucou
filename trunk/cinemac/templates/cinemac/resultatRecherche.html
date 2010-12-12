@@ -45,11 +45,11 @@
 							{% endif %}
 							{% for film in films_list %}
 							<div class="listing">
-									<img src="/media/img/img.jpg" />
+									<img src="{{film.cover}}" />
 									<div class="info">
 										<b>{{film.title}}</b><br/>
 										<b>IMDB :</b> {{film.rating_imdb}} | <b>IMAC : </b> **** <br/>
-										<b>Genre:</b> {{film.genre}} <br/><b>Matière:</b>{{film.course}}                   
+										<b>Genre:</b> {% for g in film.get_genre %}{{ g.name }} {% endfor %} <br/><b>Matière:</b>{% for comment in film.coursecomment_set.all %} {{comment.course.topic}}   {% endfor %}   
 									</div>
 							</div>
 								<div class="button">
