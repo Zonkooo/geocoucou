@@ -18,8 +18,8 @@
 				<FORM>
                     <SELECT name="affichage" size="1" onChange="menuderoulant(this)">
                             <OPTION>Trier par</OPTION>
-                            <OPTION value="creator">Membre</OPTION>
-                            <OPTION value="-date">Date</OPTION>
+                            <OPTION value="creator">Organisateur</OPTION>
+                            <OPTION value="date">Date</OPTION>
                         </SELECT>
 					</FORM>																<!--<span class="right"> < 1 - 2 > </span>-->
                 </div>
@@ -30,7 +30,8 @@
                         <img src="{{ e.movie.cover }}" />
                                 <div class="info">
                                     <b>{{e.movie.title}}</b><br/>
-                                    <b>Date et heure</b> {{e.date}}                
+                                    <b>Date et heure</b> {{e.date}}<br/>
+                                    <b>Organisateur : </b> {{e.creator}}
                                 </div>
                         
                                 <div class="button">
