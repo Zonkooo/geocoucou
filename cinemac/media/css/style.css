@@ -542,8 +542,8 @@ hr
 {
 	float:left;
 	text-align:center;
-	margin-top:1%;
-	margin-left:25%;
+	margin-top:1.5%;
+	margin-left:40%;
 }
 
 .headpiece .centerbas
@@ -834,3 +834,72 @@ hr
 	background-color: #7c8896;
 }
 
+
+
+#formulaireEvenement
+{
+	border:1px solid grey;
+	margin-top:2%;
+	margin-left:auto;
+	margin-right:1%;
+}
+
+#formulaireEvenement .fieldWrapper
+{
+	margin-top:2%;
+}
+
+#formulaireEvenement .fieldWrapper span
+{
+	float:left;
+	margin-right:3%;
+}
+
+#formulaireEvenement .fieldWrapper .text
+{
+	margin-left:10%;
+}
+#formulaireEvenement .fieldWrapper span.text2
+{
+	margin-left:10%;
+}
+#formulaireEvenement .fieldWrapper span.film
+{
+	margin-left:10.5%;
+}
+#formulaireEvenement .fieldWrapper span.msg
+{
+	margin-left:5%;
+}
+
+#formulaireEvenement .fieldWrapper #lab
+{
+	display:block;
+	float:left;
+	margin-left:2%;
+	font-weight:bold;
+	
+}
+
+#formulaireEvenement .fieldWrapper #labmsg
+{
+	display:block;
+	float:left;
+	margin-left:2%;
+}
+
+
+.btn
+{
+	background-image:url(/media/img/btn_Menu.jpg);
+	background-repeat:no-repeat;
+	width:100px;
+	height:30px;
+	margin-left:40%;
+	color:#FFFFFF;
+	font-weight: bold;
+	font-size: 12px;
+	text-decoration:none;
+	text-align:center;
+	margin-top:2%;
+}
