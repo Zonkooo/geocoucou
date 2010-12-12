@@ -38,7 +38,7 @@ class EventForm(forms.Form):
 	#mySlug 			= forms.SlugField(max_length = 255)
 	Date			= forms.DateTimeField()
 	Lieu		= forms.CharField(max_length = 255)
-        Description	= forms.CharField()
+        Description	= forms.CharField(widget=forms.Textarea)
 	#myMovieTitle 	= forms.CharField(widget=forms.Select(choices=MOVIETITLE))
 	Film	= forms.CharField(max_length = 255)
 	#myName			= forms.CharField(max_length = 100)

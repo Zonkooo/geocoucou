@@ -6,69 +6,40 @@
 
 {% block content %}
 
-	<form action="/creerEvt/" method="post">{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Submit" />
-	</form>
+	 <h2 class="infoG">CREER UN EVENEMENT</h2>
+	
+	<span>Vous souhaitez réunir vos amis ? Alors créez un évènement !</span>
+	</br></br>
 
+	 <form id="formulaireEvenement" action="/creerEvt/" method="post">{% csrf_token %}
+		{{ form.non_field_errors }}
+		<div class="fieldWrapper">
+			<label id="lab" for="id_sender">Date:</label>
+			<span class="text">{{ form.Date }} </span>
+			{{ form.Date.errors }} <h5>Format : jj/mm/aa</h5>
+		</div>
+	
+		<div class="fieldWrapper">
+			{{ form.Lieu.errors }}
+			<label id="lab" for="id_subject">Lieu :</label>
+			<span  class="text2">{{ form.Lieu }}</span>
+		</div>
+		<br/>
+		<div class="fieldWrapper">
+			{{ form.Film.errors }}
+			<label id="lab" for="id_message">Film:</label>
+			<span class="film">{{ form.Film }}</span>
+		</div>
+		<br/>
+		<br/>
+		<div class="fieldWrapper">
+			{{ form.Description.errors }}
+			<label id="lab" for="id_message">Description:</label>
+			<span class="msg">{{ form.Description }}</span>
+		</div>
+		<br/>
+		
+		<p ><input class="btn" type="submit" value="Créer" /></p>
+	</form> 
 
-
-	<!--<h2 class="infoG">CREER UN EVENEMENT</h2>
-                
-                <div id="creation">
-               
-					<p> <b>Date :</b> <input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/> <input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/><input name="Login" type="text" size="4" maxlength="4" style="height:12px;"/></p>
-					
-					<p> <b>Heure :</b> <input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/>H<input name="Login" type="text" size="2" maxlength="2" style="height:12px;"/></p>
-					
-					<p> <b>Lieu :</b> <input name="Login" type="text" size="22" maxlength="255" style="height:12px;"/></p>
-					
-					<p> <b>Nom :</b> <input name="Login" type="text" size="22" maxlength="255" style="height:12px;"/></p>
-					
-					<p> <b>Adresse :</b> <textarea name="adresse" cols="16" rows="3"></textarea></p>
-					
-					<p> <b>Film :</b> <input name="Login" type="text" size="22" maxlength="255" style="height:12px;"/></p>
-					
-					<p> <b>Evènement public :</b> <input name="public" type="checkbox" value="public" /></p>
-					
-					 <p> <b>Informations supplémentaires :</b> <textarea name="adresse" cols="35" rows="3"></textarea></p>
-                 
-                </div>
-                
-                <div id="list">
-                	<div class="headpieceLittle">
-                    	<center>Liste des invités</center>
-                	</div>
-                    
-                    <div class="ResultatlistingPetit">
-                
-                		<input name="Invit&eacute;" type="checkbox" value="true" /> Prénom Nom<br/>
-                        <input name="Invit&eacute;" type="checkbox" value="true" /> Prénom Nom<br/>
-                        <input name="Invit&eacute;" type="checkbox" value="true" /> Prénom Nom<br/>
-                        <input name="Invit&eacute;" type="checkbox" value="true" /> Prénom Nom<br/>
-                                 
-                	</div>
-                    
-                    <div class="headpieceLittle">
-						<span class="left"><FORM>
-                                             <SELECT name="resultat" size="1">
-                                                 <OPTION>Nombre de résultats
-                                                 <OPTION>10
-                                                 <OPTION>20
-                                                 <OPTION>30
-                                              </SELECT>
-                                           </FORM></span>  <span class="right"> < 1 - 2 >
-                    </div>
-
-            	</div>
-                
-            
-               	 <div class="valid">
-                     <span><a href="#">CREER</a></span>
-                 </div>
-              
-            
-				<div class="clear">
-				</div>
-				-->
 {% endblock content %}
