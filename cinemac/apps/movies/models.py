@@ -52,7 +52,7 @@ class Movie(models.Model):
 	directed_by	= models.ManyToManyField('Artist', related_name='directing')
 	
 	def get_suggested_movies(self) :
-		movies = self.genre_is.all()[1].movie_set.all().order_by('?')[:3]
+		movies = self.genre_is.all()[1].movie_set.all().exclude(self.id).order_by('?')[:3]
 		return movies
 	
 	def get_actors(self) :
