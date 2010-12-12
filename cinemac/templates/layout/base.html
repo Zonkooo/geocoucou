@@ -35,7 +35,7 @@
             	<div id="name">
                 	<span>
                 		{% load logged_user %}
-                		Vous êtes connecté en tant que {#{% current_user_name %} #}
+                		{% current_user_name %}
                 	</span>
                 </div>
                 <div id="logger">					
@@ -109,13 +109,14 @@
 						</ul> 
 					</li> 
 					<li><a href="/listeMembre/" title="Membres">Membres</a></li> 
-					<li class="toggleSubMenu"><span>Mon compte</span> 
+					<!--<li class="toggleSubMenu"><span>Mon compte</span> 
 						<ul class="subMenu"> 
 							<li><a href="/profil/" title="Voir mon profil">Voir mon profil</a></li> 
 							<li><a href="/login/" title="Modifier mon profil">Modifier mon profil</a></li> 				 
 							<li><a href="/listeMesInvit/" title="Mes invitations">Mes invitations</a></li> 				 
 						</ul> 
-					</li> 
+					</li> -->
+					{% my_account_link %}
 				</ul>
 			</div>
 		 
