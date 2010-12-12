@@ -8,9 +8,9 @@ class CurrentUserNode(template.Node):
 	def render(self, context):
 		try :
 			m = Member.objects.get(contrib_user = context['user'])
-			return_string = "Vous êtes connecté en tant que %s" % m.pseudo
+			return_string = "Vous &ecirc;tes connect&eacute; en tant que %s" % m.pseudo
 		except :
-			return_string = "Vous n'êtes pas connecté"
+			return_string = "Vous n'&ecirc;tes pas connect&eacute"
 			
 		return return_string
 
