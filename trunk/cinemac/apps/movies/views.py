@@ -49,7 +49,7 @@ def profil(request):
 		return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
 	
 def xd_receiver(request): #facebook
-    return render_to_response('xd_receiver.html')
+    return render_to_response('xd_receiver.html', context_instance = RequestContext(request))
     
 def creerEvt(request):
 	if request.method == 'POST':
@@ -215,4 +215,8 @@ def login(request):
 		
 		return render_to_response('cinemac/login.html',{'form':form,}, context_instance = RequestContext(request))
 	except:
-		return HttpResponseRedirect('/')	
+		return HttpResponseRedirect('/')
+
+
+def error_404(request):
+    return render_to_response('cinemac/404.html', context_instance = RequestContext(request))

@@ -19,3 +19,5 @@ urlpatterns = patterns('',
 	url(r'^mentionsLegales/$', mentionsLegales, name='mentionsLegales'),
 	url(r'^top10/$', top10, name='top10'),
 )
+
+handler404 = 'apps.views.error_404'
