@@ -113,11 +113,17 @@ def resultatRecherche(request):
 		members = Member.objects.distinct()
 		artists = None;
 		films = None;
+		
+	number = 0
+	number += len(films)
+	number += len(members)
+	number += len(artists)
 	
 	return render_to_response('cinemac/resultatRecherche.html',{
 		'members_list' : members,
 		'artists_list' : artists,
 		'films_list' : films,
+		'number' : number,
 	}, context_instance = RequestContext(request))
 	
 def mentionsLegales(request):
