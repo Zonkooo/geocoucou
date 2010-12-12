@@ -30,23 +30,18 @@ def fichefilm(request):
 	
 		
 def profil(request):
-	if (request.method == 'GET'):
+	if (request.method == 'GET') & ('uid' in request.GET):
 		try:
 			m = Member.objects.get(id = request.GET['uid'])
-			val = {
-					"member"	: m,
-				  }
-			return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
+			return render_to_response('cinemac/profil.html', {"member"	: m, }, context_instance = RequestContext(request) )
 		except:
 			return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
-	elif request.user.is_authenticated():
-		m = Member.objects.get(contrib_user = request.user)
-		val = {
-				"member"	: m,
-			  }
-		return render_to_response('cinemac/profil.html', val, context_instance = RequestContext(request) )
 	else:
-		return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
+		try:
+			m = Member.objects.get(contrib_user = request.user)
+			return render_to_response('cinemac/profil.html', {"member"	: m, }, context_instance = RequestContext(request) )
+		except:
+			return render_to_response('cinemac/404.html', context_instance = RequestContext(request))
 	
 def xd_receiver(request): #facebook
     return render_to_response('xd_receiver.html', context_instance = RequestContext(request))
