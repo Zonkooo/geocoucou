@@ -31,6 +31,9 @@
 	<div id="container">
     
     	<div id="header">
+		<div id="fb_like">
+					<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fgeocoucou.alwaysdata.net&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=dark&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+				</div>
         	<div id="count">		
             	<div id="name">
                 	<span>
@@ -46,9 +49,9 @@
                	 	Mot de passe :    <input name="Login" type="text" size="10" maxlength="150" style="height:12px;" />
                 	<input name="OK" type="button" value="OK" style="background-color:#1b242d; color:#F60; border:0,5px solid white; font-size:12,5px;"/>-->
                 </div>	
-				            <div id="fb_like">
-				<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fgeocoucou.alwaysdata.net&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=dark&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
-			</div>	
+				
+				
+				
             </div>
             <div id="logo">
             <a href="/"><img src="/media/img/logo.png" alt="logo" /></a>
@@ -122,6 +125,7 @@
 		 
             
             <div id="content"> 
+				
             {% block content %}
             {% endblock content %}
             
