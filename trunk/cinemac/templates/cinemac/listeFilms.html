@@ -29,7 +29,7 @@
                         <div class="info">
                         	<b class="title">{{ m.title }}</b><br/>
                            <span class="l2"> <b class="rating">IMDB : </b>{{ m.rating_imdb }} / 10 | <b>IMAC : </b> **** <br/> </span>
-                             <span class="l3"><b>Genre:</b> genre      |      <b>Matière:</b>matière     </span>              
+                             <span class="l3"><b>Genre:</b> {% for g in m.get_genre %}{{ g.name }} {% endfor %}|      <b>Matière:</b>matière     </span>              
                  		</div>
                         
                          <div class="button">
