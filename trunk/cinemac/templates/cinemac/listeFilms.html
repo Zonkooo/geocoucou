@@ -24,6 +24,9 @@
                 
                 <div class="Resultatlisting">
 					{% for m in movie %}
+                                        {% for comment in m.coursecomment_set.all %}
+                                        {% if comment.course.topic == subject}
+
                    	<div class="listing">
                    		<img src="{{ m.cover }}" />
                         <div class="info">
@@ -38,6 +41,7 @@
                  		 </div>
                 
                		 </div>
+                                        {% endif %}
 					{% endfor %}					 
                 </div>
 
