@@ -178,20 +178,14 @@ def listeFilms(request):
             try:
                 subject = request.GET['sub']
                 if(subject != null):
-                    c = CourseComment.objects.filter(Course =  subject)
+                    c = CourseComment.objects.filter(Course =  subject).order_by( request.GET['mode'])
                     movies  = c.movies
                 else:
-                    movies  = Movie.objects.all
+                    movies  = Movie.objects.order_by( request.GET['mode'])
             except:
-                movies  = Movie.objects.all
-
-
-            try:
-                movies.objects.order_by( request.GET['mode'])
-            except:
-                movies  = movies.objects.order_by( request.GET['id'])
+                movies  = Movie.objects.order_by( request.GET['id'])
         else:
-            movies  = movies.objects.order_by(request.GET['id'])
+            movies  = Movie.objects.order_by( request.GET['id'])
 	
 	val= {"movie" :movies,}
 	return render_to_response('cinemac/listeFilms.html', val, context_instance = RequestContext(request) )
