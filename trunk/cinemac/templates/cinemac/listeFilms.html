@@ -14,7 +14,7 @@
                 {% else %}
                 <script type="text/javascript">
                    function menuderoulant(selection){
-                       window.location="/listeFilms/?mode="+selection.options[selection.selectedIndex].value+"&sub="+{{subject}};
+                       window.location="/listeFilms/?mode="+selection.options[selection.selectedIndex].value+"&sub="+"{{subject}}";
                    }
                 </script>
                  {% endif %}
