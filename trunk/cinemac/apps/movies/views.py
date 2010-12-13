@@ -187,11 +187,11 @@ def listeFilms(request):
 
 
             try:
-                movies.order_by( request.GET['mode'])
+                movies.objects.order_by( request.GET['mode'])
             except:
-                movies  = movies.order_by( request.GET['id'])
+                movies  = movies.objects.order_by( request.GET['id'])
         else:
-            movies  = movies.order_by(request.GET['id'])
+            movies  = movies.objects.order_by(request.GET['id'])
 	
 	val= {"movie" :movies,}
 	return render_to_response('cinemac/listeFilms.html', val, context_instance = RequestContext(request) )
