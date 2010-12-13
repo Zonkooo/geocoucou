@@ -181,7 +181,10 @@ def listeFilms(request):
                 subject = request.GET['sub']
                 movies  = Movie.objects.order_by( request.GET['mode'])
             except:
-                movies  = Movie.objects.order_by('id')
+                try:
+                    movies  = Movie.objects.order_by(request.GET['mode'])
+                except:
+                    movies  = Movie.objects.order_by('id')
         else:
             movies  = Movie.objects.order_by('id')
 	
