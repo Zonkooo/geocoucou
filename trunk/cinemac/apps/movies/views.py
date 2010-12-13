@@ -174,6 +174,8 @@ def listeMembre(request):
 	return render_to_response('cinemac/listeMembre.html', val, context_instance = RequestContext(request) )
 
 def listeFilms(request):
+
+        subject = "null"
         if (request.method == 'GET'):
             try:
                 subject = request.GET['sub']
