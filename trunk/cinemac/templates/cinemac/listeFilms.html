@@ -24,8 +24,8 @@
                 
                 <div class="Resultatlisting">
 					{% for m in movie %}
-                                        {% for comment in m.coursecomment_set.all %}
-                                            {% if comment.course.topic == subject}
+                                        {% for comment2 in m.coursecomment_set.all %}
+                                            {% if comment2.course.topic == subject}
 
                    	<div class="listing">
                    		<img src="{{ m.cover }}" />
