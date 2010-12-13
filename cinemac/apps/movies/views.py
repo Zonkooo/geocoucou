@@ -178,7 +178,7 @@ def listeFilms(request):
             try:
                 subject = request.GET['sub']
                 if(subject != null):
-                    movies = CourseComment.objects.filter(Course =  subject).movies.order_by( request.GET['mode'])
+                    movies = CourseComment.objects.filter(Course =  subject).movies.all.order_by( request.GET['mode'])
                 else:
                     movies  = Movie.objects.order_by( request.GET['mode'])
             except:
