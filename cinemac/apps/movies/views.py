@@ -183,9 +183,9 @@ def listeFilms(request):
                 else:
                     movies  = Movie.objects.order_by( request.GET['mode'])
             except:
-                movies  = Movie.objects.order_by( request.GET['id'])
+                movies  = Movie.objects.order_by( id)
         else:
-            movies  = Movie.objects.order_by( request.GET['id'])
+            movies  = Movie.objects.order_by( id)
 	
 	val= {"movie" :movies,}
 	return render_to_response('cinemac/listeFilms.html', val, context_instance = RequestContext(request) )
