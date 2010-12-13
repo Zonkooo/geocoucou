@@ -5,11 +5,20 @@
 {% endblock ariane %}
 
 {% block content %}
+                {% if subject == "null" %}
                 <script type="text/javascript">
                    function menuderoulant(selection){
                        window.location="/listeFilms/?mode="+selection.options[selection.selectedIndex].value;
                    }
                 </script>
+                {% else %}
+                <script type="text/javascript">
+                   function menuderoulant(selection){
+                       window.location="/listeFilms/?sub="+{{subject}}+"&mode="+selection.options[selection.selectedIndex].value;
+                   }
+                </script>
+                 {% endif %}
+
            	<h2 class="infoG">FILMS</h2>
                 
                 <div class="headpiece">
