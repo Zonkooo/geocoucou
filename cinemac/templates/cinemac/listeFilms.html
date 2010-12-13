@@ -24,6 +24,22 @@
                 
                 <div class="Resultatlisting">
 					{% for m in movie %}
+                                        {% if subject == "null" %}
+                                        <div class="listing">
+                   		<img src="{{ m.cover }}" />
+                        <div class="info">
+                        	<b class="title">{{ m.title }}</b><br/>
+                           <span class="l2"> <b class="rating">IMDB : </b>{{ m.rating_imdb }} / 10 | <b>IMAC : </b> **** <br/> </span>
+                             <span class="l3"><b>Genre:</b> {% for g in m.get_genre %}{{ g.name }} {% endfor %}|      <b>Matière:</b>{% for comment in m.coursecomment_set.all %} {{comment.course.topic}}   {% endfor %}     </span>
+                 		</div>
+
+                         <div class="button">
+                           <span><a href="/fichefilm/?mid={{ m.id }}">VOIR CETTE FICHE</a></span>
+
+                 		 </div>
+
+               		 </div>
+                                        {% else %}
                                         {% for comment2 in m.coursecomment_set.all %}
                                           {% if comment2.course.topic == subject %}
 
@@ -44,6 +60,7 @@
 
                                             {% endif %}
                                         {% endfor %}
+                                        {% endif %}
 					{% endfor %}					 
                 </div>
 
