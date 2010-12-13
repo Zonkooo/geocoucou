@@ -175,7 +175,7 @@ def listeMembre(request):
 
 def listeFilms(request):
 
-        c = CourseComment.objects.get(slug =  request.GET['sub'])
+        c = CourseComment.objects.filter(slug =  request.GET['sub'])
         movies = c.movies
         #if (request.method == 'GET'):
         #    try:
